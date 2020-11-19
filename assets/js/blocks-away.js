@@ -3,47 +3,58 @@ const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");
 
 //width is half height so this has to be accounted for with a double value.
-context.scale(10,5);
+context.scale(20,6);
 
 
 
 function shapes(shape){
-    if (type = "A"){            //A = Large T shape
+    if (shape === "A"){            //A = Large T shape
         return [[1,1,1],        //B = Smaller T shape
                 [0,1,0],        //C = Forwards L shape
                 [0,1,0]];       //D = Backwards L shape
-    }else if (type = "B"){      //E = Z shape
+    }else if (shape === "B"){      //E = Z shape
         return [[0,0,0],        //F = S Shape
                 [1,1,1],        //G = Line 
                 [0,1,0]];       //H = Cube
-    }else if (type = "C"){
+    }else if (shape === "C"){
         return [[1,0,0],
                 [1,0,0],
                 [1,1,1]];
-    }else if (type = "D"){
+    }else if (shape === "D"){
         return [[0,0,1],
                 [0,0,1],
                 [1,1,1]];
-    }else if (type = "E"){
+    }else if (shape === "E"){
         return [[1,1,0],
                 [0,1,0],
                 [0,1,1]];
-    }else if (type = "F"){
+    }else if (shape === "F"){
         return [[0,1,1],
                 [0,1,0],
                 [1,1,0]];
-    }else if (type = "G"){
+    }else if (shape === "G"){
         return [[0,1,0],
                 [0,1,0],
                 [0,1,0]];
-    }else if (type = "H"){
+    }else if (shape === "H"){
         return [[1,1,1],
                 [1,1,1],
                 [1,1,1]];
     }
 }
 
-//Now have to randomize what type (shape) we will get on reset
+//Define the peices, offset needed to move each block (array) 
+function drawBlocks(grid, offset){
+    grid.forEach((row, y) =>{
+        row.forEach((value, x) =>{
+            //Value which is not 0 will be colored (by pixel), this is resized in the scale line above
+            if (value !== 0){
+                context.fillStyle = "#ffa500";
+                context.fillRect(x + offset.x, y + offset.y, 1, 1);
+            }
+        });
+    });
+}
 
 
 //this will check to see if a 1 lands ontop of another 1 
@@ -76,19 +87,6 @@ function draw(){
     drawBlocks(block.grid, block.position);
 }
 
-//Define the peices, offset needed to move each block (array) 
-function drawBlocks(grid, offset){
-    grid.forEach((row, y) =>{
-        row.forEach((value, x) =>{
-            //Value which is not 0 will be colored (by pixel), this is resized in the scale line above
-            if (value !== 0){
-                context.fillStyle = "#fcba03";
-                context.fillRect(x + offset.x, y + offset.y, 1, 1);
-            }
-        });
-    });
-}
-
 //iterate over the arrays of the board and the block
 //this will add 1's in the table of 60 by 30.
 function merge(board, block){
@@ -114,7 +112,7 @@ function dropBlock(){
     if (stack(board, block)){
         block.position.y--;
         merge(board, block);
-        block.position.y = 0;
+        blockReset();
     }
     fallCount=0;
 }
@@ -126,6 +124,14 @@ function blockMove(direction){
     if (stack(board, block)){
         block.position.x -= direction;
     }
+}
+
+//Randomize the shape (array) that appears using Math random
+function blockReset(){
+    const shape = "ABCDEFGH";
+    block.grid = shapes(shape[shape.length * Math.random() | 0]);
+    block.position.y = 0;
+    block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
 }
 
 function blockRotation(direction){
@@ -186,13 +192,13 @@ function autoDraw(time = 0){
 //Sets the bottom of the screen where arrays will land;
 //To count for the full board, we can have 30 1's to make a complete line,
 //And 60 as height (600px / 10px)
-const board = makeBlock(30,30);
+const board = makeBlock(15,25);
 
 //set a position for player, keys can be used later
 // x moves block horizontal, y moves block vertical
 const block = {
     position: {x: 5, y: 5},
-    grid: shapes,
+    grid: shapes('C'),
 }
 
 //Position can be changed in console, below is to listen for keys
