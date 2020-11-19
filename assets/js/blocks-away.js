@@ -6,10 +6,44 @@ const context = canvas.getContext("2d");
 context.scale(10,5);
 
 
-//Create the blocks in strings, 1s are solid 0 is transparent, easier to see in table sort of view.
-const grid = [[1,1,1],
-              [0,1,0],
-              [0,1,0]];
+
+function shapes(shape){
+    if (type = "A"){            //A = Large T shape
+        return [[1,1,1],        //B = Smaller T shape
+                [0,1,0],        //C = Forwards L shape
+                [0,1,0]];       //D = Backwards L shape
+    }else if (type = "B"){      //E = Z shape
+        return [[0,0,0],        //F = S Shape
+                [1,1,1],        //G = Line 
+                [0,1,0]];       //H = Cube
+    }else if (type = "C"){
+        return [[1,0,0],
+                [1,0,0],
+                [1,1,1]];
+    }else if (type = "D"){
+        return [[0,0,1],
+                [0,0,1],
+                [1,1,1]];
+    }else if (type = "E"){
+        return [[1,1,0],
+                [0,1,0],
+                [0,1,1]];
+    }else if (type = "F"){
+        return [[0,1,1],
+                [0,1,0],
+                [1,1,0]];
+    }else if (type = "G"){
+        return [[0,1,0],
+                [0,1,0],
+                [0,1,0]];
+    }else if (type = "H"){
+        return [[1,1,1],
+                [1,1,1],
+                [1,1,1]];
+    }
+}
+
+//Now have to randomize what type (shape) we will get on reset
 
 
 //this will check to see if a 1 lands ontop of another 1 
@@ -85,6 +119,52 @@ function dropBlock(){
     fallCount=0;
 }
 
+//This will define the left and right movement to keep the block on the 
+//canvas
+function blockMove(direction){
+    block.position.x += direction;
+    if (stack(board, block)){
+        block.position.x -= direction;
+    }
+}
+
+function blockRotation(direction){
+    rotation(block.grid, direction);
+    //BUG - Stack not detecting horizontally, only vertically.
+    //FIX - Use a loop to check left and right from current position.
+    const position = block.position.x;
+    let horiCheck = 1;
+    while(stack(board, block)){
+        //FIX - check one place first before growing the check
+        block.position.x += horiCheck;
+        horiCheck = -(horiCheck + (horiCheck > 0 ? 1 : -1));
+        //Use the if to stop the loop check
+        if (horiCheck > 10){
+            rotation(block.grid, - direction);
+            //else we need to return to the regular state
+            block.position.x = position;
+            return; 
+        }
+    }
+}
+
+//In keeping with Tetris style, to "rotate" an array, i can use the reverse
+//and transpose methods which javascript can perform.
+function rotation(grid, direction){
+    for (let y= 0; y < grid.length; ++y){
+        for (let x= 0; x < y; ++x){
+            //allow the flip
+            [grid[x][y],grid[y][x]] = [grid[y][x],grid[x][y]];
+        }
+    }
+    //if the direction is positive then we want a specific outcome
+    if (direction > 0){
+        grid.forEach(row => row.reverse());
+    }else{
+        grid.reverse();
+    }
+}
+
 //update the blocks with request animation frames, can "paste" new blocks 
 //Time function is required to make blocks fall, I can now use the time 
 //as a way to change the speed of the game.
@@ -112,22 +192,23 @@ const board = makeBlock(30,30);
 // x moves block horizontal, y moves block vertical
 const block = {
     position: {x: 5, y: 5},
-    grid: grid,
+    grid: shapes,
 }
 
 //Position can be changed in console, below is to listen for keys
 document.addEventListener("keydown", event =>{
-    console.log(event);
-    if (event.key === "ArrowLeft"){
-        block.position.x--;
-    }else if (event.key === "ArrowRight"){
-        block.position.x++;
-    }else if (event.key === "ArrowDown"){
-        block.position.y++;
-        //reset to 0 so down only drops one line
-        fallCount=0;
+    if (event.key === "a"){
+        blockMove(-1);        
+    }else if (event.key === "d"){
+        blockMove(+1);
+    }else if (event.key === "s"){
+        dropBlock();
+    }else if (event.key === "q"){
+        blockRotation(-1);    
+    }else if (event.key === "e"){
+        blockRotation(1);    
     }
-})
+});
 
 
 autoDraw();
