@@ -1,11 +1,31 @@
+//Main Menu
 
+// Mode 0 will be Welcome Screen
+// Mode 1 will be instructions.
+// Mode 2 will be game
+var mode = 0;
+
+function menu(){
+    if (mode == 0){
+        welcome screen
+    }else if (mode == 1){
+        instructions
+    }else if (mode == 2){
+        playGame();
+    }
+
+}
+
+
+
+
+//game starts from here.
+function playGame(){
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");
 
 //width is half height so this has to be accounted for with a double value.
 context.scale(20,6);
-
-
 
 function shapes(shape){
     if (shape === "A"){            //A = Large T shape
@@ -79,7 +99,7 @@ function makeBlock(width,height){
     return newBlock;
 };
 
-//general draw function, this will clear canvas each time a new block is drawn
+//General function which can draw for us.
 function draw(){
     context.fillStyle = "#000";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -88,7 +108,7 @@ function draw(){
 }
 
 //iterate over the arrays of the board and the block
-//this will add 1's in the table of 60 by 30.
+//this will add values to the string, where 0 is the 'not solid'
 function merge(board, block){
     block.grid.forEach((row, y) =>{
         row.forEach((value, x) =>{
@@ -142,6 +162,10 @@ function blockReset(){
     
         //if player loses we want to clear the score
         player.score = 0;
+        //and play a sound
+        $('#you-lose').each(function(){
+        this.play(); // Start playing
+        });
         trackScore();
     }
 }
@@ -236,6 +260,11 @@ function clearTheLine(){
         const line = board.splice(y,1)[0].fill(0);
         board.unshift(line);
         ++y;
+        
+        //Play sound on line break
+        $('#line-break').each(function(){
+        this.play(); // Start playing
+        });
 
         player.score += lineCounter * 10;
         lineCounter *= 2;
@@ -243,8 +272,12 @@ function clearTheLine(){
 }
 
 
+
 //Position can be changed in console, below is to listen for keys
 document.addEventListener("keydown", event =>{
+    $('#background').each(function(){
+        this.play(); // Start playing
+        });
     if (event.key === "a"){
         blockMove(-1);        
     }else if (event.key === "d"){
@@ -264,3 +297,4 @@ const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7",
 trackScore();
 blockReset();
 autoDraw();
+}

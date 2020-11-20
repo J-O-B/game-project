@@ -4,7 +4,7 @@ body {
     color:red;
     background: blue;
 }
-
+/*---------------------------------------------Pop Up Window --*/
 #mask {
   position:absolute;
   left:0;
@@ -16,7 +16,6 @@ body {
 }
 
 #boxes .window {
-
   position:absolute;
   left:0;
   top:0;
@@ -45,6 +44,7 @@ body {
   width:250px;
   left:250px;
 }
+/*--------------------------------------------- End Pop Up Window --*/
 
 #blocks-away{
     width:300px;
@@ -56,9 +56,30 @@ body {
     font-size:200%;
 }
 
-.carousel-item{
-    height:700px;
-    background:orange;
+.sound audio{
+    display: none;
+}
+.top-bar{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+.audio-controls{
+    position: relative;
+    float: left;
+    background: red;
+}
+.audio-controls audio{
+    display: none;
+}
+.title-text{
+    position: relative;
+    float: right;
+    background: green;
+}
+.top-bar audio{
+    display: none;
 }
 
-.introVid{}
