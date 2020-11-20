@@ -28,5 +28,7 @@ add score board - NEEDS TO BE CREATED
 add function to start the game - NEEDS TO BE CREATED
 
 make intro video - done.
-(embed:)
-<iframe width="100vw" height="80vh" src="https://emb.d.tube/#!/johnireland123/QmV4JhRicgB3HDXQg8YvVSvRUdst6x292pW4VvvBLxw835" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+credit for main background : pngtree.com/so/frame
+pngtree.com/freepng/hand-painted-casual-lego-bricks-decorative-border_4993504.html

@@ -9,22 +9,24 @@
 </head>
 <body>
     <!--TopBar, add title, maybe button for credits?-->
-    <div class="container">
+    <div class="container top-bar">
         <div class="row">
             <div class="col-sm audio-controls">
                 <h5>Audio:</h5>
-                <button id="audio-butt-on">On</button>
-                <button id="audio-butt-off">Off</button>
+                <button id="audio-butt-on" class="retro-button">On</button>
+                <button id="audio-butt-off" class="retro-button">Off</button>
                 <audio id="site-audio" controls>
                     <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="col-sm title-text">
-                <h1>This is class "top-bar"</h1>
+                <h1>Blocks Away!</h1>
             </div>
-            <div class="col-sm">
-            One of three columns
+            <div class="col-sm sfx">
+                <h5>SFX:</h5>
+                <button id="sfx-butt-on" class="retro-button">On</button>
+                <button id="sfx-butt-off" class="retro-button">Off</button>
             </div>
         </div>
     </div>
@@ -42,6 +44,8 @@
             <div id="dialog" class="window">
                 <div class="row pop-up">
                     <h1>Welcome To Blocks Away!</h1>
+                </div>
+                <div class="row pop-up">
                     <video id="introVid" controls>
                         <source src="assets/vid/introVid.mp4"
                         type="video/mp4">   
@@ -71,17 +75,17 @@
             </audio>
         </div>
         <div id="sfx">
-            <audio id="you-lose" controls>
+            <audio id="you-lose" class="sfx" controls>
             <source src="assets/sound-effects/you-lose.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
 
-            <audio id="line-break" controls>
+            <audio id="line-break" class="sfx" controls>
             <source src="assets/sound-effects/zap-lazer.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
 
-            <audio id="thud" controls>
+            <audio id="thud" class="sfx" controls>
             <source src="assets/sound-effects/thud.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>

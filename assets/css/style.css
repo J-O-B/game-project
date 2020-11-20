@@ -22,20 +22,24 @@ body {
   position:absolute;
   left:0;
   top:0;
-  width:100vw;
+  width:90vw;
   height:80vh;
   display:none;
   z-index:9999;
   padding:20px;
   border-radius:15px;
+  border-color: rgb(168, 0, 140);
   text-align:center;
 }
  
 #boxes #dialog {
-  width:100vw;
+  width:90vw;
   height:80vh;
   padding:10px;
-  background-color:#ffffff;
+  background-color:rgb(168, 0, 140);
+  background: url(../img/popup.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   font-size: larger;
 }
 
@@ -76,10 +80,11 @@ body {
     font-size:200%;
 }
 /*--------------------------top bar---*/
-
+.top-bar{
+    text-align: center;
+}
 .audio-controls{
-    position: relative;
-
+    text-align: center;
     background: red;
     color:black;
 }
@@ -87,22 +92,24 @@ body {
     display: none;
 }
 .title-text{
-    position: relative;
-    float: right;
+    text-align: center;
     background: green;
 }
 /*-------------------------------top bar --*/
 
+
+
+
 /*-------------------------------Buttons --*/
 .retro-button{
     text-align: center;
-    height:70px;
-    width:60px;
+    padding:10px;
+    width:80px;
     font-size: large;
     background: orangered;
     border-radius:20%;
     box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 3px solid red;
+    border: 5px dashed black;
 }
 
 

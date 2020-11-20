@@ -68,3 +68,15 @@ $('#audio-butt-off').click(function() {
         this.pause(); // Stop playing
     })
 });
+
+// SFX audio toggle
+$('#sfx-butt-on').click(function() {
+    $('.sfx').each(function(){
+        this.play(); // Stop playing
+    })
+});
+$('#sfx-butt-off').click(function() {
+    $('.sfx').each(function(){
+        this.pause(); // Stop playing
+    })
+});
