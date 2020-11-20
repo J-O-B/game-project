@@ -17,3 +17,8 @@ body {
     height:600px;
 }
 
+#player-score{
+    text-align: center;
+    font-size:200%;
+}
+

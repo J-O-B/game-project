@@ -9,37 +9,37 @@ context.scale(20,6);
 
 function shapes(shape){
     if (shape === "A"){            //A = Large T shape
-        return [[1,1,1],        //B = Smaller T shape
-                [0,1,0],        //C = Forwards L shape
+        return [[1,1,1],            //B = Smaller T shape
+                [0,1,0],             //C = Forwards L shape
                 [0,1,0]];       //D = Backwards L shape
     }else if (shape === "B"){      //E = Z shape
         return [[0,0,0],        //F = S Shape
-                [1,1,1],        //G = Line 
-                [0,1,0]];       //H = Cube
+                [2,2,2],        //G = Line 
+                [0,2,0]];       //H = Cube
     }else if (shape === "C"){
-        return [[1,0,0],
-                [1,0,0],
-                [1,1,1]];
+        return [[3,0,0],
+                [3,0,0],
+                [3,3,3]];
     }else if (shape === "D"){
-        return [[0,0,1],
-                [0,0,1],
-                [1,1,1]];
+        return [[0,0,4],
+                [0,0,4],
+                [4,4,4]];
     }else if (shape === "E"){
-        return [[1,1,0],
-                [0,1,0],
-                [0,1,1]];
+        return [[5,5,0],
+                [0,5,0],
+                [0,5,5]];
     }else if (shape === "F"){
-        return [[0,1,1],
-                [0,1,0],
-                [1,1,0]];
+        return [[0,6,6],
+                [0,6,0],
+                [6,6,0]];
     }else if (shape === "G"){
-        return [[0,1,0],
-                [0,1,0],
-                [0,1,0]];
+        return [[0,7,0],
+                [0,7,0],
+                [0,7,0]];
     }else if (shape === "H"){
-        return [[1,1,1],
-                [1,1,1],
-                [1,1,1]];
+        return [[8,8,8],
+                [8,8,8],
+                [8,8,8]];
     }
 }
 
@@ -49,7 +49,7 @@ function drawBlocks(grid, offset){
         row.forEach((value, x) =>{
             //Value which is not 0 will be colored (by pixel), this is resized in the scale line above
             if (value !== 0){
-                context.fillStyle = "#ffa500";
+                context.fillStyle = color[value];
                 context.fillRect(x + offset.x, y + offset.y, 1, 1);
             }
         });
@@ -112,7 +112,12 @@ function dropBlock(){
     if (stack(board, block)){
         block.position.y--;
         merge(board, block);
+        //reset the board when full
         blockReset();
+        //remove line when full
+        clearTheLine();
+        //add the score to scoreboard.
+        trackScore();
     }
     fallCount=0;
 }
@@ -132,6 +137,13 @@ function blockReset(){
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
     block.position.y = 0;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
+    if (stack(board, block)){
+        board.forEach(row => row.fill(0));
+    
+        //if player loses we want to clear the score
+        player.score = 0;
+        trackScore();
+    }
 }
 
 function blockRotation(direction){
@@ -189,17 +201,47 @@ function autoDraw(time = 0){
     requestAnimationFrame(autoDraw)
 }
 
-//Sets the bottom of the screen where arrays will land;
-//To count for the full board, we can have 30 1's to make a complete line,
-//And 60 as height (600px / 10px)
+//The canvas or frame will be called board.
 const board = makeBlock(15,25);
+
+//Create a player so we can track the score
+const player = {
+    score:0,
+};
+
+function trackScore() {
+    document.getElementById('player-score').innerText = `Your Score: ${player.score}`;
+}
 
 //set a position for player, keys can be used later
 // x moves block horizontal, y moves block vertical
 const block = {
-    position: {x: 5, y: 5},
-    grid: shapes('C'),
+    position: {x: 0, y: 0},
+    grid: null,
 }
+
+//The loop that monitors for a full row, so we can then delete this row
+//from the board, we can also count this for a score.
+function clearTheLine(){
+    let lineCounter = 1;
+    checkLine: for (let y = board.length - 1; y > 0; --y){
+        for (let x = 0; x < board[y].length; ++x){
+            //check for a 0 in the row (not full)
+            if (board[y][x] === 0){
+                continue checkLine; 
+            }
+        }
+        //when we find an empty line, we can copy it and return it to 
+        //the top of the board.
+        const line = board.splice(y,1)[0].fill(0);
+        board.unshift(line);
+        ++y;
+
+        player.score += lineCounter * 10;
+        lineCounter *= 2;
+    }
+}
+
 
 //Position can be changed in console, below is to listen for keys
 document.addEventListener("keydown", event =>{
@@ -216,5 +258,9 @@ document.addEventListener("keydown", event =>{
     }
 });
 
+//Colors for blocks
+const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
+trackScore();
+blockReset();
 autoDraw();
