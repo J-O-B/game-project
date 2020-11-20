@@ -1,26 +1,4 @@
-//Main Menu
-
-// Mode 0 will be Welcome Screen
-// Mode 1 will be instructions.
-// Mode 2 will be game
-var mode = 0;
-
-function menu(){
-    if (mode == 0){
-        welcome screen
-    }else if (mode == 1){
-        instructions
-    }else if (mode == 2){
-        playGame();
-    }
-
-}
-
-
-
-
 //game starts from here.
-function playGame(){
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");
 
@@ -28,9 +6,9 @@ const context = canvas.getContext("2d");
 context.scale(20,6);
 
 function shapes(shape){
-    if (shape === "A"){            //A = Large T shape
+    if (shape === "A") {            //A = Large T shape
         return [[1,1,1],            //B = Smaller T shape
-                [0,1,0],             //C = Forwards L shape
+                [0,1,0],         //C = Forwards L shape
                 [0,1,0]];       //D = Backwards L shape
     }else if (shape === "B"){      //E = Z shape
         return [[0,0,0],        //F = S Shape
@@ -275,9 +253,6 @@ function clearTheLine(){
 
 //Position can be changed in console, below is to listen for keys
 document.addEventListener("keydown", event =>{
-    $('#background').each(function(){
-        this.play(); // Start playing
-        });
     if (event.key === "a"){
         blockMove(-1);        
     }else if (event.key === "d"){
@@ -297,4 +272,3 @@ const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7",
 trackScore();
 blockReset();
 autoDraw();
-}

@@ -70,15 +70,6 @@ body {
 }
 /*--------------------------------------------- End Pop Up Window --*/
 
-#blocks-away{
-    width:300px;
-    height:600px;
-}
-
-#player-score{
-    text-align: center;
-    font-size:200%;
-}
 /*--------------------------top bar---*/
 .top-bar{
     text-align: center;
@@ -96,11 +87,34 @@ body {
     background: green;
 }
 /*-------------------------------top bar --*/
-
+/*--------------------------Main Menu */
+.main-menu{
+    display:block;
+    align-items: center;
+    justify-content: center;
+    margin-top:100px;
+}
+.menu-title{
+    font-size: 200%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
 
 
 
 /*-------------------------------Buttons --*/
+.popup-button{
+    text-align: center;
+    padding:10px;
+    width:300px;
+    height: 75px;
+    font-size: large;
+    background: orangered;
+    border-radius:20%;
+    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
+    border: 5px dashed black;
+    text-decoration: none;
+}
 .retro-button{
     text-align: center;
     padding:10px;
@@ -112,7 +126,31 @@ body {
     border: 5px dashed black;
 }
 
-
+.menu-buttons{
+    margin:0 auto;
+    text-align: center;
+    padding:10px;
+    list-style: none;
+    width:600px;
+    font-size: large;
+    background: orangered;
+    border-radius:20%;
+    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
+    border: 5px dashed black;
+}
+.menu-button{
+    margin:0 auto;
+    text-align: center;
+    padding:10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width:450px;
+    font-size: large;
+    background: violet;
+    border-radius:20%;
+    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
+    border: 5px dashed black;
+}
 
 /*-------------------------------main-menu --*/
 
@@ -125,7 +163,19 @@ body {
     z-index: 9999;
 }
 
-
+/* -----------------------------Sound ---*/
 .sound audio{
     display:none;
+}
+
+/*----------------------------- Sections---*/
+
+#play{
+    position:absolute;
+    margin:0 auto;
+}
+
+#blocks-away{
+    width:300px;
+    height:600px;
 }
