@@ -145,6 +145,7 @@ function blockReset(){
         this.play(); // Start playing
         });
         trackScore();
+        //now go to game over..
     }
 }
 

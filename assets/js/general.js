@@ -1,4 +1,3 @@
-
 // Website audio toggle
 $('#audio-butt-on').click(function() {
     $('#site-audio').each(function(){
@@ -23,14 +22,11 @@ $('#sfx-butt-off').click(function() {
     })
 });
 
-//Main Menu Buttons
-$('#start').click(function() {
-    $("main-menu").addClass("hide");
-    $('#site-audio').each(function(){
-        this.pause();
-    })
-    $("#play").show;
-    $('#background').each(function(){
-        this.play(); // Start playing
-        });
-})
+
+
+//credits music
+function creditPage(){      
+if (location.href == "/credits.html") {
+          $('#credits-audio').play(); // Stop playing
+    };
+};

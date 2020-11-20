@@ -3,7 +3,7 @@
 body {
     padding:0;
     margin:0;
-    color:red;
+    color:white;
     background: blue;
     font-family: 'Press Start 2P', cursive;
 }
@@ -83,6 +83,7 @@ body {
     display: none;
 }
 .title-text{
+    color:black;
     text-align: center;
     background: green;
 }
