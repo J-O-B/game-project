@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     padding:0;
     margin:0;
     color:red;
     background: blue;
+    font-family: 'Press Start 2P', cursive;
 }
 /*---------------------------------------------Pop Up Window --*/
 #mask {
@@ -19,8 +22,8 @@ body {
   position:absolute;
   left:0;
   top:0;
-  width:700px;
-  height:500px;
+  width:100vw;
+  height:80vh;
   display:none;
   z-index:9999;
   padding:20px;
@@ -29,20 +32,37 @@ body {
 }
  
 #boxes #dialog {
-  width:900px;
-  height:600px;
+  width:100vw;
+  height:80vh;
   padding:10px;
   background-color:#ffffff;
-  font-family:Impact,sans-serif;
-  font-size:15pt;
+  font-size: larger;
 }
 
 #popupfoot {
   font-size:16pt;
-  position:absolute;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   bottom:0px;
-  width:250px;
-  left:250px;
+  width:100%;
+  height: 70px;
+  text-align: center;
+}
+.pop-up{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#introVid{
+    margin-bottom:20px;
+    width:800px;
+}
+@media only screen and (max-width: 800px) {
+    #introVid{
+        width:80vw;
+    }
 }
 /*--------------------------------------------- End Pop Up Window --*/
 
@@ -55,21 +75,13 @@ body {
     text-align: center;
     font-size:200%;
 }
+/*--------------------------top bar---*/
 
-.sound audio{
-    display: none;
-}
-.top-bar{
-    width:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: black;
-}
 .audio-controls{
     position: relative;
-    float: left;
+
     background: red;
+    color:black;
 }
 .audio-controls audio{
     display: none;
@@ -79,7 +91,34 @@ body {
     float: right;
     background: green;
 }
-.top-bar audio{
-    display: none;
+/*-------------------------------top bar --*/
+
+/*-------------------------------Buttons --*/
+.retro-button{
+    text-align: center;
+    height:70px;
+    width:60px;
+    font-size: large;
+    background: orangered;
+    border-radius:20%;
+    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
+    border: 3px solid red;
 }
 
+
+
+/*-------------------------------main-menu --*/
+
+.main-canvas{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:800px;
+    background: purple;
+    z-index: 9999;
+}
+
+
+.sound audio{
+    display:none;
+}

@@ -10,47 +10,51 @@
 <body>
     <!--TopBar, add title, maybe button for credits?-->
     <div class="container">
-  <div class="row">
-    <div class="col-sm audio-controls">
-        <h5>Audio Controls:</h5>
-        <button>Play / Pause</button>
-        <button>Volume</button>
-        <audio id="site-audio" controls>
-            <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+        <div class="row">
+            <div class="col-sm audio-controls">
+                <h5>Audio:</h5>
+                <button id="audio-butt-on">On</button>
+                <button id="audio-butt-off">Off</button>
+                <audio id="site-audio" controls>
+                    <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="col-sm title-text">
+                <h1>This is class "top-bar"</h1>
+            </div>
+            <div class="col-sm">
+            One of three columns
+            </div>
+        </div>
     </div>
-    <div class="col-sm title-text">
-        <h1>This is class "top-bar"</h1>
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-  </div>
-</div>
-
-
 <!--Game Screens-->
     <!--Welcome Screen-->
-    <section id="mode">
+    <div class="container main-menu">
+        <div class="row">
 
+        </div>
+    </div>
 
-        <button id="Start Game">Start</button>
 
         <!--Popup on page load with intro video-->
         <div id="boxes">
-        <div id="dialog" class="window">
-            <h1>Welcome To Blocks Away!</h1>
-            <video id="introVid" controls width="800">
-                <source src="assets/vid/introVid.mp4"
-                type="video/mp4">   
-                Sorry, your browser doesn't support embedded videos.
-            </video>
-            <div id="popupfoot"> <a href="#" class="close agree">I agree</a> | <a class="agree"style="color:red;" href="#">I do not agree</a> </div>
+            <div id="dialog" class="window">
+                <div class="row pop-up">
+                    <h1>Welcome To Blocks Away!</h1>
+                    <video id="introVid" controls>
+                        <source src="assets/vid/introVid.mp4"
+                        type="video/mp4">   
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                </div>    
+                <div class="row" id="popupfoot">
+                    <a href="#" class="retro-button"><h1>Play!</h1></a>
+                </div>
+            </div>
         </div>
-        <div id="mask"></div>
-    </div>
-    </section>
+            <div id="mask"></div>
+<!-------------------------------------->
     <section class="game">
         <div id="player-score"></div>
         <canvas id="blocks-away"></canvas>

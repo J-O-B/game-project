@@ -25,11 +25,11 @@ $(document).ready(function() {
     $(id).fadeIn(2000);  
     
     //if close button is clicked
-    $('.window .close').click(function (e) {
+    $('.window .retro-button').click(function (e) {
     $('#introVid').each(function(){
         this.pause(); // Stop playing
     }); 
-    $('#site-background').each(function(){
+    $('#site-audio').each(function(){
         this.play(); // Stop playing
     });
  
@@ -45,7 +45,7 @@ $(document).ready(function() {
     $('#introVid').each(function(){
         this.pause(); // Stop playing
     });
-    $('#site-background').each(function(){
+    $('#site-audio').each(function(){
         this.play(); // Stop playing
     });
     
@@ -57,3 +57,14 @@ $(document).ready(function() {
 });
 //End Of Popup Window;
 
+// Website audio toggle
+$('#audio-butt-on').click(function() {
+    $('#site-audio').each(function(){
+        this.play(); // Stop playing
+    })
+});
+$('#audio-butt-off').click(function() {
+    $('#site-audio').each(function(){
+        this.pause(); // Stop playing
+    })
+});
