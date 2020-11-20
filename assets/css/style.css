@@ -2,17 +2,51 @@ body {
     padding:0;
     margin:0;
     color:red;
+    background: blue;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:700px;
-    color:aqua;
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+
 }
+
+#boxes .window {
+
+  position:absolute;
+  left:0;
+  top:0;
+  width:700px;
+  height:500px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+}
+ 
+#boxes #dialog {
+  width:900px;
+  height:600px;
+  padding:10px;
+  background-color:#ffffff;
+  font-family:Impact,sans-serif;
+  font-size:15pt;
+}
+
+#popupfoot {
+  font-size:16pt;
+  position:absolute;
+  bottom:0px;
+  width:250px;
+  left:250px;
+}
+
 #blocks-away{
-    
     width:300px;
     height:600px;
 }
@@ -22,3 +56,9 @@ body {
     font-size:200%;
 }
 
+.carousel-item{
+    height:700px;
+    background:orange;
+}
+
+.introVid{}
