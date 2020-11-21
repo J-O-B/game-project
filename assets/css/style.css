@@ -90,6 +90,11 @@ body {
     text-align: center;
     background: green;
 }
+.sfx{
+    text-align: center;
+    background: red;
+    color:black;
+}
 /*-------------------------------top bar --*/
 /*--------------------------Main Menu */
 .main-menu{
@@ -252,6 +257,13 @@ body {
   background: #643d09;
 }
 
+.opt4 {
+  background: #00462e;
+}
+
+.opt4:before {
+  background: #000000;
+}
 .show {
   display: block;
   height: 100%;

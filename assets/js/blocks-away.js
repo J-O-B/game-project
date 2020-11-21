@@ -1,7 +1,17 @@
+function gameMode(mode){
+    document.getElementById('game-menu').innerHTML = 
+    // Game Menu
+    `<p>This is the menu</p>
+     <button id="start-game">Start Game</button>`;
+    $('#start-game').click(function(){
+        gameStart();
+    })
+}
+gameMode();
 
+function gameStart(){
 const canvas = document.getElementById('blocks-away');
-const context = canvas.getContext("2d");
-
+const context = canvas.getContext("2d");    
 //------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
 
@@ -285,17 +295,7 @@ document.addEventListener("keydown", event =>{
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
-var score = trackScore();
-var reset = blockReset();
-var draw = autoDraw();
-
-
-function gameStart(){
-    document.addEventListener("keydown", event =>{
-    if (event.key === "r"){
-    trackScore();
-    blockReset();
-    autoDraw();
-    }
-})
+trackScore();
+blockReset();
+autoDraw();
 }

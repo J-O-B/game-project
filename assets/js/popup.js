@@ -25,7 +25,7 @@ $(document).ready(function() {
     $(id).fadeIn(2000);  
     
     //if close button is clicked
-    $('.window .retro-button').click(function (e) {
+    $('.window .popup-button').click(function (e) {
     $('#introVid').each(function(){
         this.pause(); // Stop playing
     }); 
