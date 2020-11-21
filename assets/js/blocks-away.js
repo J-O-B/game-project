@@ -137,12 +137,21 @@ function blockReset(){
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
     if (stack(board, block)){
         board.forEach(row => row.fill(0));
-    
-        //if player loses we want to clear the score
+        
+        //find out how to save the score value to memory!
         player.score = 0;
+
         //and play a sound
+        $('#site-audio').each(function(){
+        this.pause(); // Start playing
+        });
         $('#you-lose').each(function(){
         this.play(); // Start playing
+        });
+        document.getElementById("you-lose").addEventListener("ended", function() {
+        $('#site-audio').each(function(){
+        this.play(); // Start playing
+        });
         });
         trackScore();
         //now go to game over..

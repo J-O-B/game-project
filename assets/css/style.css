@@ -155,13 +155,118 @@ body {
 
 /*-------------------------------main-menu --*/
 
-.main-canvas{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height:800px;
-    background: purple;
-    z-index: 9999;
+.select-area:after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #444;
+  bottom: 0;
+  content: '';
+  height: 0;
+  margin: auto;
+  pointer-events: none;
+  position: absolute;
+  right: 8px;
+  top: 0;
+}
+
+.select-area {
+  background-color: rgb(255, 0, 0);
+  border: 1px dashed rgb(255, 0, 0);
+  margin-bottom: 16px;
+  padding: 8px 4px;
+  position: relative;
+}
+
+.input-label {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.input-select {
+  -webkit-appearance: textarea;
+  -moz-appearance: window;
+  background: none;
+  border: 0;
+  font-size: .8em;
+  font-weight: 300;
+  line-height: 1.33333;
+  margin: 0;
+  overflow: hidden;
+  padding-right: 28px;
+  padding: 0;
+  text-overflow: ellipsis;
+  width: 100%;
+  z-index: 2;
+}
+
+.options {
+  height: 0% ;
+  overflow: hidden;
+  transition: all .3s;
+  visibility: hidden;
+}
+
+.jqueryOptions:before,
+.options:before {
+  content: '';
+  display: block;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateY(100%);
+  width: 100%;
+  z-index: -1;
+}
+
+.current-opt:before,
+.options:before {
+  transform: translateY(0%);
+}
+
+.opt1 {
+  background: #038631;
+}
+
+.opt1:before {
+  background: #00ff59;
+}
+
+.opt2 {
+  background: #014249;
+}
+
+.opt2:before {
+  background: #00e5ff;
+}
+
+.opt3 {
+  background: #f18a02;
+}
+
+.opt3:before {
+  background: #643d09;
+}
+
+.show {
+  display: block;
+  height: 100%;
+  overflow: visible;
+  position: relative;
+  visibility:visible;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
 }
 
 /* -----------------------------Sound ---*/

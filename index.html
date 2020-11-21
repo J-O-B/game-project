@@ -31,19 +31,59 @@
         </div>
     </div>
 <!--Game Screens-->
-    <!--Welcome Screen-->
     <div id="main-menu" class="main-menu">
-        <div class="row">
-            <h2 class="menu-title">Main Menu</h2>
-        </div>  
-        <div class="row">  
-            <ul class="menu-buttons">
-                <li class="menu-button"><a href="/play.html">Play</a></li>
-                <li class="menu-button"><a href="/instructions.html">Instructions</a></li>
-                <li class="menu-button"><a href="/contact.html">Contact</a></li>
-                <li class="menu-button"><a href="/credits.html">Credits</a></li>
-            </ul>
+        <div class="select-area menu-buttons">
+            <select name="choose" id="choose" class="input-select">
+                <option class="menu-title" value="nul" selected>Main Menu</option>
+                <option class="menu-button" value="opt1">Instructions</option>
+                <option class="menu-button" value="opt2">Play</option>
+                <option class="menu-button" value="opt3">Contact</option>
+                <option class="menu-button" value="opt3">Credits</option>
+            </select>
         </div>
+
+        <section class="jqueryOptions opt1">
+            <div class="content">
+                <h1>Instructions:</h1>
+                <p>This game uses keys to position the block on screen.</p>
+                <p>The controls are as follows</p>
+                    <ul>
+                        <li>Move Left: "A" key</li>
+                        <li>Move Right: "D" key</li>
+                        <li>Drop Down: "S" key</li>
+                        <li>Rotate Right: "E" key</li>
+                        <li>Rotate Left: "Q" key</li>
+                    </ul>
+
+            </div>
+        </section>
+
+        <section class="jqueryOptions opt2">
+            <div class="content">
+                <section id="play">
+                    <div id="player-score"></div>
+                    <canvas id="blocks-away"></canvas>
+                </section>
+            </div>
+        </section>
+
+        <section class="jqueryOptions opt3">
+            <div class="content">
+                <h2>Option 3 Content</h2>
+                <p>
+                ...
+                </p>
+            </div>
+        </section>
+
+        <section class="jqueryOptions opt4">
+            <div class="content">
+                <h2>Option 3 Content</h2>
+                <p>
+                ...
+                </p>
+            </div>
+        </section>
     </div>
         <!--Popup on page load with intro video-->
         <div id="boxes">
@@ -65,8 +105,30 @@
         </div>
         <div id="mask"></div>
 <!-------------------------------------->
-    <section class="game">
-        
+<!--Audio Area (Game Sounds)-->
+    <section class="sound">
+        <div id="background-music">
+            <audio id="background" controls>
+            <source src="assets/sound-effects/background.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div id="sfx">
+            <audio id="you-lose" class="sfx" controls>
+            <source src="assets/sound-effects/you-lose.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+
+            <audio id="line-break" class="sfx" controls>
+            <source src="assets/sound-effects/zap-lazer.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+
+            <audio id="thud" class="sfx" controls>
+            <source src="assets/sound-effects/thud.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+        </div>
     </section>
 <!--End Game Screen-->
 
@@ -80,5 +142,6 @@
     <!--Local JS-->
     <script type="text/javascript" src="assets/js/popup.js"></script>
     <script type="text/javascript" src="assets/js/general.js"></script>
+    <script type="text/javascript" src="assets/js/blocks-away.js"></script>
 </body>
 </html>

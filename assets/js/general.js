@@ -22,11 +22,14 @@ $('#sfx-butt-off').click(function() {
     })
 });
 
+//Menu script
+$(function() {
+  $('.jqueryOptions').hide();
 
-
-//credits music
-function creditPage(){      
-if (location.href == "/credits.html") {
-          $('#credits-audio').play(); // Stop playing
-    };
-};
+  $('#choose').change(function () {
+    $('.jqueryOptions').slideUp();
+    $('.jqueryOptions').removeClass('current-opt');
+    $("." + $(this).val()).slideDown();
+    $("." + $(this).val()).addClass('current-opt');
+  });
+});

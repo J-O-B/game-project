@@ -1,6 +1,5 @@
 //Page Load Popup - (www.jqueryscript.net/lightbox/Simple-jQuery-Plugin-For-Opening-A-Popup-Window-On-Page-load.html)
 $(document).ready(function() { 
-    $('#play').addClass("hide");
     var id ='#dialog';
     
     //Get the screen height and width
