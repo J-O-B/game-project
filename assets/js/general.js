@@ -1,11 +1,11 @@
 // Website audio toggle
 $('#audio-butt-on').click(function() {
-    $('#site-audio').each(function(){
+    $('site-audio').each(function(){
         this.play(); // Stop playing
     })
 });
 $('#audio-butt-off').click(function() {
-    $('#site-audio').each(function(){
+    $('site-audio').each(function(){
         this.pause(); // Stop playing
     })
 });

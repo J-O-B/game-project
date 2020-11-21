@@ -135,7 +135,7 @@ body {
     text-align: center;
     padding:10px;
     list-style: none;
-    width:600px;
+    width:90%;
     font-size: large;
     background: orangered;
     border-radius:20%;
@@ -282,9 +282,11 @@ body {
 #play{
     position:absolute;
     margin:0 auto;
+    width:100%;
 }
 
 #blocks-away{
     width:300px;
     height:600px;
+    display:flex;
 }

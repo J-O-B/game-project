@@ -1,10 +1,4 @@
-document.getElementById('sfx-butt-on').onclick = function(){
-    $('#you-lose').volume = 0.0;
-    $('#line-break').volume = 0.0;
-    $('#thud').volume = 0.0;
-}
 
-document.getElementById('start').onclick = function(){
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");
 
@@ -126,7 +120,7 @@ function dropBlock(){
         $('#thud').each(function(){
                     this.play();
                     });
-        //Reset The Board When Full ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
+        //Reset Block After Landing ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
         blockReset();
         //Remove line when full
         clearTheLine();
@@ -155,7 +149,6 @@ function blockReset(){
         
         //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!! (SAVE SCORE TO BROWSER MEMORY)
         
-
         //First pause background music, play 'you lose' then when 'you lose ends
         // resume background music.
         $('#site-audio').each(function(){
@@ -164,12 +157,9 @@ function blockReset(){
         $('#you-lose').each(function(){
             this.play();
             });
-        document.getElementById("you-lose").addEventListener("ended", function() {
-        $('#site-audio').each(function(){
-            this.play(); 
-            });
-        });
+        blockReset();
         trackScore();
+      
         
         //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
     }
@@ -295,7 +285,17 @@ document.addEventListener("keydown", event =>{
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
-trackScore();
-blockReset();
-autoDraw();
+var score = trackScore();
+var reset = blockReset();
+var draw = autoDraw();
+
+
+function gameStart(){
+    document.addEventListener("keydown", event =>{
+    if (event.key === "r"){
+    trackScore();
+    blockReset();
+    autoDraw();
+    }
+})
 }
