@@ -1,19 +1,27 @@
-//game starts from here.
+document.getElementById('sfx-butt-on').onclick = function(){
+    $('#you-lose').volume = 0.0;
+    $('#line-break').volume = 0.0;
+    $('#thud').volume = 0.0;
+}
+
+document.getElementById('start').onclick = function(){
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");
 
-//width is half height so this has to be accounted for with a double value.
+//------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
 
+//------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
+//Numbers in strings have to change from 1 else all will appear same color. 
 function shapes(shape){
-    if (shape === "A") {            //A = Large T shape
-        return [[1,1,1],            //B = Smaller T shape
-                [0,1,0],         //C = Forwards L shape
-                [0,1,0]];       //D = Backwards L shape
-    }else if (shape === "B"){      //E = Z shape
-        return [[0,0,0],        //F = S Shape
-                [2,2,2],        //G = Line 
-                [0,2,0]];       //H = Cube
+    if (shape === "A") {            //A = Large T shape && color #FF2D00
+        return [[1,1,1],            //B = Smaller T shape && color #FF9300
+                [0,1,0],            //C = Forwards L shape && color #51FF00
+                [0,1,0]];           //D = Backwards L shape && color #00FF93
+    }else if (shape === "B"){       //E = Z shape && color #0087FF
+        return [[0,0,0],            //F = S Shape && color #4E49A7
+                [2,2,2],            //G = Straight Line && color #9649A7
+                [0,2,0]];           //H = Cube && color #F10B38
     }else if (shape === "C"){
         return [[3,0,0],
                 [3,0,0],
@@ -41,11 +49,13 @@ function shapes(shape){
     }
 }
 
+//------------------------------------------------------------------------------------------ Draw The Strings With !0 Value
 //Define the peices, offset needed to move each block (array) 
 function drawBlocks(grid, offset){
     grid.forEach((row, y) =>{
         row.forEach((value, x) =>{
-            //Value which is not 0 will be colored (by pixel), this is resized in the scale line above
+            //Value which is not 0 will be colored, by adding different number can access
+            //different colors for the different blocks.
             if (value !== 0){
                 context.fillStyle = color[value];
                 context.fillRect(x + offset.x, y + offset.y, 1, 1);
@@ -54,8 +64,9 @@ function drawBlocks(grid, offset){
     });
 }
 
-
-//this will check to see if a 1 lands ontop of another 1 
+//------------------------------------------------------------------------------------------ Check For Impact!
+//If a number which is !0 lands on another number which is !0 we detect the impact
+//and play sound.
 function stack(board,block){
     const [g,o] = [block.grid, block.position]
     for (let y = 0; y < g.length; ++y){
@@ -68,16 +79,16 @@ function stack(board,block){
     return false;
 }
 
+//------------------------------------------------------------------------------------------ Create Blocks
 function makeBlock(width,height){
     const newBlock = [];
-    //check here
     while (height--){
         newBlock.push(new Array(width).fill(0));
     }
     return newBlock;
 };
 
-//General function which can draw for us.
+//------------------------------------------------------------------------------------------ Draw Function
 function draw(){
     context.fillStyle = "#000";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -85,8 +96,7 @@ function draw(){
     drawBlocks(block.grid, block.position);
 }
 
-//iterate over the arrays of the board and the block
-//this will add values to the string, where 0 is the 'not solid'
+//------------------------------------------------------------------------------------------ Itterate Over Strings
 function merge(board, block){
     block.grid.forEach((row, y) =>{
         row.forEach((value, x) =>{
@@ -97,31 +107,36 @@ function merge(board, block){
     });
 }
 
-// Fall rate set at 1000 will drop 1 line every second (1000ms)
+//------------------------------------------------------------------------------------------ Rate At Which Blocks Fall (Tie this to user clock)
+// Fall rate 500 seems to be fair time, check about lowering (speeding up) the further a game progresses.
 let fallCount = 0;
 let fallRate = 500;
 
-//function to drop the block (array) one column, we also want to check
-//a 1 will land ontop of another 1 and then stop moving.
+//------------------------------------------------------------------------------------------ Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear
+//                                                                                           The Line.
 function dropBlock(){
     block.position.y++;
-    //check for collision (1 landing ontop of another 1) or the edge of 
-    //canvas, then reset position to top.
+    //Check No Impact, If Stack True, Merge Original Array, 
+    //Then 'Reset' With New Block At Top Of Board.
+    //If A Row Is Full && No 0's Clear The Line & Place New
+    //Empty Array At Top Of Board. 
     if (stack(board, block)){
         block.position.y--;
         merge(board, block);
-        //reset the board when full
+        $('#thud').each(function(){
+                    this.play();
+                    });
+        //Reset The Board When Full ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
         blockReset();
-        //remove line when full
+        //Remove line when full
         clearTheLine();
-        //add the score to scoreboard.
+        //Add the score to scoreboard.
         trackScore();
     }
     fallCount=0;
 }
 
-//This will define the left and right movement to keep the block on the 
-//canvas
+//------------------------------------------------------------------------------------------ Move The Blocks But Not Off The Board
 function blockMove(direction){
     block.position.x += direction;
     if (stack(board, block)){
@@ -129,7 +144,7 @@ function blockMove(direction){
     }
 }
 
-//Randomize the shape (array) that appears using Math random
+//------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
     const shape = "ABCDEFGH";
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
@@ -138,26 +153,30 @@ function blockReset(){
     if (stack(board, block)){
         board.forEach(row => row.fill(0));
         
-        //find out how to save the score value to memory!
-        player.score = 0;
+        //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!! (SAVE SCORE TO BROWSER MEMORY)
+        
 
-        //and play a sound
+        //First pause background music, play 'you lose' then when 'you lose ends
+        // resume background music.
         $('#site-audio').each(function(){
-        this.pause(); // Start playing
-        });
+            this.pause();
+            });
         $('#you-lose').each(function(){
-        this.play(); // Start playing
-        });
+            this.play();
+            });
         document.getElementById("you-lose").addEventListener("ended", function() {
         $('#site-audio').each(function(){
-        this.play(); // Start playing
-        });
+            this.play(); 
+            });
         });
         trackScore();
-        //now go to game over..
+        
+        //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
     }
 }
 
+//------------------------------------------------------------------------------------------ Rotate & Transpose Arrays To Allow Rotation
+// Had Bugs, Used Stack Overflow For Answer: stackoverflow.com/questions/17428587/transposing-a-2d-array-in-javascript
 function blockRotation(direction){
     rotation(block.grid, direction);
     //BUG - Stack not detecting horizontally, only vertically.
@@ -178,8 +197,8 @@ function blockRotation(direction){
     }
 }
 
-//In keeping with Tetris style, to "rotate" an array, i can use the reverse
-//and transpose methods which javascript can perform.
+//------------------------------------------------------------------------------------------ Rotate & Transpose Arrays To Allow Rotation
+// Had Bugs, Used Stack Overflow For Answer: stackoverflow.com/questions/17428587/transposing-a-2d-array-in-javascript
 function rotation(grid, direction){
     for (let y= 0; y < grid.length; ++y){
         for (let x= 0; x < y; ++x){
@@ -187,7 +206,7 @@ function rotation(grid, direction){
             [grid[x][y],grid[y][x]] = [grid[y][x],grid[x][y]];
         }
     }
-    //if the direction is positive then we want a specific outcome
+    //Direction Rotation
     if (direction > 0){
         grid.forEach(row => row.reverse());
     }else{
@@ -195,9 +214,8 @@ function rotation(grid, direction){
     }
 }
 
-//update the blocks with request animation frames, can "paste" new blocks 
-//Time function is required to make blocks fall, I can now use the time 
-//as a way to change the speed of the game.
+//------------------------------------------------------------------------------------------ Game Timing 
+//Set first time to 0, 
 let firstLoggedTime = 0;
 
 function autoDraw(time = 0){
@@ -213,7 +231,7 @@ function autoDraw(time = 0){
     requestAnimationFrame(autoDraw)
 }
 
-//The canvas or frame will be called board.
+//------------------------------------------------------------------------------------------ Define The Board (Canvas)
 const board = makeBlock(15,25);
 
 //Create a player so we can track the score
@@ -225,15 +243,15 @@ function trackScore() {
     document.getElementById('player-score').innerText = `Your Score: ${player.score}`;
 }
 
-//set a position for player, keys can be used later
-// x moves block horizontal, y moves block vertical
+//------------------------------------------------------------------------------------------ Define The Blocks
 const block = {
     position: {x: 0, y: 0},
     grid: null,
 }
 
-//The loop that monitors for a full row, so we can then delete this row
-//from the board, we can also count this for a score.
+
+//------------------------------------------------------------------------------------------ Clear A Full Line (Array)
+// Clear the line, play a noise and add a score to the scoreboard.
 function clearTheLine(){
     let lineCounter = 1;
     checkLine: for (let y = board.length - 1; y > 0; --y){
@@ -243,24 +261,22 @@ function clearTheLine(){
                 continue checkLine; 
             }
         }
-        //when we find an empty line, we can copy it and return it to 
-        //the top of the board.
+        //Take the full line, empty the array, fill with 0s and move it to the top.
         const line = board.splice(y,1)[0].fill(0);
         board.unshift(line);
         ++y;
         
         //Play sound on line break
         $('#line-break').each(function(){
-        this.play(); // Start playing
+        this.play();
         });
-
         player.score += lineCounter * 10;
         lineCounter *= 2;
     }
 }
 
 
-
+//------------------------------------------------------------------------------------------ Controls (Place Buttons Below Canvas For Mobile/Tablet Users)
 //Position can be changed in console, below is to listen for keys
 document.addEventListener("keydown", event =>{
     if (event.key === "a"){
@@ -276,9 +292,10 @@ document.addEventListener("keydown", event =>{
     }
 });
 
-//Colors for blocks
+//------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
 trackScore();
 blockReset();
 autoDraw();
+}
