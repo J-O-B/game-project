@@ -1,15 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-
+@media screen and (min-width:1024px){
 p#start
 {
 	position: relative;
 	width: 100%;
 	font-size: 200%;
-    font-family: 'Press Start 2P', cursive;
 	font-weight: 400;
 	margin: 20% auto;
-	color: #4ee;
+	color: rgb(21, 218, 3);
 	opacity: 0;
 	z-index: 1;
 	-webkit-animation: intro 2s ease-out;
@@ -49,17 +46,18 @@ p#start
 	100% { opacity: 0; }
 }
 
-.credits h1 {
+.credits h1
+{
 	position: absolute;
-	width: 50%;
-	top: 15%;
+	width: 2.6em;
+	left: 50%;
+	top: 25%;
 	font-size: 10em;
-    font-family: 'Press Start 2P', cursive;
 	text-align: center;
-	margin:0 auto;
-	line-height: 1em;
+	margin-left: -1.3em;
+	line-height: 0.8em;
 	letter-spacing: -0.05em;
-	color: #000;
+	color: rgb(21, 218, 3);
 	text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6, 2px 2px 0 #ff6;
 	opacity: 0;
 	z-index: 1;
@@ -70,11 +68,10 @@ p#start
 	animation: logo 5s ease-out 2.5s;
 }
 
-h1 sub
+.credits h1 sub
 {
 	display: block;
 	font-size: 0.3em;
-    font-family: 'Press Start 2P', cursive;
 	letter-spacing: 0;
 	line-height: 0.8em;
 }
@@ -109,17 +106,16 @@ h1 sub
 	100% { transform: scale(0.1); opacity: 0; }
 }
 
-
+/* the interesting 3D scrolling stuff */
 #titles
 {
 	position: absolute;
-	width: 50%;
-	height: 50em;
+	width: 18em;
+	height: 100%;
 	bottom: 0;
 	left: 50%;
 	margin-left: -9em;
 	font-size: 350%;
-    font-family: 'Press Start 2P', cursive;
 	text-align: justify;
 	overflow: hidden;
 	-webkit-transform-origin: 50% 100%;
@@ -140,13 +136,8 @@ h1 sub
 	content: ' ';
 	left: 0;
 	right: 0;
-	top: 0;
+	top: 15%;
 	bottom: 60%;
-	background-image: -webkit-linear-gradient(top, blue 0%, transparent 100%);
-	background-image: -moz-linear-gradient(top, blue 0%, transparent 100%);
-	background-image: -ms-linear-gradient(top, blue 0%, transparent 100%);
-	background-image: -o-linear-gradient(top, blue 0%, transparent 100%);
-	background-image: linear-gradient(top, blue 0%, transparent 100%);
 	pointer-events: none;
 }
 
@@ -163,7 +154,7 @@ h1 sub
 
 #titles a
 {
-	color: #ff6;
+	color: rgb(72, 35, 160);
 	text-decoration: underline;
 }
 
@@ -202,4 +193,5 @@ h1 sub
 @keyframes scroll {
 	0% { top: 100%; }
 	100% { top: -170%; }
+}
 }

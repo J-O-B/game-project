@@ -1,17 +1,28 @@
-function gameMode(mode){
-    document.getElementById('game-menu').innerHTML = 
-    // Game Menu
-    `<p>This is the menu</p>
-     <button id="start-game">Start Game</button>`;
-    $('#start-game').click(function(){
+const canvas = document.getElementById('blocks-away');
+const context = canvas.getContext("2d");   
+
+function gameMode(){
+    document.getElementById('play')
+     $('#start-game').click(function(){
+        //On starting game we want to remove the functionality of the start button
         gameStart();
-    })
-}
+        $('#start-game').hide();
+     });
+    }
+       $('#settings').click(function(){
+        document.getElementById('setting').innerHTML =
+        `<h2>Settings Menu</h2>
+        <p class="music"><strong>Music: </strong><button class="state"></button></p>
+        <p class="SFX"><strong>Music: </strong><button class="state"></button></p>`;
+        $('#settings').click(function(){
+            document.getElementById('setting').innerHTML = "";
+            gameMode();
+       });
+})
 gameMode();
 
 function gameStart(){
-const canvas = document.getElementById('blocks-away');
-const context = canvas.getContext("2d");    
+
 //------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
 
@@ -140,6 +151,13 @@ function dropBlock(){
     fallCount=0;
 }
 
+//Create a player so we can track the score
+var player = {
+    top:0,
+    score:0,
+    alive:0,
+};
+
 //------------------------------------------------------------------------------------------ Move The Blocks But Not Off The Board
 function blockMove(direction){
     block.position.x += direction;
@@ -156,20 +174,19 @@ function blockReset(){
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
     if (stack(board, block)){
         board.forEach(row => row.fill(0));
-        
         //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!! (SAVE SCORE TO BROWSER MEMORY)
-        
-        //First pause background music, play 'you lose' then when 'you lose ends
-        // resume background music.
-        $('#site-audio').each(function(){
-            this.pause();
-            });
         $('#you-lose').each(function(){
             this.play();
             });
-        blockReset();
-        trackScore();
-      
+
+            if (player.score > player.top){
+                player.top = player.score;
+                player.score = 0;
+            }else{
+                player.score = 0;
+            }
+            return player.alive = 1;
+          //  trackScore();
         
         //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
     }
@@ -234,14 +251,12 @@ function autoDraw(time = 0){
 //------------------------------------------------------------------------------------------ Define The Board (Canvas)
 const board = makeBlock(15,25);
 
-//Create a player so we can track the score
-const player = {
-    score:0,
-};
-
 function trackScore() {
-    document.getElementById('player-score').innerText = `Your Score: ${player.score}`;
+    document.getElementById('player-score').innerHTML = 
+    `<p>Your Top Score: ${player.top}</p>
+    Your Score: ${player.score}`;
 }
+
 
 //------------------------------------------------------------------------------------------ Define The Blocks
 const block = {
@@ -295,7 +310,17 @@ document.addEventListener("keydown", event =>{
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
-trackScore();
-blockReset();
-autoDraw();
+function loop(){
+    let alive = player.alive;
+    console.log(player.alive);
+    if (player.alive[0] == 1){
+        document.getElementById('blocks-away').hide();
+    } else if (player.alive == 0){
+        trackScore();
+        blockReset();
+        autoDraw();
+        }
+}
+loop();
+
 }

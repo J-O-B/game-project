@@ -11,41 +11,25 @@
 <body>
     <!--TopBar, add title, maybe button for credits?-->
     <div class="container top-bar">
-        <div class="row">
-            <div class="col-sm audio-controls">
-                <h5>Audio:</h5>
-                <button id="audio-butt-on" class="retro-button">On</button>
-                <button id="audio-butt-off" class="retro-button">Off</button>
-                <audio id="site-audio" controls loop>
-                    <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="col-sm title-text">
+        <div class="row title-text">
                 <h1>Blocks Away!</h1>
-            </div>
-            <div class="col-sm sfx">
-                <h5>SFX:</h5>
-                <button id="sfx-butt-on" class="retro-button">On</button>
-                <button id="sfx-butt-off" class="retro-button">Off</button>
-            </div>
         </div>
     </div>
 <!--Menu List-->
     <div id="main-menu" class="main-menu">
-        <div class="select-area menu-buttons">
-            <select name="choose" id="choose" class="input-select">
-                <option class="menu-title" value="nul" selected>Main Menu</option>
-                <option class="menu-button" value="opt1">Instructions</option>
-                <option class="menu-button" value="opt2">Play</option>
-                <option class="menu-button" value="opt3">Contact</option>
-                <option class="menu-button" value="opt4">Credits</option>
-            </select>
-        </div>
+            <div class="select-area menu-buttons">
+                <select name="choose" id="choose" class="input-select">
+                    <option class="menu-title" value="nul" selected>Main Menu</option>
+                    <option class="menu-button" value="opt1">Instructions</option>
+                    <option class="menu-button" value="opt2">Play</option>
+                    <option class="menu-button" value="opt3">Contact</option>
+                    <option class="menu-button" value="opt4">Credits</option>
+                </select>
+            </div>
     <!--Menu Value Contents-->
         <section class="jqueryOptions opt1">
             <div class="content">
-                <h1>Instructions:</h1>
+                <p><strong>Instructions:</strong></p>
                 <p>This game uses keys to position the block on screen.</p>
                 <p>The controls are as follows</p>
                     <ul>
@@ -60,7 +44,9 @@
         <section class="jqueryOptions opt2">
             <div class="content">
                 <section id="play">
-                    <div id="game-menu"></div>
+                    <button type="button" id="start-game">Play Game</button>
+                    <button type="button" id="settings" onclick="" >Settings</button>
+                    <div id="setting"></div>
                     <div id="player-score"></div>
                     <canvas id="blocks-away"></canvas>
                 </section>
@@ -68,7 +54,7 @@
         </section>
         <section class="jqueryOptions opt3">
             <div class="content">
-                <h2>Contact</h2>
+                <h3>Contact</h3>
                 <p>
                 Placeholder for contact me form.
                 </p>
@@ -76,7 +62,7 @@
         </section>
         <section class="jqueryOptions opt4">
             <div class="content">
-                <h2>Credits</h2>
+                <h3>Credits</h3>
                 <section class="credits">
                     <p id="start">Coding By John O'Brien<br> <a href="https://johnobrien.net">JohnOBrien.net/</a></p>
 

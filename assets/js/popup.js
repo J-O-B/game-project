@@ -29,10 +29,6 @@ $(document).ready(function() {
     $('#introVid').each(function(){
         this.pause(); // Stop playing
     }); 
-    $('#site-audio').each(function(){
-        this.play(); // Stop playing
-    });
- 
     
     //Closing the pop-up window
     //Cancel the link behavior
@@ -45,12 +41,7 @@ $(document).ready(function() {
     $('#introVid').each(function(){
         this.pause(); // Stop playing
     });
-    $('#site-audio').each(function(){
-        this.play(); // Stop playing
-    });
-    
-    
-    
+  
     $(this).hide();
     $('.window').hide();
     });
