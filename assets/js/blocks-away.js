@@ -312,15 +312,15 @@ function clearTheLine(){
 
 
 document.addEventListener("keydown", event =>{
-    if (event.key === "a" || left){
+    if (event.key === "a" || event.key === "A" || event.code === 65){
         blockMove(-1);        
-    }else if (event.key === "d"){
+    }else if (event.key === "d" || event.key === "D" || event.code === 68){
         blockMove(+1);
-    }else if (event.key === "s"){
+    }else if (event.key === "s" || event.key === "S" || event.code === 83){
         dropBlock();
-    }else if (event.key === "q"){
+    }else if (event.key === "q" || event.key === "Q" || event.code === 81){
         blockRotation(-1);    
-    }else if (event.key === "e"){
+    }else if (event.key === "e" || event.key === "E" || event.code === 69){
         blockRotation(1);    
     }
 });
