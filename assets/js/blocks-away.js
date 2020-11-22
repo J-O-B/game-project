@@ -182,12 +182,13 @@ function blockReset(){
             });
             if (player.score > player.top){
                 player.top = player.score;
-                player.score = 0;
-                trackScore();
-            }else if (player.score < player.top){
-                 $('#score').each(function(){
+                $('#score').each(function(){
                     this.play();
                     });
+                player.score = 0;
+                trackScore();
+            }else if (player.score < 20){
+                 
                 player.score = 0;
                 trackScore();
             }
