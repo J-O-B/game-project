@@ -1,12 +1,13 @@
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");   
 
+
 function gameMode(){
     document.getElementById('play')
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
         gameStart();
-        $('#start-game').hide();
+        $('#start-game').attr("disabled", true);
      });
     }
        $('#settings').click(function(){
@@ -293,8 +294,30 @@ function clearTheLine(){
 
 //------------------------------------------------------------------------------------------ Controls (Place Buttons Below Canvas For Mobile/Tablet Users)
 //Position can be changed in console, below is to listen for keys
+document.addEventListener("click", event =>{
+    $("#a").click(function(){
+         blockMove(-1);
+    })
+    $("#s").click(function(){
+         dropBlock();
+    })
+    $("#d").click(function(){
+         blockMove(+1);
+    })
+    $("#q").click(function(){
+         blockRotation(-1);
+    })
+    $("#e").click(function(){
+         blockRotation(1);
+    })
+})
+
+
+
+
+
 document.addEventListener("keydown", event =>{
-    if (event.key === "a"){
+    if (event.key === "a" || left){
         blockMove(-1);        
     }else if (event.key === "d"){
         blockMove(+1);
@@ -306,6 +329,7 @@ document.addEventListener("keydown", event =>{
         blockRotation(1);    
     }
 });
+
 
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
