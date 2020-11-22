@@ -32,7 +32,7 @@
             <div class="content">
                 <p><strong>Instructions:</strong></p>
                 <p>This game uses keys to position the block on screen.</p>
-                <p>The controls are as follows</p>
+                <p>The controls are as follows<br></p>
                     <ul>
                         <li>Move Left: "A" key</li>
                         <li>Move Right: "D" key</li>
@@ -40,14 +40,19 @@
                         <li>Rotate Right: "E" key</li>
                         <li>Rotate Left: "Q" key</li>
                     </ul>
+                <p>Alternatively, if you are on a mobile or tablet device, you can use the keypad located below the game.</p>
             </div>
         </section>
         <section class="jqueryOptions opt2">
             <div class="content">
                 <section id="play">
                     <button type="button" id="start-game">Play Game</button>
-                    <button type="button" id="settings" onclick="" >Settings</button>
-                    <div id="setting"></div>
+                    <button type="button" id="settings" >Settings</button>
+                    <div id="setting">
+                        <h4>Settings:</h4>
+                        <p>Music: <span id="mBut"><button>On</button></span></p>
+                        <p>SFX: <span id="sBut"><button>On</button></span></p>
+                    </div>
                     <div id="player-score"></div>
                     <canvas id="blocks-away"></canvas>
                     <div class="key-buttons">

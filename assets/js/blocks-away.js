@@ -3,24 +3,63 @@ const context = canvas.getContext("2d");
 
 
 function gameMode(){
-    document.getElementById('play')
+    document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
         gameStart();
         $('#start-game').attr("disabled", true);
      });
     }
-       $('#settings').click(function(){
-        document.getElementById('setting').innerHTML =
-        `<h2>Settings Menu</h2>
-        <p class="music"><strong>Music: </strong><button class="state"></button></p>
-        <p class="SFX"><strong>Music: </strong><button class="state"></button></p>`;
-        $('#settings').click(function(){
-            document.getElementById('setting').innerHTML = "";
-            gameMode();
-       });
-})
 gameMode();
+
+$(document).ready(function () {
+    $("#settings").click(function () {
+        $("#setting").toggle();
+    });
+});
+
+//Audio Settings:
+//Not sure why 'background' didn't work with a jQuery call, but works with document get???
+$(document).ready(function() {
+  var playing = false;
+
+  $('#mBut').click(function() {
+      if (playing == false) {
+        document.getElementById('background').play();
+        playing = true;
+        document.getElementById('mBut').innerHTML = `<button>ON</button>`; 
+
+      } else {
+        document.getElementById('background').pause();
+        playing = false;
+        document.getElementById('mBut').innerHTML = `<button>OFF</button>`; 
+      }
+
+  });
+
+});
+$(document).ready(function() {
+  var playing = false;
+
+$("#sBut").click(function(){
+    if (playing == false) {
+        document.getElementById('score').volume = 1;
+        document.getElementById('you-lose').volume = 1;
+        document.getElementById('line-break').volume = 1;
+        document.getElementById('thud').volume = 1;
+        playing = true;
+        document.getElementById('sBut').innerHTML = `<button>ON</button>`; 
+
+      } else {
+        document.getElementById('score').volume = 0;
+        document.getElementById('you-lose').volume = 0;
+        document.getElementById('line-break').volume = 0;
+        document.getElementById('thud').volume = 0;
+        playing = false;
+        document.getElementById('sBut').innerHTML = `<button>OFF</button>`; 
+      }
+  });
+});
 
 function gameStart(){
 
@@ -172,7 +211,7 @@ function blockMove(direction){
 function blockReset(){
     const shape = "ABCDEFGH";
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
-    block.position.y = 0;
+    block.position.y = 1;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
     if (stack(board, block)){
         board.forEach(row => row.fill(0));
@@ -266,7 +305,7 @@ function trackScore() {
 
 //------------------------------------------------------------------------------------------ Define The Blocks
 const block = {
-    position: {x: 0, y: 0},
+    position: {x: 0, y: 1},
     grid: null,
 }
 
@@ -335,11 +374,10 @@ document.addEventListener("keydown", event =>{
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
 function loop(){
-    let alive = player.alive;
-    console.log(player.alive);
-    if (alive == 1){
-        document.getElementById('blocks-away').hide();
-    } else if (player.alive == 0){
+    //if sum of row 0 != 0 then game over...
+    if (block.position.y === 0){
+        $("#blocks-away").hide();
+    } else if (block.position.y > 0){
         trackScore();
         blockReset();
         autoDraw();
