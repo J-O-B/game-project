@@ -294,7 +294,6 @@ function clearTheLine(){
 
 //------------------------------------------------------------------------------------------ Controls (Place Buttons Below Canvas For Mobile/Tablet Users)
 //Position can be changed in console, below is to listen for keys
-document.addEventListener("click", event =>{
     $("#a").click(function(){
          blockMove(-1);
     })
@@ -310,10 +309,6 @@ document.addEventListener("click", event =>{
     $("#e").click(function(){
          blockRotation(1);
     })
-})
-
-
-
 
 
 document.addEventListener("keydown", event =>{
