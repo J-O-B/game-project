@@ -157,6 +157,7 @@ var player = {
     top:0,
     score:0,
     alive:0,
+
 };
 
 //------------------------------------------------------------------------------------------ Move The Blocks But Not Off The Board
@@ -179,14 +180,17 @@ function blockReset(){
         $('#you-lose').each(function(){
             this.play();
             });
-
             if (player.score > player.top){
                 player.top = player.score;
                 player.score = 0;
-            }else{
+                trackScore();
+            }else if (player.score < player.top){
+                 $('#score').each(function(){
+                    this.play();
+                    });
                 player.score = 0;
+                trackScore();
             }
-            return player.alive = 1;
           //  trackScore();
         
         //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
@@ -332,7 +336,7 @@ const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7",
 function loop(){
     let alive = player.alive;
     console.log(player.alive);
-    if (player.alive[0] == 1){
+    if (alive == 1){
         document.getElementById('blocks-away').hide();
     } else if (player.alive == 0){
         trackScore();
