@@ -65,8 +65,7 @@ function gameOver(){
     document.getElementById('line-break').volume = 0;
     document.getElementById('thud').volume = 0;
 $('#blocks-away').hide();
-$('#game-over').innerHTML = 
-    `<h1>Game Over</h1>`
+document.getElementById('game-over').innerHTML = `<h1>Game Over</h1> ${player.score} <p>Would you like to play again></p><button>Yes</button><button>No</button>`;
 }
 
 
