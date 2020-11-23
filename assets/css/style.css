@@ -299,12 +299,28 @@ body {
 /*----------------------------- Sections---*/
 
 #play{
-    position:absolute;
-    margin:0 auto;
-    width:100%;
+    min-width: 300px;
+
 }
 #setting{
     display: none;
+}
+.center{
+    margin:0 auto;
+    display:flex;   
+}
+#start-game{
+    margin:0 auto;
+    display:flex;
+}
+#player-score{
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;  
+}
+#settings{
+    margin:0 auto; 
+    display:flex;
 }
 
 #blocks-away{
@@ -314,6 +330,7 @@ body {
     margin:0 auto;
 }
 .key-buttons{
+    width:300px;
     display: flex;
     align-items: center;
     justify-content: space-around;

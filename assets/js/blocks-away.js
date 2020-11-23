@@ -25,6 +25,7 @@ $(document).ready(function() {
 
   $('#mBut').click(function() {
       if (playing == false) {
+
         document.getElementById('background').play();
         playing = true;
         document.getElementById('mBut').innerHTML = `<button>ON</button>`; 
@@ -298,8 +299,9 @@ const board = makeBlock(15,25);
 
 function trackScore() {
     document.getElementById('player-score').innerHTML = 
-    `<p>Your Top Score: ${player.top}</p>
-    Your Score: ${player.score}`;
+    `<h5>Scoreboard</h5>
+    <p>Top Score: ${player.top}</p>
+    <p>Current Score: ${player.score}</p>`;
 }
 
 
