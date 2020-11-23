@@ -7,7 +7,7 @@ function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
-        player.alive= 1;
+        player.alive = 1;
         $('#start-game').attr("disabled", true);
      });
     }
@@ -77,7 +77,7 @@ context.scale(20,6);
 var player = {
     top: 0,
     score: 0,
-    alive: 1,
+    alive: 3,
 };
 
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
@@ -397,7 +397,7 @@ function loop(){
         autoDraw();
     } else if (alive == 0){
         gameOver();
-    }else{
+    }else if (alive == 3){
         gameMode();
     }
 }
@@ -435,3 +435,22 @@ $('#blocks-away').fadeOut(1000, function(){
         })
 });
 }
+
+function gameMode(){
+    document.getElementById('play');
+     $('#start-game').click(function(){
+        //On starting game we want to remove the functionality of the start button
+        player.alive = 1;
+            trackScore();
+            blockReset();
+            autoDraw();
+        $('#start-game').attr("disabled", true);
+     });
+    }
+gameMode();
+
+$(document).ready(function () {
+    $("#settings").click(function () {
+        $("#setting").toggle();
+    });
+});
