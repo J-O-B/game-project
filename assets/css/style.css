@@ -328,3 +328,11 @@ body {
     width:60px;
     height:35px;
 }
+
+#game-over{
+    text-align: center;
+    margin:0 auto;
+}
+.hide{
+    display:none;
+}

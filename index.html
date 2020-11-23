@@ -56,7 +56,11 @@
                     </div>
                     <div id="player-score"></div>
                     <canvas id="blocks-away"></canvas>
-                    <div id="game-over"></div>
+                    <div id="game-over" class="hide">
+                        <h1>Game Over!</h1>
+                        <p>Would you like to play again?</p>
+                        <button id="yes">Yes</button><button id="no">No</button>
+                    </div>
                     <div class="key-buttons">
                     <button id="a"><i class="fa fa-arrow-left"></i></button>
                     <button id="s"><i class="fa fa-arrow-down"></i></button>
@@ -163,6 +167,14 @@
 
             <audio id="thud" class="sfx" controls>
             <source src="assets/sound-effects/thud.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            <audio id="gameOver" class="sfx" controls>
+            <source src="assets/sound-effects/gameover.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            <audio id="gameOverScreen" class="sfx" controls>
+            <source src="assets/sound-effects/gameOverScreen.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
         </div>

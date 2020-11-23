@@ -1,8 +1,13 @@
+const user = {
+    player: "",
+    score: 0,
+}
+
 function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
-        gameStart();
+        player.alive= 1;
         $('#start-game').attr("disabled", true);
      });
     }
@@ -14,7 +19,7 @@ $(document).ready(function () {
     });
 });
 
-//Audio Settings:
+//Audio
 //Not sure why 'background' didn't work with a jQuery call, but works with document get???
 $(document).ready(function() {
   var playing = false;
@@ -58,23 +63,22 @@ $("#sBut").click(function(){
   });
 });
 
-//------------------------------------------------------------------------------------game over screen:
-function gameOver(){
-    document.getElementById('score').volume = 0;
-    document.getElementById('you-lose').volume = 0;
-    document.getElementById('line-break').volume = 0;
-    document.getElementById('thud').volume = 0;
-$('#blocks-away').hide();
-document.getElementById('game-over').innerHTML = `<h1>Game Over</h1> ${player.score} <p>Would you like to play again></p><button>Yes</button><button>No</button>`;
-}
+
 
 
 //main game function:
-function gameStart(){
+//function gameStart(){
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
 //------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
+
+//Create a player so we can track the score
+var player = {
+    top: 0,
+    score: 0,
+    alive: 1,
+};
 
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
 //Numbers in strings have to change from 1 else all will appear same color. 
@@ -201,13 +205,7 @@ function dropBlock(){
     fallCount=0;
 }
 
-//Create a player so we can track the score
-var player = {
-    top:0,
-    score:0,
-    alive:0,
 
-};
 
 //------------------------------------------------------------------------------------------ Move The Blocks But Not Off The Board
 function blockMove(direction){
@@ -234,14 +232,15 @@ function blockReset(){
                 $('#score').each(function(){
                     this.play();
                     });
-                    gameOver();
+                    //gameOver();
                     trackScore();
-                    
                     player.score = 0;
+                    player.alive = 0;
                     trackScore();
                     return;
-            }else{
-                    player.score = 0
+            }else if(player.score <= player.top){
+                    player.alive = 0;
+                    player.score = 0;
                     gameOver();
                     trackScore();
                     return;
@@ -387,17 +386,52 @@ document.addEventListener("keydown", event =>{
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
+
+//this loop determines if we continue playing or transition to game over state
 function loop(){
-    let y = board.length;
-    //if sum of row 0 != 0 then game over...
-    if (board[y,0] === 0){
-        $("#blocks-away").hide();
-    } else if (block.position.y > 0){
+    let alive = player.alive;
+    console.log(alive);
+    if (alive == 1){
         trackScore();
         blockReset();
         autoDraw();
-        }
+    } else if (alive == 0){
+        gameOver();
+    }else{
+        gameMode();
+    }
 }
 loop();
 
+//}
+
+//------------------------------------------------------------------------------------game over screen:
+function gameOver(){
+    document.getElementById('score').volume = 0;
+    document.getElementById('you-lose').volume = 0;
+    document.getElementById('line-break').volume = 0;
+    document.getElementById('thud').volume = 0;
+    //first hide the game
+$('#blocks-away').fadeOut(1000, function(){
+    $('.key-buttons').hide();
+    //pause any music if there is any
+    $('#background').each(function(){
+            this.pause();
+                });
+    //play game over music
+    $('#gameOver').each(function(){
+            this.play();
+                });
+    //toggle the game over screen
+   $('#game-over').toggleClass("hide");
+        $("#yes").click(function(){
+            $('#game-over').addClass("hide");
+            $('.key-buttons').show();
+            $('#blocks-away').fadeIn(1000);
+            trackScore();
+            blockReset();
+            autoDraw();
+
+        })
+});
 }
