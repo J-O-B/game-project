@@ -9,7 +9,3 @@ $(function() {
     $("." + $(this).val()).addClass('current-opt');
   });
 })
-
-$("option[value='opt4']").click(function(){
-    console.log("Hey");
-})

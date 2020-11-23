@@ -77,27 +77,15 @@ body {
 .top-bar{
     text-align: center;
     z-index:99999;
-}
-.audio-controls{
-    text-align: center;
     background: url("../img/div-background.png");
-    color:black;
-}
-.audio-controls audio{
-    display: none;
 }
 .title-text h1{
     color:black;
     margin:0 auto;
     text-align: center;
-    background: url("../img/div-background.png");
-}
-.sfx{
-    text-align: center;
-    background: url("../img/div-background.png");
-    color:black;
 }
 /*-------------------------------top bar --*/
+
 /*--------------------------Main Menu */
 .main-menu{
     display:block;
