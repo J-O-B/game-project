@@ -18,9 +18,6 @@
     </div>
 <!--Menu List-->
     <div id="main-menu" class="main-menu">
-        <div class="audio">
-        <h1>Audio player</h1>
-        </div>
             <div class="select-area menu-buttons">
                 <select name="choose" id="choose" class="input-select">
                     <option id="main" class="menu-title" value="nul" selected>Main Menu</option>
@@ -46,9 +43,8 @@
                 <p>Alternatively, if you are on a mobile or tablet device, you can use the keypad located below the game.</p>
             </div>
         </section>
-        <section class="jqueryOptions opt2">
+        <section class="jqueryOptions opt2" id="play">
             <div class="content">
-                <section id="play">
                     <button type="button" id="start-game">Play Game</button>
                     <button type="button" id="settings" >Settings</button>
                     <div id="setting">
@@ -60,6 +56,7 @@
                     </div>
                     <div id="player-score"></div>
                     <canvas id="blocks-away"></canvas>
+                    <div id="game-over"></div>
                     <div class="key-buttons">
                     <button id="a"><i class="fa fa-arrow-left"></i></button>
                     <button id="s"><i class="fa fa-arrow-down"></i></button>
@@ -67,7 +64,6 @@
                     <button id="q"><i class="fa fa-undo"></i></button>
                     <button id="e"><i class="fa fa-repeat"></i></button>
                     </div>
-                </section>
             </div>
         </section>
         <section class="jqueryOptions opt3">
@@ -140,15 +136,15 @@
         </div>
         <div id="mask"></div>
 <!-------------------------------------->
-<!--Audio Area (Game Sounds)-->
+<!--Game Parts (Sounds and screens)-->
     <section class="sound">
         <div id="background-music">
             <audio id="background" controls>
-            <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+            <source src="assets/sound-effects/credits.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
             </audio>
-
         </div>
+
         <div id="sfx">
             <audio id="score" class="sfx" controls>
             <source src="assets/sound-effects/new_high_score.mp3" type="audio/mpeg">

@@ -1,7 +1,3 @@
-const canvas = document.getElementById('blocks-away');
-const context = canvas.getContext("2d");   
-
-
 function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
@@ -62,8 +58,22 @@ $("#sBut").click(function(){
   });
 });
 
-function gameStart(){
+//------------------------------------------------------------------------------------game over screen:
+function gameOver(){
+    document.getElementById('score').volume = 0;
+    document.getElementById('you-lose').volume = 0;
+    document.getElementById('line-break').volume = 0;
+    document.getElementById('thud').volume = 0;
+$('#blocks-away').hide();
+$('#game-over').innerHTML = 
+    `<h1>Game Over</h1>`
+}
 
+
+//main game function:
+function gameStart(){
+const canvas = document.getElementById('blocks-away');
+const context = canvas.getContext("2d");  
 //------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
 
@@ -166,7 +176,7 @@ function merge(board, block){
 //------------------------------------------------------------------------------------------ Rate At Which Blocks Fall (Tie this to user clock)
 // Fall rate 500 seems to be fair time, check about lowering (speeding up) the further a game progresses.
 let fallCount = 0;
-let fallRate = 500;
+let fallRate = 350;
 
 //------------------------------------------------------------------------------------------ Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear
 //                                                                                           The Line.
@@ -225,15 +235,18 @@ function blockReset(){
                 $('#score').each(function(){
                     this.play();
                     });
-                player.score = 0;
-                trackScore();
-            }else if (player.score < 20){
-                 
-                player.score = 0;
-                trackScore();
+                    gameOver();
+                    trackScore();
+                    
+                    player.score = 0;
+                    trackScore();
+                    return;
+            }else{
+                    player.score = 0
+                    gameOver();
+                    trackScore();
+                    return;
             }
-          //  trackScore();
-        
         //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
     }
 }
@@ -376,8 +389,9 @@ document.addEventListener("keydown", event =>{
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
 function loop(){
+    let y = board.length;
     //if sum of row 0 != 0 then game over...
-    if (block.position.y === 0){
+    if (board[y,0] === 0){
         $("#blocks-away").hide();
     } else if (block.position.y > 0){
         trackScore();
