@@ -21,3 +21,9 @@ nice to have:
 multiplayer?
 gameboy border or some kind of retro device,
 
+
+
+update:
+add difficulty to settings menu,
+tie all audio to simple on off switch,
+make the page look nicer.

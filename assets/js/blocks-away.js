@@ -3,15 +3,33 @@ const user = {
     score: 0,
 }
 
-function gameMode(){
-    document.getElementById('play');
-     $('#start-game').click(function(){
-        //On starting game we want to remove the functionality of the start button
-        player.alive = 1;
-        $('#start-game').attr("disabled", true);
-     });
-    }
-gameMode();
+//------------------------------------------------------------------------------------game over screen:
+function gameOver(){
+    //first hide the game
+$('#blocks-away').fadeOut(1000, function(){
+    $('.key-buttons').hide();
+    //pause any music if there is any
+    $('#you-lose').each(function(){
+            this.pause();
+                });
+    $('#background').each(function(){
+            this.pause();
+                });
+    //toggle the game over screen
+   $('#game-over').toggleClass("hide");
+        $("#yes").click(function(){
+            $('#game-over').addClass("hide");
+            $('.key-buttons').show();
+            $('#blocks-away').fadeIn(1000);
+            trackScore();
+            blockReset();
+            autoDraw();
+
+        })
+});
+}
+
+
 
 $(document).ready(function () {
     $("#settings").click(function () {
@@ -21,50 +39,15 @@ $(document).ready(function () {
 
 //Audio
 //Not sure why 'background' didn't work with a jQuery call, but works with document get???
-$(document).ready(function() {
-  var playing = false;
-
-  $('#mBut').click(function() {
-      if (playing == false) {
-
-        document.getElementById('background').play();
-        playing = true;
-        document.getElementById('mBut').innerHTML = `<button>ON</button>`; 
-
-      } else {
-        document.getElementById('background').pause();
-        playing = false;
-        document.getElementById('mBut').innerHTML = `<button>OFF</button>`; 
-      }
-
-  });
-
-});
-$(document).ready(function() {
-  var playing = false;
-
-$("#sBut").click(function(){
-    if (playing == false) {
-        document.getElementById('score').volume = 1;
-        document.getElementById('you-lose').volume = 1;
-        document.getElementById('line-break').volume = 1;
-        document.getElementById('thud').volume = 1;
-        playing = true;
-        document.getElementById('sBut').innerHTML = `<button>ON</button>`; 
-
-      } else {
-        document.getElementById('score').volume = 0;
-        document.getElementById('you-lose').volume = 0;
-        document.getElementById('line-break').volume = 0;
-        document.getElementById('thud').volume = 0;
-        playing = false;
-        document.getElementById('sBut').innerHTML = `<button>OFF</button>`; 
-      }
-  });
+$("#on").click(function(){
+    document.getElementById('background').play();
+    document.getElementByClassName('audio').each().volume = 1;
 });
 
-
-
+$("#off").click(function(){
+    document.getElementById('background').pause();
+    document.getElementByClassName('audio').each().volume = 0;
+});
 
 //main game function:
 //function gameStart(){
@@ -224,21 +207,21 @@ function blockReset(){
     if (stack(board, block)){
         board.forEach(row => row.fill(0));
         //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!! (SAVE SCORE TO BROWSER MEMORY)
-        $('#you-lose').each(function(){
-            this.play();
-            });
+
             if (player.score > player.top){
                 player.top = player.score;
                 $('#score').each(function(){
                     this.play();
-                    });
-                    //gameOver();
-                    trackScore();
+                    }),
                     player.score = 0;
                     player.alive = 0;
+                    gameOver();
                     trackScore();
                     return;
             }else if(player.score <= player.top){
+                $('#gameOver').each(function(){
+                    this.play();
+                }),
                     player.alive = 0;
                     player.score = 0;
                     gameOver();
@@ -403,18 +386,15 @@ function loop(){
 }
 loop();
 
-//}
-
 //------------------------------------------------------------------------------------game over screen:
-function gameOver(){
-    document.getElementById('score').volume = 0;
-    document.getElementById('you-lose').volume = 0;
-    document.getElementById('line-break').volume = 0;
-    document.getElementById('thud').volume = 0;
+/*function gameOver(){
     //first hide the game
 $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
     //pause any music if there is any
+    $('#you-lose').each(function(){
+            this.pause();
+                });
     $('#background').each(function(){
             this.pause();
                 });
@@ -434,7 +414,7 @@ $('#blocks-away').fadeOut(1000, function(){
 
         })
 });
-}
+}*/
 
 function gameMode(){
     document.getElementById('play');
@@ -448,9 +428,3 @@ function gameMode(){
      });
     }
 gameMode();
-
-$(document).ready(function () {
-    $("#settings").click(function () {
-        $("#setting").toggle();
-    });
-});

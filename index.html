@@ -50,8 +50,7 @@
                     <div id="setting">
                         <div class="center">
                             <h4>Settings:</h4>
-                            <p>Music: <span id="mBut"><button>OFF</button></span></p>
-                            <p>SFX: <span id="sBut"><button>OFF</button></span></p>
+                            <p>Audio: <br><span id="on"><button>ON</button></span><br><span id="off"><button>OFF</button></span></p>
                         </div>
                     </div>
                     <div id="player-score"></div>
@@ -143,37 +142,37 @@
 <!--Game Parts (Sounds and screens)-->
     <section class="sound">
         <div id="background-music">
-            <audio id="background" controls>
+            <audio id="background" class="audio" controls>
             <source src="assets/sound-effects/credits.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <div id="sfx">
-            <audio id="score" class="sfx" controls>
+            <audio id="score" class="audio" controls>
             <source src="assets/sound-effects/new_high_score.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
 
-            <audio id="you-lose" class="sfx" controls>
+            <audio id="you-lose" class="audio" controls>
             <source src="assets/sound-effects/you-lose.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
 
-            <audio id="line-break" class="sfx" controls>
+            <audio id="line-break" class="audio" controls>
             <source src="assets/sound-effects/zap-lazer.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
 
-            <audio id="thud" class="sfx" controls>
+            <audio id="thud" class="audio" controls>
             <source src="assets/sound-effects/thud.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
-            <audio id="gameOver" class="sfx" controls>
+            <audio id="gameOver" class="audio" controls>
             <source src="assets/sound-effects/gameover.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
-            <audio id="gameOverScreen" class="sfx" controls>
+            <audio id="gameOverScreen" class="audio" controls>
             <source src="assets/sound-effects/gameOverScreen.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
