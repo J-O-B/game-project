@@ -85,7 +85,11 @@ function shapes(shape){
         return [[8,8,8],
                 [8,8,8],
                 [8,8,8]];
-    }
+    }else if (shape === "I"){
+        return [[0,0,0],
+                [0,0,0],
+                [0,0,0]];
+    }   
 }
 
 //------------------------------------------------------------------------------------------ Draw The Strings With !0 Value
@@ -186,25 +190,31 @@ function blockMove(direction){
         block.position.x -= direction;
     }
 }
-
+var alive = true;
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
-
-    
-    
+    if (alive == false){
+    const empty = "I";
+    block.grid = shapes('I');
+    block.position.y = 1;
+    block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
+    }else{
     const shape = "ABCDEFGH";
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
     block.position.y = 1;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
+    }
+    
     if (stack(board, block)){
        board.forEach(row => row.fill(0));  
-        //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!! (SAVE SCORE TO BROWSER MEMORY)
+        //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!!
             if (player.score > player.top){
                 player.top = player.score;
+                player.score = 0;
                 $('#score').each(function(){
                     this.play();
                     }),
-                    player.top = player.score;
+                    alive = false;
                     trackScore();
                     gameOver();
                     return;
@@ -213,6 +223,7 @@ function blockReset(){
                     this.play();
                 }),
                     player.score = 0;
+                    alive = false;
                     trackScore();
                     gameOver();
                     return;
@@ -361,11 +372,11 @@ const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7",
 
 //this loop determines if we continue playing or transition to game over state
 function loop(){
-    if (alive === 1){
+    if (alive == true){
         trackScore();
         blockReset();
         autoDraw();
-    } else if (alive == 0){
+    } else if (alive == false){
         gameOver();
     }
 }
@@ -375,6 +386,7 @@ function loop(){
 //------------------------------------------------------------------------------------game over screen:
 function gameOver(){
     //first hide the game
+board.forEach(row => row.fill(0));
 $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
     //pause any music if there is any
@@ -387,15 +399,15 @@ $('#blocks-away').fadeOut(1000, function(){
     //player.alive = false;
     //toggle the game over screen
    $('#game-over').toggleClass("hide");
-        player.alive = 0;
         $("#yes").click(function(){
+            alive = true;
+            board.forEach(row => row.fill(0));
             $('#game-over').addClass("hide");
             $('.key-buttons').show();
             $('#blocks-away').fadeIn(1000);
             trackScore();
             blockReset();
             autoDraw();
-
         })
     });
 }
@@ -404,7 +416,7 @@ function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
-        player.alive = 1;
+            alive = true;
             trackScore();
             blockReset();
             autoDraw();
