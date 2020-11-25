@@ -2,14 +2,14 @@ const user = {
     player: "",
     score: 0,
 }
-
+//-------------------------------------------------------------Settings Toggle
 $(document).ready(function () {
     $("#settings").click(function () {
         $("#setting").toggle();
     });
 });
 
-//Audio
+//-------------------------------------------------------------------Audio
 //Not sure why 'background' didn't work with a jQuery call, but works with document get???
 $("#on").click(function(){
     document.getElementById('background').play();
@@ -21,8 +21,24 @@ $("#off").click(function(){
     document.getElementByClassName('audio').each().volume = 0;
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //main game function:
-//function gameStart(){
+
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
 //------------------------------------------------------------------------------------------ Scale The Blocks.
@@ -150,7 +166,11 @@ function dropBlock(){
                     this.play();
                     });
         //Reset Block After Landing ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
+        
         blockReset();
+        
+        
+        
         //Remove line when full
         clearTheLine();
         //Add the score to scoreboard.
@@ -158,8 +178,6 @@ function dropBlock(){
     }
     fallCount=0;
 }
-
-
 
 //------------------------------------------------------------------------------------------ Move The Blocks But Not Off The Board
 function blockMove(direction){
@@ -171,34 +189,32 @@ function blockMove(direction){
 
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
+
+    
+    
     const shape = "ABCDEFGH";
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
     block.position.y = 1;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
     if (stack(board, block)){
-        board.forEach(row => row.fill(0));
+       board.forEach(row => row.fill(0));  
         //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!! (SAVE SCORE TO BROWSER MEMORY)
-
             if (player.score > player.top){
                 player.top = player.score;
                 $('#score').each(function(){
                     this.play();
                     }),
-                    player.score = 0;
-                    player.alive = 0;
-                    gameOver();
+                    player.top = player.score;
                     trackScore();
-                    window.location.replace("http://www.w3schools.com");
+                    gameOver();
                     return;
             }else if(player.score <= player.top){
                 $('#gameOver').each(function(){
                     this.play();
                 }),
-                    player.alive = 0;
                     player.score = 0;
-                    window.location.replace("http://www.w3schools.com");
-                    gameOver();
                     trackScore();
+                    gameOver();
                     return;
             }
         //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
@@ -230,8 +246,8 @@ function blockRotation(direction){
 //------------------------------------------------------------------------------------------ Rotate & Transpose Arrays To Allow Rotation
 // Had Bugs, Used Stack Overflow For Answer: stackoverflow.com/questions/17428587/transposing-a-2d-array-in-javascript
 function rotation(grid, direction){
-    for (let y= 0; y < grid.length; ++y){
-        for (let x= 0; x < y; ++x){
+    for (let y= 0; y < grid.length; y++){
+        for (let x= 0; x < y; x++){
             //allow the flip
             [grid[x][y],grid[y][x]] = [grid[y][x],grid[x][y]];
         }
@@ -344,21 +360,20 @@ const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7",
 
 
 //this loop determines if we continue playing or transition to game over state
-/*function loop(){
-    let alive = player.alive;
-    console.log(alive);
-    if (alive === true){
+function loop(){
+    if (alive === 1){
         trackScore();
         blockReset();
         autoDraw();
-    } else if (alive == false){
+    } else if (alive == 0){
         gameOver();
     }
-}*/
+}
+
 
 
 //------------------------------------------------------------------------------------game over screen:
-/*function gameOver(){
+function gameOver(){
     //first hide the game
 $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
@@ -372,7 +387,7 @@ $('#blocks-away').fadeOut(1000, function(){
     //player.alive = false;
     //toggle the game over screen
    $('#game-over').toggleClass("hide");
-        player.alive = false;
+        player.alive = 0;
         $("#yes").click(function(){
             $('#game-over').addClass("hide");
             $('.key-buttons').show();
@@ -383,27 +398,20 @@ $('#blocks-away').fadeOut(1000, function(){
 
         })
     });
-}*/
+}
 
 function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
-        player.alive = true;
+        player.alive = 1;
             trackScore();
             blockReset();
             autoDraw();
         $('#start-game').attr("disabled", true);
      });
     }
-function loop(){
-    if (player.alive == 0){
-        gameMode();
-    }else{
-        return;
-    }
-}
-loop();
+gameMode();
 console.log(player.alive);
 
 
