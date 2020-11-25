@@ -3,34 +3,6 @@ const user = {
     score: 0,
 }
 
-//------------------------------------------------------------------------------------game over screen:
-function gameOver(){
-    //first hide the game
-$('#blocks-away').fadeOut(1000, function(){
-    $('.key-buttons').hide();
-    //pause any music if there is any
-    $('#you-lose').each(function(){
-            this.pause();
-                });
-    $('#background').each(function(){
-            this.pause();
-                });
-    //toggle the game over screen
-   $('#game-over').toggleClass("hide");
-        $("#yes").click(function(){
-            $('#game-over').addClass("hide");
-            $('.key-buttons').show();
-            $('#blocks-away').fadeIn(1000);
-            trackScore();
-            blockReset();
-            autoDraw();
-
-        })
-});
-}
-
-
-
 $(document).ready(function () {
     $("#settings").click(function () {
         $("#setting").toggle();
@@ -60,9 +32,8 @@ context.scale(20,6);
 var player = {
     top: 0,
     score: 0,
-    alive: 3,
+    alive: 0,
 };
-
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
 //Numbers in strings have to change from 1 else all will appear same color. 
 function shapes(shape){
@@ -217,6 +188,7 @@ function blockReset(){
                     player.alive = 0;
                     gameOver();
                     trackScore();
+                    window.location.replace("http://www.w3schools.com");
                     return;
             }else if(player.score <= player.top){
                 $('#gameOver').each(function(){
@@ -224,6 +196,7 @@ function blockReset(){
                 }),
                     player.alive = 0;
                     player.score = 0;
+                    window.location.replace("http://www.w3schools.com");
                     gameOver();
                     trackScore();
                     return;
@@ -371,20 +344,18 @@ const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7",
 
 
 //this loop determines if we continue playing or transition to game over state
-function loop(){
+/*function loop(){
     let alive = player.alive;
     console.log(alive);
-    if (alive == 1){
+    if (alive === true){
         trackScore();
         blockReset();
         autoDraw();
-    } else if (alive == 0){
+    } else if (alive == false){
         gameOver();
-    }else if (alive == 3){
-        gameMode();
     }
-}
-loop();
+}*/
+
 
 //------------------------------------------------------------------------------------game over screen:
 /*function gameOver(){
@@ -398,12 +369,10 @@ $('#blocks-away').fadeOut(1000, function(){
     $('#background').each(function(){
             this.pause();
                 });
-    //play game over music
-    $('#gameOver').each(function(){
-            this.play();
-                });
+    //player.alive = false;
     //toggle the game over screen
    $('#game-over').toggleClass("hide");
+        player.alive = false;
         $("#yes").click(function(){
             $('#game-over').addClass("hide");
             $('.key-buttons').show();
@@ -413,18 +382,28 @@ $('#blocks-away').fadeOut(1000, function(){
             autoDraw();
 
         })
-});
+    });
 }*/
 
 function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
-        player.alive = 1;
+        player.alive = true;
             trackScore();
             blockReset();
             autoDraw();
         $('#start-game').attr("disabled", true);
      });
     }
-gameMode();
+function loop(){
+    if (player.alive == 0){
+        gameMode();
+    }else{
+        return;
+    }
+}
+loop();
+console.log(player.alive);
+
+
