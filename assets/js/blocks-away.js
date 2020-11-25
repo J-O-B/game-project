@@ -1,7 +1,3 @@
-const user = {
-    player: "",
-    score: 0,
-}
 //-------------------------------------------------------------Settings Toggle
 $(document).ready(function () {
     $("#settings").click(function () {
@@ -21,35 +17,24 @@ $("#off").click(function(){
     document.getElementByClassName('audio').each().volume = 0;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//main game function:
-
+// ------------------------------------Main game area: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
 //------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
 
 //Create a player so we can track the score
+
+
 var player = {
     top: 0,
     score: 0,
-    alive: 0,
 };
+
+
+
+
+
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
 //Numbers in strings have to change from 1 else all will appear same color. 
 function shapes(shape){
@@ -210,6 +195,12 @@ function blockReset(){
         //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!!
             if (player.score > player.top){
                 player.top = player.score;
+
+                player.top = JSON.stringify(player.score)
+                console.log(player.top);
+                //localStorage.setItem
+                localStorage.setItem("player",player.top);
+
                 player.score = 0;
                 $('#score').each(function(){
                     this.play();
@@ -291,11 +282,22 @@ function autoDraw(time = 0){
 //------------------------------------------------------------------------------------------ Define The Board (Canvas)
 const board = makeBlock(15,25);
 
+
+
 function trackScore() {
+    if (JSON.parse(localStorage.getItem("player",player.top)) > 0){
+    document.getElementById('player-score').innerHTML = 
+    `<h5>Scoreboard</h5>
+    <p>Top Score: ${(JSON.parse(localStorage.getItem("player",player.top)))}</p>
+    <p>Current Score: ${player.score}</p>`;
+    return;
+    }else{
     document.getElementById('player-score').innerHTML = 
     `<h5>Scoreboard</h5>
     <p>Top Score: ${player.top}</p>
     <p>Current Score: ${player.score}</p>`;
+    return;
+    }
 }
 
 
@@ -396,7 +398,6 @@ $('#blocks-away').fadeOut(1000, function(){
     $('#background').each(function(){
             this.pause();
                 });
-    //player.alive = false;
     //toggle the game over screen
    $('#game-over').toggleClass("hide");
         $("#yes").click(function(){
@@ -424,6 +425,5 @@ function gameMode(){
      });
     }
 gameMode();
-console.log(player.alive);
 
 
