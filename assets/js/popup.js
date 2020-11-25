@@ -27,8 +27,11 @@ $(document).ready(function() {
     //if close button is clicked
     $('.window .popup-button').click(function (e) {
     $('#introVid').each(function(){
-        this.pause(); // Stop playing
+        this.pause(); 
     }); 
+    $('#background').each(function(){
+            this.pause(); 
+        });
     
     //Closing the pop-up window
     //Cancel the link behavior
@@ -41,6 +44,9 @@ $(document).ready(function() {
     $('#introVid').each(function(){
         this.pause(); // Stop playing
     });
+    $('#background').each(function(){
+            this.pause(); 
+        });
   
     $(this).hide();
     $('.window').hide();

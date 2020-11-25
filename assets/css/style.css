@@ -4,11 +4,15 @@ body {
     padding:0;
     margin:0;
     color:white;
-    background-color:black;
-    background: url("../img/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
     font-family: 'Press Start 2P', cursive;
+}
+.backImg img{
+    width:100vw;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
 }
 /*---------------------------------------------Pop Up Window --*/
 #mask {
@@ -40,7 +44,7 @@ body {
   height:80vh;
   padding:10px;
   background-color:rgb(168, 0, 140);
-  background: url(../img/popup.png);
+  background: url("../img/background.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   font-size: larger;
@@ -76,13 +80,8 @@ body {
 /*--------------------------top bar---*/
 .top-bar{
     text-align: center;
+    width:100%;
     z-index:99999;
-    background: url("../img/div-background.png");
-}
-.title-text h1{
-    color:black;
-    margin:0 auto;
-    text-align: center;
 }
 /*-------------------------------top bar --*/
 
@@ -103,6 +102,12 @@ body {
     margin: 0 auto;
     padding-bottom: 50px;
     z-index: 999999;
+}
+/*-----------------------------------Welcome area*/
+#welcome{
+    text-align: center;
+    color: #000;
+    padding-top:200px;
 }
 
 /*-------------------------------Buttons --*/
@@ -332,6 +337,26 @@ body {
 #game-over{
     text-align: center;
     margin:0 auto;
+}
+#game-over option{
+    height:60px;
+    width: 100px;
+    font-weight: bolder;
+    border: 10px dashed rgb(36, 0, 168);
+    border-radius: 20%;
+    margin-right: 30px;
+}
+#yes:hover{
+    transform: rotate(5deg);
+}
+#no:hover{
+    transform: rotate(5deg);
+}
+#yes{
+    background:#00ff59;
+}
+#no{
+    background: #cc0e07;
 }
 .hide{
     display:none;

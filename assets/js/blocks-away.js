@@ -9,13 +9,11 @@ $(document).ready(function () {
 //Not sure why 'background' didn't work with a jQuery call, but works with document get???
 $("#on").click(function(){
     document.getElementById('background').play();
-    document.getElementByClassName('audio').each().volume = 1;
 });
-
 $("#off").click(function(){
     document.getElementById('background').pause();
-    document.getElementByClassName('audio').each().volume = 0;
 });
+
 
 // ------------------------------------Main game area: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
@@ -193,15 +191,14 @@ function blockReset(){
     if (stack(board, block)){
        board.forEach(row => row.fill(0));  
         //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!!
-            if (player.score > player.top){
+        if (player.score > player.top && player.score > localStorage.getItem("player",player.top)){
                 player.top = player.score;
-
                 player.top = JSON.stringify(player.score)
                 console.log(player.top);
                 //localStorage.setItem
                 localStorage.setItem("player",player.top);
-
                 player.score = 0;
+
                 $('#score').each(function(){
                     this.play();
                     }),
@@ -209,11 +206,19 @@ function blockReset(){
                     trackScore();
                     gameOver();
                     return;
-            }else if(player.score <= player.top){
+
+            }else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
                 $('#gameOver').each(function(){
                     this.play();
                 }),
                     player.score = 0;
+                    alive = false;
+                    trackScore();
+                    gameOver();
+                    return;
+
+            }else if(player.score <= player.top && player.score <= localStorage.getItem("player",player.top)){
+                    player.top = player;
                     alive = false;
                     trackScore();
                     gameOver();
@@ -400,6 +405,14 @@ $('#blocks-away').fadeOut(1000, function(){
                 });
     //toggle the game over screen
    $('#game-over').toggleClass("hide");
+        $("#no").click(function(){
+            $("#play").fadeOut(2000, function(){
+              $("#credit").show();
+                $("#gameOverScreen").each(function(){
+                this.play();
+                });  
+            }); 
+        })
         $("#yes").click(function(){
             alive = true;
             board.forEach(row => row.fill(0));

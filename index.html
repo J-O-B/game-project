@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="assets/css/credits.css">
 </head>
 <body>
+    <div class="backImg">
+    <img src="assets/img/background.png" alt="background image">
+    </div>
     <!--TopBar, add title, maybe button for credits?-->
     <div class="container top-bar">
         <div class="row title-text">
                 <h1>Blocks Away!</h1>
-                <a href="game-over.html">test</a>
-                <p>Sound <span><button>On</button></span></p>
         </div>
     </div>
 <!--Menu List-->
@@ -60,7 +61,9 @@
                     <div id="game-over" class="hide">
                         <h1>Game Over!</h1>
                         <p>Would you like to play again?</p>
-                        <button id="yes">Yes</button><button id="no" value="nul">No</button>
+                            <a id="yes" value="nul">Yes</a>
+                            <a id="no" value="opt4">No</a>
+                        <!--<a id="yes">Yes</a><a id="no" value="opt4">No</a>-->
                     </div>
                     <div class="key-buttons">
                     <button id="a"><i class="fa fa-arrow-left"></i></button>
@@ -125,7 +128,10 @@
         <div id="boxes">
             <div id="dialog" class="window">
                 <div class="row pop-up">
-                    <h1>Welcome To Blocks Away!</h1>
+                    <h2>Welcome To Blocks Away!</h2>
+                </div>
+                <div class="row pop-up">
+                    <p>A JavaScript version of a retro classic<br> Please Use The 'Main Menu' To Navigate To Your<br> Desired Section.<br>Have Fun & Good Luck!</p>
                 </div>
                 <div class="row pop-up">
                     <video id="introVid" controls>
@@ -145,7 +151,7 @@
     <section class="sound">
         <div id="background-music">
             <audio id="background" class="audio" controls>
-            <source src="assets/sound-effects/credits.mp3" type="audio/mpeg">
+            <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
@@ -175,7 +181,7 @@
             Your browser does not support the audio element.
             </audio>
             <audio id="gameOverScreen" class="audio" controls>
-            <source src="assets/sound-effects/gameOverScreen.mp3" type="audio/mpeg">
+            <source src="assets/sound-effects/credits.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
         </div>
