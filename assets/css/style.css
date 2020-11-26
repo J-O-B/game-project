@@ -3,13 +3,14 @@
 body {
     padding:0;
     margin:0;
-    color:white;
+    color:black;
     font-family: 'Press Start 2P', cursive;
 }
 .carousel{
     color:black;
-    background: red;
+    background: rgb(197,209,163);
     height:700px;
+    max-width: 100vw;
 }
 .carousel-inner{
     height:700px;
@@ -17,7 +18,10 @@ body {
 .carousel-item{
     text-align: center;
     list-style: none;
-    padding-top: 100px;
+    max-width:90vw;
+    margin-top: 50px;
+    margin-left:20px;
+    margin-right:20px;
 }
 
 /*---------------------------------------------Pop Up Window --*/
@@ -84,24 +88,13 @@ body {
 
 
 /*--------------------------Main Menu */
-.main-menu{
-    display:block;
-    align-items: center;
+.buttons{
+    background: black;
+    width: 100%;
+    display: flex;
     justify-content: center;
-    margin: 0 auto;
-    padding-top:50px;
-    width:100%;
-    z-index: 999999;
+    align-content: center;
 }
-
-.menu-title{
-    width:100%;
-    font-size: 100%;
-    margin: 0 auto;
-    padding-bottom: 50px;
-    z-index: 999999;
-}
-
 /*-------------------------------Buttons --*/
 .popup-button{
     text-align: center;
@@ -117,8 +110,7 @@ body {
 }
 .retro-button{
     text-align: center;
-    padding:10px;
-    width:80px;
+    width:150px;
     font-size: large;
     background: orangered;
     border-radius:20%;
@@ -131,12 +123,15 @@ body {
     text-align: center;
     padding:10px;
     list-style: none;
-    width:100%;
+    width:auto;
     font-size: large;
     background: orangered;
     border-radius:20%;
     box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
     border: 5px dashed black;
+}
+.carouselButton{
+    display:inline;
 }
 
 
@@ -271,10 +266,6 @@ body {
 
 /*----------------------------- Sections---*/
 
-#play{
-    min-width: 300px;
-
-}
 #setting{
     display: none;
 }

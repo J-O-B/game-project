@@ -39,4 +39,5 @@ $('#credits').click(function(){
     $('.contact').hide();
     $(".content").hide();
     $(".credits").show();
+    $("#gameOverScreen").play();
 })

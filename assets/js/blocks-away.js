@@ -7,12 +7,21 @@ $(document).ready(function () {
 
 //-------------------------------------------------------------------Audio
 //Not sure why 'background' didn't work with a jQuery call, but works with document get???
+var audio = {
+    playing : 0,
+}
+
 $("#on").click(function(){
     document.getElementById('background').play();
+    audio.playing = 1;
 });
 $("#off").click(function(){
-    document.getElementById('background').pause();
+     document.getElementById('background').pause();
+     audio.playing = 0;
 });
+
+
+
 
 
 // ------------------------------------Main game area: ---------------------------------------------
@@ -28,9 +37,6 @@ var player = {
     top: 0,
     score: 0,
 };
-
-
-
 
 
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
@@ -149,9 +155,12 @@ function dropBlock(){
     if (stack(board, block)){
         block.position.y--;
         merge(board, block);
-        $('#thud').each(function(){
-                    this.play();
-                    });
+        
+        if (audio.playing == 1){
+            $('#thud').each(function(){
+                this.play();
+            });
+        }else{}
         //Reset Block After Landing ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
         
         blockReset();
@@ -177,7 +186,6 @@ var alive = true;
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
     if (alive == false){
-    const empty = "I";
     block.grid = shapes('I');
     block.position.y = 1;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
@@ -199,18 +207,28 @@ function blockReset(){
                 localStorage.setItem("player",player.top);
                 player.score = 0;
 
-                $('#score').each(function(){
-                    this.play();
-                    }),
+                 if (audio.playing == 1){
+                    $('#background').each(function(){
+                        this.pause();
+                    })
+                    $('#score').each(function(){
+                        this.play();
+                    })
+                }
                     alive = false;
                     trackScore();
                     gameOver();
                     return;
 
             }else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
-                $('#gameOver').each(function(){
-                    this.play();
-                }),
+                if (audio.playing == 1){
+                    $('#background').each(function(){
+                        this.pause();
+                    })
+                    $('#gameOver').each(function(){
+                        this.play();
+                    })
+                }
                     player.score = 0;
                     alive = false;
                     trackScore();
@@ -330,9 +348,11 @@ function clearTheLine(){
         ++y;
         
         //Play sound on line break
-        $('#line-break').each(function(){
-        this.play();
-        });
+        if (audio.playing == 1){
+            $('#line-break').each(function(){
+            this.play();
+            });
+        }
         player.score += lineCounter * 10;
         lineCounter *= 2;
     }
@@ -397,20 +417,28 @@ board.forEach(row => row.fill(0));
 $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
     //pause any music if there is any
+    if (audio.playing == 1){
+    $('#background').each(function(){
+            this.pause();
+                });
+
     $('#you-lose').each(function(){
             this.pause();
                 });
     $('#background').each(function(){
             this.pause();
                 });
+            }
     //toggle the game over screen
    $('#game-over').toggleClass("hide");
         $("#no").click(function(){
             $("#play").fadeOut(2000, function(){
               $("#credit").show();
+              if (audio.playing == 1){
                 $("#gameOverScreen").each(function(){
                 this.play();
-                });  
+                })
+                };  
             }); 
         })
         $("#yes").click(function(){
