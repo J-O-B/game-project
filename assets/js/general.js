@@ -25,6 +25,7 @@ $('#home').click(function(){
     $('.contact').hide();
     $(".content").hide();
     $(".credits").hide();
+    $(".social").hide();
 })
 
 $('#contact').click(function(){
@@ -32,6 +33,7 @@ $('#contact').click(function(){
     $('.contact').show();
     $(".content").hide();
     $(".credits").hide();
+    $(".social").hide();
 })
 
 $('#credits').click(function(){
@@ -39,5 +41,35 @@ $('#credits').click(function(){
     $('.contact').hide();
     $(".content").hide();
     $(".credits").show();
-    $("#gameOverScreen").play();
+    $(".social").hide();
+    if (audio.playing == 1){
+    $("#gameOverScreen").click(function(){
+        this.play();
+        })
+    }
 })
+$('#social').click(function(){
+    $("#carouselExampleCaptions").hide();
+    $('.contact').hide();
+    $(".content").hide();
+    $(".credits").hide();
+    $(".social").show();
+})
+
+//Email Form:
+function sendMail(contactForm) {
+    emailjs.send("gmail", "john", {
+        "from_name": contactForm.name.value,
+        "from_email": contactForm.emailaddress.value,
+        "project_request": contactForm.projectsummary.value
+    })
+    .then(
+        function(response) {
+            console.log("SUCCESS", response);
+        },
+        function(error) {
+            console.log("FAILED", error);
+        }
+    );
+    return false;  // To block from loading a new page
+}
