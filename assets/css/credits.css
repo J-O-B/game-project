@@ -109,25 +109,25 @@ p#start
 /* the interesting 3D scrolling stuff */
 #titles
 {
-	position: absolute;
-	width: 18em;
-	height: 100%;
-	bottom: 0;
-	left: 50%;
-	margin-left: -9em;
-	font-size: 350%;
-	text-align: justify;
-	overflow: hidden;
-	-webkit-transform-origin: 50% 100%;
-	-moz-transform-origin: 50% 100%;
-	-ms-transform-origin: 50% 100%;
-	-o-transform-origin: 50% 100%;
-	transform-origin: 50% 100%;
-	-webkit-transform: perspective(300px) rotateX(25deg);
-	-moz-transform: perspective(300px) rotateX(25deg);
-	-ms-transform: perspective(300px) rotateX(25deg);
-	-o-transform: perspective(300px) rotateX(25deg);
-	transform: perspective(300px) rotateX(25deg);
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    bottom: 100px;
+    left: 35%;
+    margin-left: -9em;
+    font-size: 350%;
+    text-align: justify;
+    overflow: hidden;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: perspective(300px) rotateX(25deg);
+    -moz-transform: perspective(300px) rotateX(25deg);
+    -ms-transform: perspective(300px) rotateX(25deg);
+    -o-transform: perspective(300px) rotateX(25deg);
+    transform: perspective(300px) rotateX(25deg);
 }
 
 #titles:after

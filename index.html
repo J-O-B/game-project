@@ -38,46 +38,34 @@
                         <li>Rotate Right: "E" key</li>
                         <li>Rotate Left: "Q" key</li>
                     </ul>
-                <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p>
-                <br><br>
-                <a href="#carouselExampleCaptions" role="button" data-slide="prev" class="retro-button">-  Welcome Screen</a>
-                <a href="#carouselExampleCaptions" role="button" data-slide="next" class="retro-button">Credits -</a>
+                    <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p>
+                    <br><br>
+                    <div class="col-md">
+                        <a href="#carouselExampleCaptions" role="button" data-slide="prev" class="retro-button">-  Welcome Screen</a>
+                    </div>
+                    <div class="col-md">
+                        <a href="#carouselExampleCaptions" role="button" data-slide="next" class="retro-button">Credits -</a>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <div class="content">
                         <h3>Credits</h3>
                         <section class="credits">
                             <p id="start">Coding By John O'Brien<br> <a href="https://johnobrien.net">JohnOBrien.net/</a></p>
-
                             <h1>Blocks Away<sub>By John O'Brien</sub></h1>
-
                             <div id="titles">
                             <div id="titlecontent">
-
-                                <p class="center">Credits</p>
-
                                 <p>This project was made using HTML, CSS and JavaScript</p>
-
                                 <p>To view the repository for this site, including all of its features, visit: <a href="https://github.com/J-O-B/game-project">J-O-B GitHub</a></p>
-
                                 <p class="center">With Special Thanks To:</p>
-
                                 <p class="center"><strong>Pixabay</strong></p>
-                            
                                 <p>Pixabay for various images, to check out royalty free images, like images used on this website, you can do so at:</p>
-
                                 <p class="center"><a href="http://pixabay.com" target="_blank">Pixabay.com/</a></p>
-
                                 <p class="center"><strong>Scott Bram</strong></p>
-                            
                                 <p>The original code for this "credit text" can be found on CodePen</p>
-
                                 <p class="center"><a href="https://codepen.io/scottbram" target="_blank">View Code<br/></a></p>
-
                                 <p class="center"><strong>ZapSplat.com</strong></p>
-                            
                                 <p>Sound effects that are used in the Tetris game can be found at</p>
-
                                 <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p>
                                 </div>
                             </div>
@@ -95,8 +83,40 @@
             </a>
         </div>
 
+        <div class="container">
+            <div class="row buttons">
+                <div class="col">
+                    <button class="retro-buttons" id="home">Home</button>
+                </div>
+                <div class="col">
+                    <button class="retro-buttons" id="play">Play</button>
+                </div>
+                <div class="col">
+                    <button class="retro-buttons" id="contact">Contact</button>
+                </div>
+                <div class="col">
+                    <button class="retro-buttons" id="credits">Credits</button>
+                </div>
+            </div>
+        </div>
 
 <!--Game Section-->
+        <div class="container">
+            <div class="row home">
+                Social Goes Here
+            </div>
+        </div>
+        <div class="container">
+            <div class="row contact">
+                Contact Goes Here
+            </div>
+        </div>
+        <div class="container">
+            <div class="row credits">
+                
+            </div>
+        </div>
+
                 <div class="content">
                     <button type="button" id="start-game">Play Game</button>
                     <button type="button" id="settings" >Settings</button>
@@ -133,8 +153,12 @@
                         type="video/mp4">   
                         Sorry, your browser doesn't support embedded videos.
                     </video>
+                    <span class="sr-only">Intro video</span>
                 </div>    
-                <div class="row" id="popupfoot">
+                <div class="row pop-up">
+                    <h3>Press Play To Begin:</h3>
+                </div>
+                <div class="row pop-up" id="popupfoot">
                     <button class="popup-button"><a href="#"><h1>Play!</h1></a></button>
                 </div>
             </div>

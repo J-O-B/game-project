@@ -17,7 +17,7 @@ body {
 .carousel-item{
     text-align: center;
     list-style: none;
-
+    padding-top: 100px;
 }
 
 /*---------------------------------------------Pop Up Window --*/
@@ -47,12 +47,9 @@ body {
  
 #boxes #dialog {
   width:90vw;
-  height:80vh;
+  height:500px;
   padding:10px;
-  background-color:rgb(168, 0, 140);
-  background: url("../img/popup.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background: radial-gradient(#000, transparent);
   font-size: larger;
 }
 
@@ -74,10 +71,9 @@ body {
 }
 #introVid{
     margin-bottom:20px;
-    width:90%;
-    height:70vh;
-    border-radius: 30%;
-
+    height:450px;
+    width:70%;
+    border-radius: 5%;
 }
 @media only screen and (max-width: 800px) {
     #introVid{
@@ -130,7 +126,7 @@ body {
     border: 5px dashed black;
 }
 
-.menu-buttons{
+.retro-buttons{
     margin:0 auto;
     text-align: center;
     padding:10px;
@@ -142,19 +138,7 @@ body {
     box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
     border: 5px dashed black;
 }
-.menu-button{
-    margin:0 auto;
-    text-align: center;
-    padding:10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width:100%;
-    font-size: large;
-    background: rgb(175, 55, 175);
-    border-radius:20%;
-    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 5px dashed black;
-}
+
 
 /*-------------------------------main-menu --*/
 
