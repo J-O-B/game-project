@@ -9,3 +9,6 @@ $(function() {
     $("." + $(this).val()).addClass('current-opt');
   });
 })
+$('.carousel').carousel({
+  interval: false,
+});

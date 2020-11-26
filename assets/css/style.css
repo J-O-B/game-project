@@ -6,14 +6,20 @@ body {
     color:white;
     font-family: 'Press Start 2P', cursive;
 }
-.backImg img{
-    width:100vw;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left:0;
-    z-index: -1;
+.carousel{
+    color:black;
+    background: red;
+    height:700px;
 }
+.carousel-inner{
+    height:700px;
+}
+.carousel-item{
+    text-align: center;
+    list-style: none;
+
+}
+
 /*---------------------------------------------Pop Up Window --*/
 #mask {
   position:absolute;
@@ -44,7 +50,7 @@ body {
   height:80vh;
   padding:10px;
   background-color:rgb(168, 0, 140);
-  background: url("../img/background.png");
+  background: url("../img/popup.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   font-size: larger;
@@ -68,7 +74,10 @@ body {
 }
 #introVid{
     margin-bottom:20px;
-    width:800px;
+    width:90%;
+    height:70vh;
+    border-radius: 30%;
+
 }
 @media only screen and (max-width: 800px) {
     #introVid{
@@ -77,13 +86,6 @@ body {
 }
 /*--------------------------------------------- End Pop Up Window --*/
 
-/*--------------------------top bar---*/
-.top-bar{
-    text-align: center;
-    width:100%;
-    z-index:99999;
-}
-/*-------------------------------top bar --*/
 
 /*--------------------------Main Menu */
 .main-menu{
@@ -102,12 +104,6 @@ body {
     margin: 0 auto;
     padding-bottom: 50px;
     z-index: 999999;
-}
-/*-----------------------------------Welcome area*/
-#welcome{
-    text-align: center;
-    color: #000;
-    padding-top:200px;
 }
 
 /*-------------------------------Buttons --*/
