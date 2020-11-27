@@ -20,6 +20,7 @@ $('.back').click(function(){
     $(".contact").hide();
     $(".social").hide();
     $(".credits").hide();
+    $('#game-over').hide();
     $('.menu').toggle();
 })
 
@@ -27,7 +28,7 @@ $("#instructions").click(function(){
     $(".instructions").show();
     $('.menu').toggle();
 });
-$("#set").click(function(){
+$("#settings").click(function(){
     $(".settings").show();
     $('.menu').toggle();
 });

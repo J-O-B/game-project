@@ -1,12 +1,4 @@
-//-------------------------------------------------------------Settings Toggle
-$(document).ready(function () {
-    $("#settings").click(function () {
-        $("#setting").toggle();
-    });
-});
-
 //-------------------------------------------------------------------Audio
-//Not sure why 'background' didn't work with a jQuery call, but works with document get???
 var audio = {
     playing : 0,
 }
@@ -37,17 +29,23 @@ $('#sound').click(function(){
 //Difficulty:
 $('#easy').click(function(){
     fallRate = 400;
+    $('.difficulty').text("Difficulty: Easy Selected");
 })
 $('#med').click(function(){
-    fallRate = 200;
+    fallRate = 300;
+    $('.difficulty').text("Difficulty: Medium Selected");
 })
 $('#hard').click(function(){
-    fallRate = 100;
+    fallRate = 200;
+    $('.difficulty').text("Difficulty: Hard Selected");
 })
+
 
 // ------------------------------------Main game area: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
+
+
 //------------------------------------------------------------------------------------------ Scale The Blocks.
 context.scale(20,6);
 
@@ -182,17 +180,17 @@ function dropBlock(){
             $('#thud').each(function(){
                 this.play();
             });
-        }else{}
+        }else{
+            
+        }
         //Reset Block After Landing ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
         
         blockReset();
-        
-        
-        
         //Remove line when full
         clearTheLine();
         //Add the score to scoreboard.
         trackScore();
+        fallRate - 10;
     }
     fallCount=0;
 }
@@ -417,10 +415,8 @@ document.addEventListener("keydown", event =>{
 
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
-
-
 //this loop determines if we continue playing or transition to game over state
-function loop(){
+/*function loop(){
     if (alive == true){
         trackScore();
         blockReset();
@@ -428,7 +424,7 @@ function loop(){
     } else if (alive == false){
         gameOver();
     }
-}
+}*/
 
 
 
@@ -452,22 +448,16 @@ $('#blocks-away').fadeOut(1000, function(){
                 });
             }
     //toggle the game over screen
-   $('#game-over').toggleClass("hide");
+   $('#game-over').show();
         $("#no").click(function(){
-            $("#play").fadeOut(2000, function(){
-              $("#credit").show();
-              if (audio.playing == 1){
-                $("#gameOverScreen").each(function(){
-                this.play();
-                })
-                };  
-            }); 
+            $('.content').fadeOut(500);
+              $(".menu").fadeIn(2000); 
         })
         $("#yes").click(function(){
             alive = true;
             board.forEach(row => row.fill(0));
-            $('#game-over').addClass("hide");
-            $('.key-buttons').show();
+            $('#game-over').hide();
+            $('.key-buttons').fadeIn(500);
             $('#blocks-away').fadeIn(1000);
             trackScore();
             blockReset();

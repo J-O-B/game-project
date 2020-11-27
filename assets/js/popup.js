@@ -1,10 +1,12 @@
 //Page Load Popup - (www.jqueryscript.net/lightbox/Simple-jQuery-Plugin-For-Opening-A-Popup-Window-On-Page-load.html)
 $(document).ready(function() {
+    //initial visibility of differnet sections & buttons
     $(".content").hide(); 
     $(".credits").hide();
     $('.contact').hide();
     $('.social').hide();
     $('.settings').hide();
+    $('#game-over').hide()
     $('#mute').hide();
     $('.instructions').hide();
     $('#sound').show();

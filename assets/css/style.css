@@ -3,6 +3,7 @@
 body {
     padding:0;
     margin:0;
+    background: lightslategray;
     color:black;
     font-family: 'Press Start 2P', cursive;
 }
@@ -67,50 +68,24 @@ body {
     }
 }
 /*--------------------------------------------- End Pop Up Window --*/
-
-/*-------------------------------------------Sound Button----*/
-#sound button{
-    position:fixed;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    top:15px;
-    right:15px;
-    width:45px;
-    height: 45px;
-    border-radius: 50%;
-    color:black;
-    background:peru;
-    z-index:9000;
-    text-align: center;
-    font-size: 22px;
-}
-#mute button{
-    position:fixed;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    top:15px;
-    right:15px;
-    width:45px;
-    height: 45px;
-    border-radius: 50%;
-    color:black;
-    background:peru;
-    z-index:9000;
-    text-align: center;
-    font-size: 22px;
-}
 /*--------------------------Main Menu */
 .menu{
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top:20px;
+    margin-top:50px;
 }
-.retro-button:hover{
-    background:#424040;
-    color:white;
+
+.back{
+    display:block;
+}
+.instructions,
+.settings,
+.content,
+.contact,
+.social,
+.credits{
+    display:block;
 }
 /*-------------------------------Buttons --*/
 .popup-button{
@@ -129,10 +104,14 @@ body {
     text-align: center;
     width:250px;
     font-size: large;
-    background: orchid;
-    border-radius:20%;
-    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 5px dashed black;
+    background: grey;
+    border-radius:5%;
+    box-shadow: 0 5px 20px rgba(0,0,0, 0.8);
+    border: 3px dashed black;
+}
+.retro-button:hover{
+    background:#424040;
+    color:white;
 }
 
 .retro-buttons{
@@ -142,100 +121,63 @@ body {
     list-style: none;
     width:auto;
     font-size: large;
-    background: orangered;
+    background: gray;
     border-radius:20%;
     box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 5px dashed black;
+    border: 2px dashed black;
 }
-.carouselButton{
-    display:inline;
+/*-------------------------------------------Sound Button----*/
+#sound button{
+    position:fixed;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    top:15px;
+    right:15px;
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    color:black;
+    background:grey;
+    z-index:9000;
+    text-align: center;
+    font-size: 22px;
 }
-
-/* -----------------------------Sound ---*/
+#mute button{
+    position:fixed;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    top:15px;
+    right:15px;
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    color:grey;
+    background: black;
+    z-index:9000;
+    text-align: center;
+    font-size: 22px;
+}
 .sound audio{
     display:none;
 }
 
-/*----------------------------- Sections---*/
 
-#setting{
-    display: none;
-}
-.center{
-    margin:0 auto;
-    display:flex;   
-}
-#start-game{
-    margin:0 auto;
-    display:flex;
-}
-#player-score{
-    text-align: center;
-    width: 300px;
-    margin: 0 auto;  
-}
-#settings{
-    margin:0 auto; 
-    display:flex;
-}
+/* -----------------------------Game ---*/
 
-#blocks-away{
-    width:300px;
+canvas{
     height:600px;
-    display:flex;
-    margin:0 auto;
-}
-.key-buttons{
     width:300px;
-    margin: 0 auto;
+}
+
+/*-----------------------------Screens --*/
+.container{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
-.key-buttons button{
-    width:60px;
-    height:35px;
-}
-
-#game-over{
+.instructions ul{
     text-align: center;
-    margin:0 auto;
-}
-#game-over option{
-    height:60px;
-    width: 100px;
-    font-weight: bolder;
-    border: 10px dashed rgb(36, 0, 168);
-    border-radius: 20%;
-    margin-right: 30px;
-}
-#yes:hover{
-    transform: rotate(5deg);
-}
-#no:hover{
-    transform: rotate(5deg);
-}
-#yes{
-    margin:0 auto;
-    text-align: center;
-    padding:10px;
     list-style: none;
-    width:auto;
-    font-size: large;
-    background:#00ff59;
-    border-radius:20%;
-    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 5px dashed black;
-}
-#no{
-    margin:0 auto;
-    text-align: center;
-    padding:10px;
-    list-style: none;
-    width:auto;
-    font-size: large;
-    border-radius:20%;
-    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 5px dashed black;
-    background: #cc0e07;
 }
