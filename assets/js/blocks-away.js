@@ -3,24 +3,32 @@ var audio = {
     playing : 0,
 }
 
-$("#on").click(function(){
+$(".on").click(function(){
     document.getElementById('background').play();
+    $('.audioFeedback').text("Audio Selected: ON");
+    $('#sound').show();
+    $('#mute').hide();
     audio.playing = 1;
 });
-$("#off").click(function(){
-     document.getElementById('background').pause();
-     audio.playing = 0;
+$(".off").click(function(){
+    document.getElementById('background').pause();
+    $('.audioFeedback').text("Audio Selected: OFF");
+    $('#sound').hide();
+    $('#mute').show();
+    audio.playing = 0;
 });
 
 //Global Sound Button
 $('#mute').click(function(){
     document.getElementById('background').play();
+    $('.audioFeedback').text("Audio Selected: ON");
     $('#sound').show();
     $('#mute').hide();
     audio.playing = 1;
 })
 $('#sound').click(function(){
     document.getElementById('background').pause();
+    $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
     audio.playing = 0;

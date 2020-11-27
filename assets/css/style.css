@@ -3,7 +3,7 @@
 body {
     padding:0;
     margin:0;
-    background: lightslategray;
+    background: rgb(196,207,161);
     color:black;
     font-family: 'Press Start 2P', cursive;
 }
@@ -112,6 +112,7 @@ body {
 .retro-button:hover{
     background:#424040;
     color:white;
+    transition-duration: 1s; 
 }
 
 .retro-buttons{
@@ -165,12 +166,29 @@ body {
 
 
 /* -----------------------------Game ---*/
-
+.game{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.content button{
+    margin:0 auto;
+}
 canvas{
     height:600px;
     width:300px;
 }
-
+#player-score{
+    text-align: center;
+}
+#yes:hover{
+    background: green;
+    transition-duration: 2s;   
+}
+#no:hover{
+    background: red;
+    transition-duration: 2s;   
+}
 /*-----------------------------Screens --*/
 .container{
     display: flex;

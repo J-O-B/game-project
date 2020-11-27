@@ -6,7 +6,8 @@ $(document).ready(function() {
     $('.contact').hide();
     $('.social').hide();
     $('.settings').hide();
-    $('#game-over').hide()
+    $('#game-over').hide();
+    $("#start-game").hide();
     $('#mute').hide();
     $('.instructions').hide();
     $('#sound').show();

@@ -22,10 +22,10 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=3311727825574849&autoLogAppEvents=1" nonce="L9Lhwqd3"></script>
 
     <!--Sound Button-->
-    <div id="sound">
+    <div class="on" id="sound">
         <button class="retro-buttons"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
     </div>
-    <div id="mute">
+    <div class="off" id="mute">
         <button class="retro-buttons"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
     </div>
     
@@ -69,7 +69,7 @@
                     <li>Rotate Left: "Q" key</li>
                 </ul>
                 <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p> 
-                <button class="retro-buttons back">Back</button>
+                <button class="retro-button back">Back</button>
             </div>        
         </div>
     </div>
@@ -81,8 +81,8 @@
                 <h4>Settings:</h4>
                 <p>Please Select Your Game & Audio Settings:</p>
                 <p>Audio: <br>
-                <span id="on"><button>ON</button></span>
-                <span id="off"><button>OFF</button></span>
+                <span class="on"><button>ON</button></span>
+                <span class="off"><button>OFF</button></span>
                 </p>
                 <p class="audioFeedback">Default: OFF</p>
                 <p>Difficulty: <br> 
@@ -91,32 +91,34 @@
                 <span id="hard"><button>Hard</button></span>
                 </p>
                 <p class="difficulty">Default: Easy</p>
-                <button class="retro-buttons back">Back</button>
+                <button class="retro-button back">Back</button>
             </div>
         </div>
     </div>   
-    <!--Game Screen-->       
-    <div class="content">
-        <button type="button" id="start-game">Start</button>
-        <div id="player-score"></div>
-            <canvas id="blocks-away"></canvas>
+    <!--Game Screen-->   
+    <div class="container">
+        <div class="row game"> 
+            <button type="button" id="start-game">Start</button>   
+            <div class="content">
+                <div id="player-score"></div>
+                <canvas id="blocks-away"></canvas>
                 <div id="game-over">
                     <h1>Game Over!</h1>
                     <p>Would you like to play again?</p>
-                    <a id="yes" value="nul">Yes</a>
-                    <a id="no" value="opt4">No</a>
-                        <!--<a id="yes">Yes</a><a id="no" value="opt4">No</a>-->
+                    <button class="retro-button" id="yes">Yes</button>
+                    <button class="retro-button" id="no">No</button>
                 </div>
-            <div class="key-buttons">
-                <button id="a"><i class="fa fa-arrow-left"></i></button>
-                <button id="s"><i class="fa fa-arrow-down"></i></button>
-                <button id="d"><i class="fa fa-arrow-right"></i></button>
-                <button id="q"><i class="fa fa-undo"></i></button>
-                <button id="e"><i class="fa fa-repeat"></i></button>
+                <div class="key-buttons row">
+                    <button id="a"><i class="fa fa-arrow-left"></i></button>
+                    <button id="s"><i class="fa fa-arrow-down"></i></button>
+                    <button id="d"><i class="fa fa-arrow-right"></i></button>
+                    <button id="q"><i class="fa fa-undo"></i></button>
+                    <button id="e"><i class="fa fa-repeat"></i></button>
+                </div>
+                <button class="retro-button back">Back</button>
             </div>
-            <button class="retro-buttons back">Back</button>
         </div>
-
+    </div>
 
 
 
@@ -133,7 +135,7 @@
                         <button type="submit" class="btn btn-secondary center-block">Send Feedback</button>
                     </form>
                 </div>
-                <button class="retro-buttons back">Back</button>
+                <button class="retro-button back">Back</button>
             </div>
         </div>
         <!--Social Share-->
@@ -141,7 +143,7 @@
             <div class="row social">
                 If you liked this game, you can share it with your friends and connections:
                 <div class="fb-share-button" data-href="https://j-o-b.github.io/game-project/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fj-o-b.github.io%2Fgame-project%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                <button class="retro-buttons back">Back</button>
+                <button class="retro-button back">Back</button>
             </div>
         </div>
         <!--Credits-->
@@ -167,7 +169,7 @@
                             <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p>
                         </div>
                     </div>
-                    <button class="retro-buttons back">Back</button>
+                    <button class="retro-button back">Back</button>
                 </section>
             </div>
         </div>

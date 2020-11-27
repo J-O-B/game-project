@@ -33,8 +33,12 @@ $("#settings").click(function(){
     $('.menu').toggle();
 });
 $("#play").click(function(){
-    $(".content").show();
+    $("#start-game").show();
     $('.menu').toggle();
+});
+$("#start-game").click(function(){
+    $("#start-game").hide();
+    $(".content").show();
 });
 $("#contact").click(function(){
     $(".contact").show();
