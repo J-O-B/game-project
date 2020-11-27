@@ -13,49 +13,40 @@ $('.carousel').carousel({
   interval: false,
 });
 
-$('#play').click(function(){
-    $("#carouselExampleCaptions").hide();
-    $('.contact').hide();
+$('.back').click(function(){
+    $(".instructions").hide();
+    $(".settings").hide();
+    $(".content").hide();
+    $(".contact").hide();
+    $(".social").hide();
+    $(".credits").hide();
+    $('.menu').toggle();
+})
+
+$("#instructions").click(function(){
+    $(".instructions").show();
+    $('.menu').toggle();
+});
+$("#set").click(function(){
+    $(".settings").show();
+    $('.menu').toggle();
+});
+$("#play").click(function(){
     $(".content").show();
-    $(".credits").hide();
-})
-
-$('#home').click(function(){
-    $("#carouselExampleCaptions").show();
-    $('.contact').hide();
-    $(".content").hide();
-    $(".credits").hide();
-    $(".social").hide();
-})
-
-$('#contact').click(function(){
-    $("#carouselExampleCaptions").hide();
-    $('.contact').show();
-    $(".content").hide();
-    $(".credits").hide();
-    $(".social").hide();
-})
-
-$('#credits').click(function(){
-    $("#carouselExampleCaptions").hide();
-    $('.contact').hide();
-    $(".content").hide();
-    $(".credits").show();
-    $(".social").hide();
-    if (audio.playing == 1){
-    $("#gameOverScreen").click(function(){
-        this.play();
-        })
-    }
-})
-$('#social').click(function(){
-    $("#carouselExampleCaptions").hide();
-    $('.contact').hide();
-    $(".content").hide();
-    $(".credits").hide();
+    $('.menu').toggle();
+});
+$("#contact").click(function(){
+    $(".contact").show();
+    $('.menu').toggle();
+});
+$("#social").click(function(){
     $(".social").show();
-})
-
+    $('.menu').toggle();
+});
+$("#credits").click(function(){
+    $(".credits").show();
+    $('.menu').toggle();
+});
 //Email Form:
 function sendMail(contactForm) {
     emailjs.send("gmail", "john", {

@@ -73,23 +73,53 @@
                 </ul>
                 <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p> 
             </div>        
-             
+             <button class="retro-button back">Back</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row settings">
+            Settings
+            <button class="retro-button back">Back</button>
         </div>
     </div>          
-
-        <!--Social Share-->
-        <div class="container">
-            <div class="row social">
-                If you liked this game, you can share it with your friends and connections:
-                <div class="fb-share-button" data-href="https://j-o-b.github.io/game-project/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fj-o-b.github.io%2Fgame-project%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <div class="content">
+        <button type="button" id="start-game">Play Game</button>
+        <button type="button" id="settings" >Settings</button>
+        <div id="setting">
+            <div class="center">
+                <h4>Settings:</h4>
+                <p>Audio: <br><span id="on"><button>ON</button></span><br><span id="off"><button>OFF</button></span></p>
+                <p>Difficulty: <br> 
+                <span id="easy"><button>Easy</button></span>
+                <span id="med"><button>Medium</button></span>
+                <span id="hard"><button>Hard</button></span>
+                </p>
+                <button class="retro-button back">Back</button>
             </div>
         </div>
-        <!--Contact Form-->
+        <div id="player-score"></div>
+            <canvas id="blocks-away"></canvas>
+                <div id="game-over" class="hide">
+                    <h1>Game Over!</h1>
+                    <p>Would you like to play again?</p>
+                    <a id="yes" value="nul">Yes</a>
+                    <a id="no" value="opt4">No</a>
+                        <!--<a id="yes">Yes</a><a id="no" value="opt4">No</a>-->
+                </div>
+            <div class="key-buttons">
+                <button id="a"><i class="fa fa-arrow-left"></i></button>
+                <button id="s"><i class="fa fa-arrow-down"></i></button>
+                <button id="d"><i class="fa fa-arrow-right"></i></button>
+                <button id="q"><i class="fa fa-undo"></i></button>
+                <button id="e"><i class="fa fa-repeat"></i></button>
+            </div>
+            <button class="retro-button back">Back</button>
+        </div>
+    <!--Contact Form-->
         <div class="container">
             <div class="row contact">
                 <h3 class="contact-heading uppercase text-center">Got Feedback?</h3>
                 <h5 class="uppercase text-center">Let me know about it!</h5>
-
                 <div class="center-form">
                     <form onsubmit="return sendMail(this);">
                         <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
@@ -98,6 +128,15 @@
                         <button type="submit" class="btn btn-secondary center-block">Send Feedback</button>
                     </form>
                 </div>
+                <button class="retro-button back">Back</button>
+            </div>
+        </div>
+        <!--Social Share-->
+        <div class="container">
+            <div class="row social">
+                If you liked this game, you can share it with your friends and connections:
+                <div class="fb-share-button" data-href="https://j-o-b.github.io/game-project/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fj-o-b.github.io%2Fgame-project%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                <button class="retro-button back">Back</button>
             </div>
         </div>
         <!--Credits-->
@@ -123,42 +162,12 @@
                             <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p>
                         </div>
                     </div>
+                    <button class="retro-button back">Back</button>
                 </section>
             </div>
         </div>
         <!--Main Game Screen-->
-                <div class="content">
-                    <button type="button" id="start-game">Play Game</button>
-                    <button type="button" id="settings" >Settings</button>
-                    <div id="setting">
-                        <div class="center">
-                            <h4>Settings:</h4>
-                            <p>Audio: <br><span id="on"><button>ON</button></span><br><span id="off"><button>OFF</button></span></p>
-                            <p>Difficulty: <br> 
-                            <span id="easy"><button>Easy</button></span>
-                            <span id="med"><button>Medium</button></span>
-                            <span id="hard"><button>Hard</button></span>
-                            
-                            </p>
-                        </div>
-                    </div>
-                    <div id="player-score"></div>
-                    <canvas id="blocks-away"></canvas>
-                    <div id="game-over" class="hide">
-                        <h1>Game Over!</h1>
-                        <p>Would you like to play again?</p>
-                            <a id="yes" value="nul">Yes</a>
-                            <a id="no" value="opt4">No</a>
-                        <!--<a id="yes">Yes</a><a id="no" value="opt4">No</a>-->
-                    </div>
-                    <div class="key-buttons">
-                        <button id="a"><i class="fa fa-arrow-left"></i></button>
-                        <button id="s"><i class="fa fa-arrow-down"></i></button>
-                        <button id="d"><i class="fa fa-arrow-right"></i></button>
-                        <button id="q"><i class="fa fa-undo"></i></button>
-                        <button id="e"><i class="fa fa-repeat"></i></button>
-                    </div>
-                </div>
+                
 
         <!--Popup on page load with intro video-->
         <div id="boxes">

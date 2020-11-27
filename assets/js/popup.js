@@ -4,6 +4,7 @@ $(document).ready(function() {
     $(".credits").hide();
     $('.contact').hide();
     $('.social').hide();
+    $('.settings').hide();
     $('#mute').hide();
     $('.instructions').hide();
     $('#sound').show();
