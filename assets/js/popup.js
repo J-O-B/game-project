@@ -3,6 +3,11 @@ $(document).ready(function() {
     $(".content").hide(); 
     $(".credits").hide();
     $('.contact').hide();
+    $('.social').hide();
+    $('#mute').hide();
+    $('.instructions').hide();
+    $('#sound').show();
+    
     var id ='#dialog';
     
     //Get the screen height and width
@@ -33,7 +38,7 @@ $(document).ready(function() {
         this.pause(); 
     }); 
     $('#background').each(function(){
-            this.pause(); 
+            this.play(); 
         });
     
     //Closing the pop-up window

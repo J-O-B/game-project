@@ -20,9 +20,30 @@ $("#off").click(function(){
      audio.playing = 0;
 });
 
+//Global Sound Button
+$('#mute').click(function(){
+    document.getElementById('background').play();
+    $('#sound').show();
+    $('#mute').hide();
+    audio.playing = 1;
+})
+$('#sound').click(function(){
+    document.getElementById('background').pause();
+    $('#sound').hide();
+    $('#mute').show();
+    audio.playing = 0;
+})
 
-
-
+//Difficulty:
+$('#easy').click(function(){
+    fallRate = 400;
+})
+$('#med').click(function(){
+    fallRate = 200;
+})
+$('#hard').click(function(){
+    fallRate = 100;
+})
 
 // ------------------------------------Main game area: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
@@ -53,27 +74,28 @@ function shapes(shape){
     }else if (shape === "C"){
         return [[3,0,0],
                 [3,0,0],
-                [3,3,3]];
+                [3,3,0]];
     }else if (shape === "D"){
         return [[0,0,4],
                 [0,0,4],
                 [4,4,4]];
     }else if (shape === "E"){
-        return [[5,5,0],
-                [0,5,0],
+        return [[0,0,0],
+                [5,5,0],
                 [0,5,5]];
     }else if (shape === "F"){
-        return [[0,6,6],
-                [0,6,0],
+        return [[0,0,0],
+                [0,6,6],
                 [6,6,0]];
     }else if (shape === "G"){
         return [[0,7,0],
                 [0,7,0],
                 [0,7,0]];
     }else if (shape === "H"){
-        return [[8,8,8],
-                [8,8,8],
-                [8,8,8]];
+        return [[0,0,0,0],
+                [0,8,8,0],
+                [0,8,8,0],
+                [0,0,0,0]];
     }else if (shape === "I"){
         return [[0,0,0],
                 [0,0,0],
@@ -140,9 +162,9 @@ function merge(board, block){
 }
 
 //------------------------------------------------------------------------------------------ Rate At Which Blocks Fall (Tie this to user clock)
-// Fall rate 500 seems to be fair time, check about lowering (speeding up) the further a game progresses.
+// Fall rate 400 seems to be fair value, make this is default and corresponds to easy mode.
 let fallCount = 0;
-let fallRate = 350;
+var fallRate = 400;
 
 //------------------------------------------------------------------------------------------ Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear
 //                                                                                           The Line.
