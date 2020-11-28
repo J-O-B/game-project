@@ -34,9 +34,14 @@ $('#sound').click(function(){
     audio.playing = 0;
 })
 
+//Restart
+$('.back').click(function(){
+    //incase of restart, clear the board
+    board.forEach(row => row.fill(0));
+    gameMode();
+})
 
-//Difficulty:
-var difficulty = 0;
+//Difficulty: (game starting difficulty)
 $('#easy').click(function(){
     fallRate = 400;
     difficulty = 1;
@@ -51,7 +56,7 @@ $('#hard').click(function(){
     fallRate = 200;
     difficulty = 3;
     $('.difficulty').text("Difficulty: Hard Selected");
-})
+});
 
 function progression(){
     fallRate --;
@@ -164,7 +169,7 @@ function draw(){
     drawBlocks(block.grid, block.position);
 }
 
-//------------------------------------------------------------------------------------------ Itterate Over Strings
+//------------------------------------------------------------------------------------------ Check for numbers != 0
 function merge(board, block){
     block.grid.forEach((row, y) =>{
         row.forEach((value, x) =>{
@@ -175,8 +180,8 @@ function merge(board, block){
     });
 }
 
-//------------------------------------------------------------------------------------------ Rate At Which Blocks Fall (Tie this to user clock)
-// Fall rate 400 seems to be fair value, make this is default and corresponds to easy mode.
+//------------------------------------------------------------------------------------------ Rate At Which Blocks Fall
+// Fall rate 400 can be default, less than easy difficulty.
 let fallCount = 0;
 var fallRate = 400;
 
@@ -199,8 +204,9 @@ function dropBlock(){
         }else{
             
         }
+        //Lower the fallRate value (difficulty)
         progression();
-        //Reset Block After Landing ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
+        //Call new block
         blockReset();
         //Remove line when full
         clearTheLine();
@@ -235,7 +241,6 @@ function blockReset(){
     
     if (stack(board, block)){
        board.forEach(row => row.fill(0));  
-        //------------------------------------------------------------------------------------------THIS NEEDS TO BE FIGURED OUT!!!!
         if (player.score > player.top && player.score > localStorage.getItem("player",player.top)){
                 player.top = player.score;
                 player.top = JSON.stringify(player.score)
@@ -279,7 +284,6 @@ function blockReset(){
                     gameOver();
                     return;
             }
-        //------------------------------------------------------------------------------------------now go to game over.. NEEDS WORK!!!!!!!
     }
 }
 
@@ -342,8 +346,6 @@ function autoDraw(time = 0){
 //------------------------------------------------------------------------------------------ Define The Board (Canvas)
 const board = makeBlock(15,25);
 
-
-
 function trackScore() {
     if (JSON.parse(localStorage.getItem("player",player.top)) > 0){
     document.getElementById('player-score').innerHTML = 
@@ -360,13 +362,11 @@ function trackScore() {
     }
 }
 
-
 //------------------------------------------------------------------------------------------ Define The Blocks
 const block = {
     position: {x: 0, y: 1},
     grid: null,
 }
-
 
 //------------------------------------------------------------------------------------------ Clear A Full Line (Array)
 // Clear the line, play a noise and add a score to the scoreboard.
@@ -432,17 +432,6 @@ document.addEventListener("keydown", event =>{
 
 //------------------------------------------------------------------------------------------ Block Colors
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
-//this loop determines if we continue playing or transition to game over state
-/*function loop(){
-    if (alive == true){
-        trackScore();
-        blockReset();
-        autoDraw();
-    } else if (alive == false){
-        gameOver();
-    }
-}*/
-
 
 
 //------------------------------------------------------------------------------------game over screen:
@@ -488,6 +477,7 @@ function gameMode(){
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
             alive = true;
+            board.forEach(row => row.fill(0));
             trackScore();
             blockReset();
             autoDraw();

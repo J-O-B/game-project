@@ -171,6 +171,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+#game-over{
+    text-align: center;
+}
 .content button{
     margin:0 auto;
 }
