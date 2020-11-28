@@ -21,6 +21,7 @@ $('.back').click(function(){
     $(".social").hide();
     $(".credits").hide();
     $('#game-over').hide();
+    gameMode();
     $('.menu').toggle();
 })
 

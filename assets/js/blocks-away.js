@@ -34,20 +34,28 @@ $('#sound').click(function(){
     audio.playing = 0;
 })
 
+
 //Difficulty:
+var difficulty = 0;
 $('#easy').click(function(){
     fallRate = 400;
+    difficulty = 1;
     $('.difficulty').text("Difficulty: Easy Selected");
 })
 $('#med').click(function(){
     fallRate = 300;
+    difficulty = 2;
     $('.difficulty').text("Difficulty: Medium Selected");
 })
 $('#hard').click(function(){
     fallRate = 200;
+    difficulty = 3;
     $('.difficulty').text("Difficulty: Hard Selected");
 })
 
+function progression(){
+    fallRate --;
+}
 
 // ------------------------------------Main game area: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
@@ -191,14 +199,14 @@ function dropBlock(){
         }else{
             
         }
+        progression();
         //Reset Block After Landing ------------------------------------------------------------------------------------------ CHECK HERE FOR GAME OVER SCREEN!!!!
-        
         blockReset();
         //Remove line when full
         clearTheLine();
+        console.log(fallRate);
         //Add the score to scoreboard.
         trackScore();
-        fallRate - 10;
     }
     fallCount=0;
 }
@@ -222,6 +230,7 @@ function blockReset(){
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
     block.position.y = 1;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
+    progression();
     }
     
     if (stack(board, block)){
@@ -482,9 +491,7 @@ function gameMode(){
             trackScore();
             blockReset();
             autoDraw();
-        $('#start-game').attr("disabled", true);
+            progression();
      });
     }
 gameMode();
-
-
