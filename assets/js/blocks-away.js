@@ -431,6 +431,7 @@ document.addEventListener("keydown", event =>{
 
 
 //------------------------------------------------------------------------------------------ Block Colors
+//If time change from colors to sprites.
 const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
 
