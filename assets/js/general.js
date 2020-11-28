@@ -67,7 +67,7 @@ const menu = ["Settings Menu", "Instructions Guide", "Contact me", "Credits Scre
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-const recognition = new SpeechRecognition();
+var recognition = new SpeechRecognition();
 
 recognition.onstart = function(){
     console.log("voice is active");
@@ -78,6 +78,9 @@ recognition.onresult = function(event){
     const transcript = event.results[current][0].transcript;
     console.log(transcript);
     readOutLoud(transcript);
+    $('#btn').trigger('click', ()=>{
+    recognition = new SpeechRecognition();
+    })
 };
 
 btn.addEventListener('click', ()=>{
@@ -155,8 +158,23 @@ function readOutLoud(message){
         $("#start-game").hide();
         $('.instructions').hide();
         $('.menu').hide();
-    }
-    else if (message.includes("sound on")){
+    }else if (message.includes("start")){
+        $(".content").show(); 
+        $(".credits").hide();
+        $('.contact').hide();
+        $('.social').hide();
+        $('.settings').hide();
+        $('#game-over').hide();
+        $("#start-game").hide();
+        $('.instructions').hide();
+        $('.menu').hide();
+        alive = true;
+        board.forEach(row => row.fill(0));
+        trackScore();
+        blockReset();
+        autoDraw();
+        progression();
+    }else if (message.includes("sound on")){
         document.getElementById('background').play();
         $('.audioFeedback').text("Audio Selected: ON");
         $('#sound').show();
@@ -172,16 +190,23 @@ function readOutLoud(message){
         fallRate = 400;
         difficulty = 1;
         $('.difficulty').text("Difficulty: Easy Selected");
+        speech.text = "Difficulty level set to easy";
     }else if (message.includes("medium")){
         fallRate = 300;
         difficulty = 2;
         $('.difficulty').text("Difficulty: Medium Selected");
+        speech.text = "Difficulty level set to medium";
     }else if (message.includes("hard")){
         fallRate = 200;
         difficulty = 3;
         $('.difficulty').text("Difficulty: Hard Selected");
+        speech.text = "Difficulty level set to hard, rest in peace!";
     }else if (message.includes("left")){
         blockMove(-1);  
+    }else if (message.includes("left left")){
+        blockMove(-2);
+    }else if (message.includes("left left left")){
+        blockMove(-3);
     }else if (message.includes("right")){
         blockMove(+1);
     }else if (message.includes("down")){
