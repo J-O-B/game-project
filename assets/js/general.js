@@ -86,8 +86,7 @@ btn.addEventListener('click', ()=>{
 
 function readOutLoud(message){
     const speech = new SpeechSynthesisUtterance();
-    speech.text = message;
-
+    
     //navigation part
     if (message.includes("settings")){
        speech.text = "Settings Menu, For Another Command Press the record button"
@@ -135,6 +134,64 @@ function readOutLoud(message){
         $("#start-game").hide();
         $('.instructions').hide();
         $('.menu').show();
+    }else if (message.includes("contact")){
+       speech.text = "Should you wish to contact me you can do so using the form below.";
+        $(".content").hide(); 
+        $(".credits").hide();
+        $('.contact').show();
+        $('.social').hide();
+        $('.settings').hide();
+        $('#game-over').hide();
+        $("#start-game").hide();
+        $('.instructions').hide();
+        $('.menu').hide();
+    }else if (message.includes("credits")){
+        $(".content").hide(); 
+        $(".credits").show();
+        $('.contact').hide();
+        $('.social').hide();
+        $('.settings').hide();
+        $('#game-over').hide();
+        $("#start-game").hide();
+        $('.instructions').hide();
+        $('.menu').hide();
+    }
+    else if (message.includes("sound on")){
+        document.getElementById('background').play();
+        $('.audioFeedback').text("Audio Selected: ON");
+        $('#sound').show();
+        $('#mute').hide();
+        audio.playing = 1;
+    }else if (message.includes("sound off")){
+        document.getElementById('background').pause();
+        $('.audioFeedback').text("Audio Selected: OFF");
+        $('#sound').hide();
+        $('#mute').show();
+        audio.playing = 1;
+    }else if (message.includes("easy")){
+        fallRate = 400;
+        difficulty = 1;
+        $('.difficulty').text("Difficulty: Easy Selected");
+    }else if (message.includes("medium")){
+        fallRate = 300;
+        difficulty = 2;
+        $('.difficulty').text("Difficulty: Medium Selected");
+    }else if (message.includes("hard")){
+        fallRate = 200;
+        difficulty = 3;
+        $('.difficulty').text("Difficulty: Hard Selected");
+    }else if (message.includes("left")){
+        blockMove(-1);  
+    }else if (message.includes("right")){
+        blockMove(+1);
+    }else if (message.includes("down")){
+        dropBlock();
+    }else if (message.includes("turn")){
+        blockRotation(-1);
+    }else if (message.includes("stop")){
+        gameOver();
+    } else {
+        speech.text = "I'm sorry, I'm just a simple machine, with limited resources! I only understand the words that are contained within buttons, for example the word 'instructions' will bring you to the instructions screen";
     }
     
     speech.volume = 1;
