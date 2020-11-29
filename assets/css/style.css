@@ -6,7 +6,8 @@ body {
     justify-content: center;
     padding:0;
     margin:0;
-    background: red;
+    background: url('../img/background.jpg')center center no-repeat;
+    background-size: cover;
     color:black;
     font-family: 'Press Start 2P', cursive;
 }
@@ -15,6 +16,7 @@ body {
     background: #424040;
     width:50%;
     min-height:800px;
+    border-radius:10%;
 }
 .center{
     text-align: center;
@@ -30,16 +32,14 @@ body {
 }
 
 #boxes .window {
-  position:absolute;
+  position: absolute;
   left:0;
   top:0;
-  width:90vw;
-  height:550px;;
   display:none;
   z-index:9999;
   padding:20px;
   border-radius:15px;
-  border-color: rgb(168, 0, 140);
+  border-color: #424040;
   text-align:center;
 }
  
@@ -47,7 +47,7 @@ body {
   width:90vw;
   height:500px;
   padding:10px;
-  background: radial-gradient(#000, transparent);
+  background: radial-gradient(#424040, transparent);
   font-size: larger;
 }
 
@@ -84,7 +84,11 @@ body {
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top:50px;
+    margin-top:20px;
+    text-align: center;
+}
+.menu h1{
+    padding-top:150px;
 }
 
 .instructions,
@@ -102,11 +106,21 @@ body {
     width:300px;
     height: 75px;
     font-size: large;
-    background: orchid;
+    background: #424040;
     border-radius:20%;
-    box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
-    border: 5px dashed black;
+    box-shadow: 0 5px 20px rgba(0, 31, 209, 0.8);
+    border: 2px dashed #000;
     text-decoration: none;
+    color: rgb(0, 201, 10);
+}
+.popup-button:hover{
+    text-decoration: none;
+    background: rgba(0, 201, 10, 0.8);
+    color: rgb(0, 31, 209);
+    border: 2px dashed #000;
+    box-shadow: 0 5px 20px rgba(0, 201, 10, 0.8);
+    font-size:larger;
+    transition: all 2s ease-in-out;
 }
 .retro-button{
     text-align: center;
@@ -119,6 +133,7 @@ body {
 }
 .retro-button:hover{
     background:#424040;
+    box-shadow: 0 5px 20px rgba(0, 201, 10, 0.8);
     color:white;
     transition-duration: 1s; 
 }

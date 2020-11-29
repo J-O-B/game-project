@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col instructions">
                     <h5><em>Instructions:</em></h5>
-                    <p>This game uses keys to position the block on screen.</p>
+                    <p>This game uses keys to position the blocks on screen.</p>
                     <p>The controls are as follows<br></p>
                     <ul>
                         <li>Move Left: "A" key</li>
@@ -66,7 +66,12 @@
                         <li>Rotate Right: "E" key</li>
                         <li>Rotate Left: "Q" key</li>
                     </ul>
-                    <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p> 
+                    <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p>
+                    <p>Although this game is created to cater for all devices and screen sizes, the optimal setup is a screen width between 1024px & 1440px 
+                    and using a desktop or laptop computer.</p>
+                    <p>This game is tested on multiple devices and browser types, should you come across an aspect of the game that you think can be 
+                    improved, please let me know using the contact form, which can be accessed from the main menu.</p>
+
                     <button class="retro-button back">Back</button>
                 </div>        
             </div>
@@ -174,46 +179,18 @@
                     </section>
                 </div>
             </div>
-            <!--Main Game Screen-->
-                    
-<img id="blue" src="assets/img/blue.jpg" alt="">
-            <!--Popup on page load with intro video-->
-            <div id="boxes">
-                <div id="dialog" class="window">
-                    <div class="row pop-up">
-                        <h5>Welcome To Blocks Away!</h5>
-                        <p>The JavaScript Version Of A Retro Classic!</p>
-                        <p>Before You Jump Into A Game, Be Sure To Take A Look At The Instructions.</p>
-                        <p>Press Enter To Continue</p>
-                    </div>
-                    <div class="row pop-up">
-                        <video id="introVid" controls>
-                            <source src="assets/vid/introVid.mp4"
-                            type="video/mp4">   
-                            Sorry, your browser doesn't support embedded videos.
-                        </video>
-                        <span class="sr-only">Intro video</span>
-                    </div>    
-                    <div class="row pop-up">
-                        <h3>Press Play To Begin:</h3>
-                    </div>
-                    <div class="row pop-up" id="popupfoot">
-                        <button class="popup-button"><a href="#"><h1>Enter!</h1></a></button>
-                    </div>
-                </div>
-            </div>
-            <div id="mask"></div>
-    <!-------------------------------------->
+            <!--End Credits-->
+            
     <!--Game Parts (Sounds and screens)-->
         <section class="sound">
             <div id="background-music">
                 <audio id="background" class="audio" loop>
-                <source src="assets/sound-effects/men.mp3" type="audio/mp3">
+                <source src="assets/sound-effects/menu.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
 
                 <audio id="game-song" class="audio" loop>
-                <source src="assets/sound-effects/8-bit-menu.mp3" type="audio/mp3">
+                <source src="assets/sound-effects/background.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
             </div>
@@ -264,8 +241,34 @@
             </div>
         </section>
     </div>
-<!--End Game Screen-->
-
+    <!--End Game Screen-->
+    <!--Popup on page load with intro video-->
+            <div id="boxes">
+                <div id="dialog" class="window">
+                    <div class="row pop-up">
+                        <h5>Welcome To Blocks Away!</h5>
+                        <p>The JavaScript Version Of A Retro Classic!</p>
+                        <p>Before You Jump Into A Game, Be Sure To Take A Look At The Instructions.</p>
+                        <p>Press Enter To Continue</p>
+                    </div>
+                    <div class="row pop-up">
+                        <video id="introVid" controls>
+                            <source src="assets/vid/introVid.mp4"
+                            type="video/mp4">   
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        <span class="sr-only">Intro video</span>
+                    </div>    
+                    <div class="row pop-up">
+                        <h3>Press Play To Begin:</h3>
+                    </div>
+                    <div class="row pop-up" id="popupfoot">
+                        <button class="popup-button"><a href="#"><h1>Enter!</h1></a></button>
+                    </div>
+                </div>
+            </div>
+            <div id="mask"></div>
+    <!-------------------------------------->
 
     <!--Footer Area (social links)-->
 

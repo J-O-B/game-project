@@ -30,7 +30,7 @@ $(document).ready(function() {
     var winW = $(window).width();          
     
     //Set the popup window to center
-    $(id).css('top',  winH/2-$(id).height()/2);
+    $(id).css('top',  winH/2-$(id).height()/1.5);
     $(id).css('left', winW/2-$(id).width()/2);
     
     //transition effect

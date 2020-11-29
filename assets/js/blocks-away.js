@@ -400,29 +400,14 @@ function clearTheLine(){
 document.addEventListener("keydown", event =>{
     if (event.key === "a" || event.key === "A" || event.code === 65){
         blockMove(-1);     
-        if(audio.playing == 1){
-        document.getElementById("click").play();
-    }   
     }else if (event.key === "d" || event.key === "D" || event.code === 68){
         blockMove(+1);
-        if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
     }else if (event.key === "s" || event.key === "S" || event.code === 83){
         dropBlock();
-        if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
     }else if (event.key === "q" || event.key === "Q" || event.code === 81){
         blockRotation(-1);  
-        if(audio.playing == 1){
-        document.getElementById("click").play();
-    }  
     }else if (event.key === "e" || event.key === "E" || event.code === 69){
         blockRotation(1);  
-        if(audio.playing == 1){
-        document.getElementById("click").play();
-    }  
     }
 });
 
@@ -440,41 +425,37 @@ $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
     //pause any music if there is any
     if (audio.playing == 1){
-    $('#game-song').each(function(){
-            this.pause();
-                });
-
-    $('#down').each(function(){
-            this.play();
-                });
+    document.getElementById('game-song').pause();
+    document.getElementById('down').play();
             }
     //toggle the game over screen
    $('#game-over').show();
         $("#no").click(function(){
+                        if (audio.playing == 1){
+                            document.getElementById('down').pause()
+                            document.getElementById('game-song').pause();
+                            document.getElementById('background').play();
+                            }
             gameMode();
             $('.content').fadeOut(500);
-              $(".menu").fadeIn(2000); 
+            $(".menu").fadeIn(2000); 
         })
         $("#yes").click(function(){
-            if (audio.playing == 1){
-                $('#down').each(function(){
-                        this.pause();
-                            });
-                $('#game-song').each(function(){
-                        this.pause();
-                            });
+           if (audio.playing == 1){
+                document.getElementById('down').pause();
+                document.getElementById('game-song').play();
             }
             alive = true;
             board.forEach(row => row.fill(0));
-            if (difficulty == 1){
+            /*if (difficulty == 1){
                 fallRate = 400;
             } else if (difficulty == 2){
                 fallRate = 300;
             }else if (difficulty == 3){
                 fallRate == 200;
             }else{
-                fallrate = 400;
-            }
+                fallRate = 400;
+            }*/
             $('#game-over').hide();
             $('.key-buttons').fadeIn(500);
             $('#blocks-away').fadeIn(1000);
