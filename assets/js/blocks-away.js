@@ -2,14 +2,10 @@
 var audio = {
     playing : 0,
 }
-if (audio.playing == 1){
-    document.getElementById('background-music').volume = 0.1;
-}
-
 
 $(".on").click(function(){
     document.getElementById('background').play();
-
+    document.getElementById('game-song').pause();
     $('.audioFeedback').text("Audio Selected: ON");
     $('#sound').show();
     $('#mute').hide();
@@ -17,6 +13,7 @@ $(".on").click(function(){
 });
 $(".off").click(function(){
     document.getElementById('background').pause();
+    document.getElementById('game-song').pause();
     $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
@@ -249,30 +246,13 @@ function blockReset(){
                 console.log(player.top);
                 //localStorage.setItem
                 localStorage.setItem("player",player.top);
-                player.score = 0;
-
-                 if (audio.playing == 1){
-                    $('#background').each(function(){
-                        this.pause();
-                    })
-                    $('#score').each(function(){
-                        this.play();
-                    })
-                }
+                    player.score = 0;
                     alive = false;
                     trackScore();
                     gameOver();
                     return;
 
             }else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
-                if (audio.playing == 1){
-                    $('#background').each(function(){
-                        this.pause();
-                    })
-                    $('#gameOver').each(function(){
-                        this.play();
-                    })
-                }
                     player.score = 0;
                     alive = false;
                     trackScore();
@@ -419,15 +399,30 @@ function clearTheLine(){
 
 document.addEventListener("keydown", event =>{
     if (event.key === "a" || event.key === "A" || event.code === 65){
-        blockMove(-1);        
+        blockMove(-1);     
+        if(audio.playing == 1){
+        document.getElementById("click").play();
+    }   
     }else if (event.key === "d" || event.key === "D" || event.code === 68){
         blockMove(+1);
+        if(audio.playing == 1){
+        document.getElementById("click").play();
+    }
     }else if (event.key === "s" || event.key === "S" || event.code === 83){
         dropBlock();
+        if(audio.playing == 1){
+        document.getElementById("click").play();
+    }
     }else if (event.key === "q" || event.key === "Q" || event.code === 81){
-        blockRotation(-1);    
+        blockRotation(-1);  
+        if(audio.playing == 1){
+        document.getElementById("click").play();
+    }  
     }else if (event.key === "e" || event.key === "E" || event.code === 69){
-        blockRotation(1);    
+        blockRotation(1);  
+        if(audio.playing == 1){
+        document.getElementById("click").play();
+    }  
     }
 });
 
@@ -445,15 +440,12 @@ $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
     //pause any music if there is any
     if (audio.playing == 1){
-    $('#background').each(function(){
+    $('#game-song').each(function(){
             this.pause();
                 });
 
-    $('#you-lose').each(function(){
-            this.pause();
-                });
-    $('#background').each(function(){
-            this.pause();
+    $('#down').each(function(){
+            this.play();
                 });
             }
     //toggle the game over screen
@@ -464,6 +456,14 @@ $('#blocks-away').fadeOut(1000, function(){
               $(".menu").fadeIn(2000); 
         })
         $("#yes").click(function(){
+            if (audio.playing == 1){
+                $('#down').each(function(){
+                        this.pause();
+                            });
+                $('#game-song').each(function(){
+                        this.pause();
+                            });
+            }
             alive = true;
             board.forEach(row => row.fill(0));
             if (difficulty == 1){
@@ -485,14 +485,16 @@ $('#blocks-away').fadeOut(1000, function(){
     });
 }
 
-function gameRestart(){
-    
-}
 
 function gameMode(){
     document.getElementById('play');
      $('#start-game').click(function(){
         //On starting game we want to remove the functionality of the start button
+            if (audio.playing == 1){
+                document.getElementById('background').pause();
+                document.getElementById('game-song').play();
+            }
+        
             alive = true;
             board.forEach(row => row.fill(0));
             trackScore();
