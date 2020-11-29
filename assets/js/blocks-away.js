@@ -166,7 +166,7 @@ function makeBlock(width,height){
 
 //------------------------------------------------------------------------------------------ Draw Function
 function draw(){
-    context.fillStyle = "#000";
+    context.fillStyle = "rgb(77,88,20)";
     context.fillRect(0, 0, canvas.width, canvas.height);
     drawBlocks(board, { x: 0, y: 0 });
     drawBlocks(block.grid, block.position);
@@ -466,6 +466,15 @@ $('#blocks-away').fadeOut(1000, function(){
         $("#yes").click(function(){
             alive = true;
             board.forEach(row => row.fill(0));
+            if (difficulty == 1){
+                fallRate = 400;
+            } else if (difficulty == 2){
+                fallRate = 300;
+            }else if (difficulty == 3){
+                fallRate == 200;
+            }else{
+                fallrate = 400;
+            }
             $('#game-over').hide();
             $('.key-buttons').fadeIn(500);
             $('#blocks-away').fadeIn(1000);
