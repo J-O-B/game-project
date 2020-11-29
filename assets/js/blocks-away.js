@@ -2,9 +2,14 @@
 var audio = {
     playing : 0,
 }
+if (audio.playing == 1){
+    document.getElementById('background-music').volume = 0.1;
+}
+
 
 $(".on").click(function(){
     document.getElementById('background').play();
+
     $('.audioFeedback').text("Audio Selected: ON");
     $('#sound').show();
     $('#mute').hide();
