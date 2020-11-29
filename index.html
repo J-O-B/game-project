@@ -17,233 +17,233 @@
     </script>
 </head>
 <body>
-<!--Facebook Share-->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=3311727825574849&autoLogAppEvents=1" nonce="L9Lhwqd3"></script>
-
-    <!--Sound Button-->
-    <div class="on" id="sound">
-        <button class="retro-buttons"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
-    </div>
-    <div class="off" id="mute">
-        <button class="retro-buttons"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
-    </div>
-    
-
-    <div class="container">
-        <div class="row menu">
-            <h1>Main Menu</h1>
-            <div class="col-12 menu" id="play">
-                <button class="retro-button">Play</button>
-            </div>
-            <div class="col-12 menu" id="instructions">
-                <button class="retro-button">Instructions</button>
-            </div>
-            <div class="col-12 menu" id="settings">
-                <button class="retro-button">Settings</button>
-            </div>
-            <div class="col-12 menu" id="contact">
-                <button class="retro-button">Contact</button>
-            </div>
-            <div class="col-12 menu" id="social">
-                <button class="retro-button">Social</button>
-            </div>
-            <div class="col-12 menu" id="credits">
-                <button class="retro-button">Credits</button>
-            </div>
+    <!--Container Card-->
+    <div class="card">
+        <!--Sound Button-->
+        <div class="on" id="sound">
+            <button class="retro-buttons"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
         </div>
-    </div>
-       
-       <button class="talk">Talk</button>
-       <img id="blue" src="assets/img/blue.jpg" alt="blue block">
-        <!--Content--> 
-    <div class="container">
-        <div class="row">
-            <div class="col instructions">
-                <h5><em>Instructions:</em></h5>
-                <p>This game uses keys to position the block on screen.</p>
-                <p>The controls are as follows<br></p>
-                <ul>
-                    <li>Move Left: "A" key</li>
-                    <li>Move Right: "D" key</li>
-                    <li>Drop Down: "S" key</li>
-                    <li>Rotate Right: "E" key</li>
-                    <li>Rotate Left: "Q" key</li>
-                </ul>
-                <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p> 
-                <button class="retro-button back">Back</button>
-            </div>        
+        <div class="off" id="mute">
+            <button class="retro-buttons"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
         </div>
-    </div>
-    <!--Settings Screen-->
-    <div class="container">
-        <div class="row settings">
-            <h1>Settings</h1>
-            <div class="col-12">
-                <h4>Settings:</h4>
-                <p>Please Select Your Game & Sound Settings:</p>
-                <p>Sound: <br>
-                <span class="on"><button>ON</button></span>
-                <span class="off"><button>OFF</button></span>
-                </p>
-                <p class="audioFeedback">Default: OFF</p>
-                <p>Difficulty: <br> 
-                <span id="easy"><button>Easy</button></span>
-                <span id="med"><button>Medium</button></span>
-                <span id="hard"><button>Hard</button></span>
-                </p>
-                <p class="difficulty">Default: Easy</p>
-                <button class="retro-button back">Back</button>
-            </div>
-        </div>
-    </div>   
-    <!--Game Screen-->   
-    <div class="container">
-        <div class="row game"> 
-            <button type="button" id="start-game">Start</button>   
-            <div class="content">
-                <div id="player-score"></div>
-                <canvas id="blocks-away"></canvas>
-                <div id="game-over">
-                    <h1>Game Over!</h1>
-                    <p>Would you like to play again?</p>
-                    <button class="retro-button" id="yes">Yes</button>
-                    <button class="retro-button" id="no">No</button>
-                </div>
-                <div class="key-buttons row">
-                    <button id="a"><i class="fa fa-arrow-left"></i></button>
-                    <button id="s"><i class="fa fa-arrow-down"></i></button>
-                    <button id="d"><i class="fa fa-arrow-right"></i></button>
-                    <button id="q"><i class="fa fa-undo"></i></button>
-                    <button id="e"><i class="fa fa-repeat"></i></button>
-                </div>
-                <button class="retro-button back">Back</button>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!--Contact Form-->
+        
+        <!--Menu-->
         <div class="container">
-            <div class="row contact">
-                <h3 class="contact-heading uppercase text-center">Got Feedback?</h3>
-                <h5 class="uppercase text-center">Let me know about it!</h5>
-                <div class="center-form">
-                    <form onsubmit="return sendMail(this);">
-                        <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
-                        <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
-                        <textarea rows="5" name="projectsummary" id="projectsummary" class="form-control" placeholder="Feedback description" required></textarea>
-                        <button type="submit" class="btn btn-secondary center-block">Send Feedback</button>
-                    </form>
+            <div class="row menu">
+                <h1>Main Menu</h1>
+                <div class="col-12 menu" id="play">
+                    <button class="retro-button">Play</button>
                 </div>
-                <button class="retro-button back">Back</button>
+                <div class="col-12 menu" id="instructions">
+                    <button class="retro-button">Instructions</button>
+                </div>
+                <div class="col-12 menu" id="settings">
+                    <button class="retro-button">Settings</button>
+                </div>
+                <div class="col-12 menu" id="contact">
+                    <button class="retro-button">Contact</button>
+                </div>
+                <div class="col-12 menu" id="social">
+                    <button class="retro-button">Social</button>
+                </div>
+                <div class="col-12 menu" id="credits">
+                    <button class="retro-button">Credits</button>
+                </div>
             </div>
         </div>
-        <!--Social Share-->
+        
+        <!--Instructions Screen--> 
         <div class="container">
-            <div class="row social">
-                If you liked this game, you can share it with your friends and connections:
-                <div class="fb-share-button" data-href="https://j-o-b.github.io/game-project/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fj-o-b.github.io%2Fgame-project%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                <button class="retro-button back">Back</button>
+            <div class="row">
+                <div class="col instructions">
+                    <h5><em>Instructions:</em></h5>
+                    <p>This game uses keys to position the block on screen.</p>
+                    <p>The controls are as follows<br></p>
+                    <ul>
+                        <li>Move Left: "A" key</li>
+                        <li>Move Right: "D" key</li>
+                        <li>Drop Down: "S" key</li>
+                        <li>Rotate Right: "E" key</li>
+                        <li>Rotate Left: "Q" key</li>
+                    </ul>
+                    <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p> 
+                    <button class="retro-button back">Back</button>
+                </div>        
             </div>
         </div>
-        <!--Credits-->
+        <!--Settings Screen-->
         <div class="container">
-            <div class="row credits">
-                <h3>Credits</h3>
-                <section class="credits">
-                    <p id="start">Coding By John O'Brien<br> <a href="https://johnobrien.net">JohnOBrien.net/</a></p>
-                    <h1>Blocks Away</h1>
-                    <div id="titles">
-                        <div id="titlecontent">
-                            <p>This project was made using HTML, CSS and JavaScript</p>
-                            <p>To view the repository for this site, including all of its features, visit: <a href="https://github.com/J-O-B/game-project">J-O-B GitHub</a></p>
-                            <p class="center">With Special Thanks To:</p>
-                            <p class="center"><strong>Pixabay</strong></p>
-                            <p>Pixabay for various images, to check out royalty free images, like images used on this website, you can do so at:</p>
-                            <p class="center"><a href="http://pixabay.com" target="_blank">Pixabay.com/</a></p>
-                            <p class="center"><strong>Scott Bram</strong></p>
-                            <p>The original code for this "credit text" can be found on CodePen</p>
-                            <p class="center"><a href="https://codepen.io/scottbram" target="_blank">View Code<br/></a></p>
-                            <p class="center"><strong>ZapSplat.com</strong></p>
-                            <p>Sound effects that are used in the Tetris game can be found at</p>
-                            <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p>
-                        </div>
+            <div class="row settings">
+                <h1>Settings</h1>
+                <div class="col-12">
+                    <h4>Settings:</h4>
+                    <p>Please Select Your Game & Sound Settings:</p>
+                    <p>Sound: <br>
+                    <span class="on"><button>ON</button></span>
+                    <span class="off"><button>OFF</button></span>
+                    </p>
+                    <p class="audioFeedback">Default: OFF</p>
+                    <p>Difficulty: <br> 
+                    <span id="easy"><button>Easy</button></span>
+                    <span id="med"><button>Medium</button></span>
+                    <span id="hard"><button>Hard</button></span>
+                    </p>
+                    <p class="difficulty">Default: Easy</p>
+                    <button class="retro-button back">Back</button>
+                </div>
+            </div>
+        </div>   
+        <!--Game Screen-->   
+        <div class="container">
+            <div class="row game"> 
+                <button type="button" id="start-game" class="retro-button">Start</button>   
+                <div class="content">
+                    <div id="player-score"></div>
+                    <canvas id="blocks-away"></canvas>
+                    <div id="game-over">
+                        <h1>Game Over!</h1>
+                        <p>Would you like to play again?</p>
+                        <button class="retro-button" id="yes">Yes</button>
+                        <button class="retro-button" id="no">No</button>
+                    </div>
+                    <div class="key-buttons row">
+                        <button id="a"><i class="fa fa-arrow-left"></i></button>
+                        <button id="s"><i class="fa fa-arrow-down"></i></button>
+                        <button id="d"><i class="fa fa-arrow-right"></i></button>
+                        <button id="q"><i class="fa fa-undo"></i></button>
+                        <button id="e"><i class="fa fa-repeat"></i></button>
                     </div>
                     <button class="retro-button back">Back</button>
-                </section>
+                </div>
             </div>
         </div>
-        <!--Main Game Screen-->
-                
 
-        <!--Popup on page load with intro video-->
-        <div id="boxes">
-            <div id="dialog" class="window">
-                <div class="row pop-up">
-                    <h5>Welcome To Blocks Away!</h5>
-                    <p>The JavaScript Version Of A Retro Classic!</p>
-                    <p>Before You Jump Into A Game, Be Sure To Take A Look At The Instructions.</p>
-                    <p>Press Enter To Continue</p>
-                </div>
-                <div class="row pop-up">
-                    <video id="introVid" controls>
-                        <source src="assets/vid/introVid.mp4"
-                        type="video/mp4">   
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
-                    <span class="sr-only">Intro video</span>
-                </div>    
-                <div class="row pop-up">
-                    <h3>Press Play To Begin:</h3>
-                </div>
-                <div class="row pop-up" id="popupfoot">
-                    <button class="popup-button"><a href="#"><h1>Enter!</h1></a></button>
+        <!--Contact Screen-->
+            <div class="container">
+                <div class="row contact">
+                    <h3 class="contact-heading uppercase text-center">Got Feedback?</h3>
+                    <h5 class="uppercase text-center">Let me know about it!</h5>
+                    <div class="center-form">
+                        <form onsubmit="return sendMail(this);">
+                            <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
+                            <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
+                            <textarea rows="5" name="projectsummary" id="projectsummary" class="form-control" placeholder="Feedback description" required></textarea>
+                            <button type="submit" class="btn btn-secondary center-block">Send Feedback</button>
+                        </form>
+                    </div>
+                    <button class="retro-button back">Back</button>
                 </div>
             </div>
-        </div>
-        <div id="mask"></div>
-<!-------------------------------------->
-<!--Game Parts (Sounds and screens)-->
-    <section class="sound">
-        <div id="background-music">
-            <audio id="background" class="audio" controls>
-            <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
+            <!--Social Screen-->
+            <div class="container">
+                <div class="row social">
+                    <p>Want to challenge your friends at this game? <br>You can share this game with friends or family.</p>
+                    
+                    <p>social buttons go here</p>
+                    <button class="retro-button back">Back</button>
+                </div>
+            </div>
+            <!--Credits-->
+            <div class="container">
+                <div class="row credits">
+                    <h3>Credits</h3>
+                        <section class="credits">
+                        <h1>Blocks Away</h1>
+                        <p>Coding By John O'Brien - <a href="https://johnobrien.net">JohnOBrien.net/</a></p>
+                        <p>This project was made using HTML, CSS and JavaScript</p>
+                        <p>To view the repository for this site, including all of its features, visit: <a href="https://github.com/J-O-B/game-project">J-O-B GitHub</a></p>
+                        <p class="center">With Special Thanks To:</p><br>
+
+                        <p class="center"><strong>Pixabay</strong></p>
+                        <p>The intro video for this project is made using video snippets from</p>
+                        <p class="center"><a href="http://pixabay.com" target="_blank">Pixabay.com/</a></p><br>
+
+                        <p class="center"><strong>Bootstrap</strong></p>
+                        <p>The layout of this project uses Bootstrap</p>
+                        <p class="center"><a href="https://getbootstrap.com/" target="_blank">GetBootstrap.com<br/></a></p><br>
+
+                        <p class="center"><strong>jQuery</strong></p>
+                        <p>This project encorporates jQuery</p>
+                        <p class="center"><a href="https://jquery.com/" target="_blank">jQuery.com<br/></a></p><br><br>
+
+                        <p class="center"><strong>ZapSplat.com</strong></p>
+                        <p>Sound effects that are used in the Tetris game can be found at</p>
+                        <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p><br>
+                        
+                        <button class="retro-button back">Back</button>
+                    </section>
+                </div>
+            </div>
+            <!--Main Game Screen-->
+                    
+
+            <!--Popup on page load with intro video-->
+            <div id="boxes">
+                <div id="dialog" class="window">
+                    <div class="row pop-up">
+                        <h5>Welcome To Blocks Away!</h5>
+                        <p>The JavaScript Version Of A Retro Classic!</p>
+                        <p>Before You Jump Into A Game, Be Sure To Take A Look At The Instructions.</p>
+                        <p>Press Enter To Continue</p>
+                    </div>
+                    <div class="row pop-up">
+                        <video id="introVid" controls>
+                            <source src="assets/vid/introVid.mp4"
+                            type="video/mp4">   
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
+                        <span class="sr-only">Intro video</span>
+                    </div>    
+                    <div class="row pop-up">
+                        <h3>Press Play To Begin:</h3>
+                    </div>
+                    <div class="row pop-up" id="popupfoot">
+                        <button class="popup-button"><a href="#"><h1>Enter!</h1></a></button>
+                    </div>
+                </div>
+            </div>
+            <div id="mask"></div>
+    <!-------------------------------------->
+    <!--Game Parts (Sounds and screens)-->
+        <section class="sound">
+            <div id="background-music">
+                <audio id="background" class="audio" controls>
+                <source src="assets/sound-effects/korobeiniki.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div id="sfx">
+                <audio id="score" class="audio" controls>
+                <source src="assets/sound-effects/new_high_score.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
-            </audio>
-        </div>
+                </audio>
 
-        <div id="sfx">
-            <audio id="score" class="audio" controls>
-            <source src="assets/sound-effects/new_high_score.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
+                <audio id="you-lose" class="audio" controls>
+                <source src="assets/sound-effects/you-lose.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
 
-            <audio id="you-lose" class="audio" controls>
-            <source src="assets/sound-effects/you-lose.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
+                <audio id="line-break" class="audio" controls>
+                <source src="assets/sound-effects/zap-lazer.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
 
-            <audio id="line-break" class="audio" controls>
-            <source src="assets/sound-effects/zap-lazer.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-
-            <audio id="thud" class="audio" controls>
-            <source src="assets/sound-effects/thud.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-            <audio id="gameOver" class="audio" controls>
-            <source src="assets/sound-effects/gameover.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-            <audio id="gameOverScreen" class="audio" controls>
-            <source src="assets/sound-effects/credits.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-        </div>
-    </section>
+                <audio id="thud" class="audio" controls>
+                <source src="assets/sound-effects/thud.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <audio id="gameOver" class="audio" controls>
+                <source src="assets/sound-effects/gameover.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <audio id="gameOverScreen" class="audio" controls>
+                <source src="assets/sound-effects/credits.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+        </section>
+    </div>
 <!--End Game Screen-->
 
 

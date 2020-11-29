@@ -71,14 +71,12 @@ const context = canvas.getContext("2d");
 context.scale(20,6);
 
 //Create a player so we can track the score
-
-
 var player = {
     top: 0,
     score: 0,
 };
 
-
+var alive = false;
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
 //Numbers in strings have to change from 1 else all will appear same color. 
 function shapes(shape){
@@ -193,7 +191,7 @@ function dropBlock(){
     //Then 'Reset' With New Block At Top Of Board.
     //If A Row Is Full && No 0's Clear The Line & Place New
     //Empty Array At Top Of Board. 
-    if (stack(board, block)){
+    if (stack(board, block) && alive == true){
         block.position.y--;
         merge(board, block);
         
@@ -224,7 +222,6 @@ function blockMove(direction){
         block.position.x -= direction;
     }
 }
-var alive = true;
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
     if (alive == false){
@@ -457,6 +454,7 @@ $('#blocks-away').fadeOut(1000, function(){
     //toggle the game over screen
    $('#game-over').show();
         $("#no").click(function(){
+            gameMode();
             $('.content').fadeOut(500);
               $(".menu").fadeIn(2000); 
         })
@@ -471,6 +469,10 @@ $('#blocks-away').fadeOut(1000, function(){
             autoDraw();
         })
     });
+}
+
+function gameRestart(){
+    
 }
 
 function gameMode(){

@@ -1,20 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
+    display: flex;
+    align-items:center;
+    justify-content: center;
     padding:0;
     margin:0;
-    background: rgb(196,207,161);
+    background: red;
     color:black;
     font-family: 'Press Start 2P', cursive;
 }
-
+.card{
+    margin-top:150px;
+    background: #424040;
+    width:50%;
+    min-height:800px;
+}
+.center{
+    text-align: center;
+}
 /*---------------------------------------------Pop Up Window --*/
 #mask {
   position:absolute;
   left:0;
   top:0;
   z-index:9000;
-  background-color:#000;
+  background-color:#424040;
   display:none;
 }
 
@@ -76,9 +87,6 @@ body {
     margin-top:50px;
 }
 
-.back{
-    display:block;
-}
 .instructions,
 .settings,
 .content,
@@ -126,6 +134,12 @@ body {
     border-radius:20%;
     box-shadow: 0 5px 20px rgba(240,60,50, 0.8);
     border: 2px dashed black;
+}
+#start-game{
+    margin-top:100%;
+    font-size: 300%;
+    width:280px;
+    height:200px;
 }
 /*-------------------------------------------Sound Button----*/
 #sound button{
@@ -201,4 +215,8 @@ canvas{
 .instructions ul{
     text-align: center;
     list-style: none;
+}
+/*Credits*/
+.credits{
+    text-align: center;
 }
