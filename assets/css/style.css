@@ -13,8 +13,8 @@ body {
 }
 .card{
     margin-top:150px;
-    /*background: #424040;*/
-    background: url('../img/background.jpg')center center no-repeat;
+    background: #424040;
+    opacity: 0.9;
     background-size: cover;
     width:50%;
     min-height:800px;
@@ -125,7 +125,10 @@ body {
     transition: all 2s ease-in-out;
 }
 .retro-button{
-    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
     width:250px;
     font-size: large;
     background: grey;
@@ -157,6 +160,13 @@ body {
     font-size: 300%;
     width:280px;
     height:200px;
+}
+button, .btn{
+    display: flex;
+    margin:0 auto;
+}
+.back{
+    margin-top:50px;
 }
 /*-------------------------------------------Sound Button----*/
 #sound button{
@@ -236,4 +246,27 @@ canvas{
 /*Credits*/
 .credits{
     text-align: center;
+}
+/* Contact form */
+.center-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    width:80%;
+}
+#email{
+    width:80%;
+    text-align: center;
+}
+/*Social*/
+.center i{
+    font-size: 200%;
+    color:white;
+}
+.center:hover i{
+    color: black;
+    text-shadow: 0 5px 20px rgb(0, 201, 10);
+    transition: all 0.5s ease-in-out;
+    font-weight: 700;
 }

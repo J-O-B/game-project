@@ -45,17 +45,17 @@ $('.back').click(function(){
 
 //Difficulty: (game starting difficulty)
 $('#easy').click(function(){
-    fallRate = 400;
+    fallRate = 500;
     difficulty = 1;
     $('.difficulty').text("Difficulty: Easy Selected");
 })
 $('#med').click(function(){
-    fallRate = 300;
+    fallRate = 400;
     difficulty = 2;
     $('.difficulty').text("Difficulty: Medium Selected");
 })
 $('#hard').click(function(){
-    fallRate = 200;
+    fallRate = 300;
     difficulty = 3;
     $('.difficulty').text("Difficulty: Hard Selected");
 });
@@ -439,6 +439,7 @@ $('#blocks-away').fadeOut(1000, function(){
                             document.getElementById('background').play();
                             }
             gameMode();
+            fallRate = 400;
             $('.content').fadeOut(500);
             $(".menu").fadeIn(2000); 
         })
@@ -484,6 +485,9 @@ function gameMode(){
             blockReset();
             autoDraw();
             progression();
+            $("#player-score").show();
+            $("#blocks-away").show();
+            $("#key-buttons").show();
      });
     }
 gameMode();

@@ -15,6 +15,7 @@ $('.back').click(function(){
     }
 })
 
+//menu buttons and hide/show logic
 $("#instructions").click(function(){
     document.getElementById("click").play();
     document.getElementById("click").volume = 0.5;
@@ -81,3 +82,9 @@ function sendMail(contactForm) {
     );
     return false;  // To block from loading a new page
 }
+
+
+$("#email").on("submit", function(){
+   $('#submit-text').text("Thank You For Your Feedback, I Will Try To Get Back To You As Soon As Possible.")
+   return false;
+ })
