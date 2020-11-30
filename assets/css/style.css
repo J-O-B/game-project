@@ -13,7 +13,9 @@ body {
 }
 .card{
     margin-top:150px;
-    background: #424040;
+    /*background: #424040;*/
+    background: url('../img/background.jpg')center center no-repeat;
+    background-size: cover;
     width:50%;
     min-height:800px;
     border-radius:10%;

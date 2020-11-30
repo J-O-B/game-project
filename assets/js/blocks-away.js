@@ -137,6 +137,9 @@ function drawBlocks(grid, offset){
     });
 }
 
+
+
+
 //------------------------------------------------------------------------------------------ Check For Impact!
 //If a number which is !0 lands on another number which is !0 we detect the impact
 //and play sound.
@@ -414,8 +417,7 @@ document.addEventListener("keydown", event =>{
 
 //------------------------------------------------------------------------------------------ Block Colors
 //If time change from colors to sprites.
-const color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
-
+var color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
 
 //------------------------------------------------------------------------------------game over screen:
 function gameOver(){
@@ -432,7 +434,7 @@ $('#blocks-away').fadeOut(1000, function(){
    $('#game-over').show();
         $("#no").click(function(){
                         if (audio.playing == 1){
-                            document.getElementById('down').pause()
+                            document.getElementById('down').pause();
                             document.getElementById('game-song').pause();
                             document.getElementById('background').play();
                             }

@@ -10,6 +10,7 @@ $('.back').click(function(){
     gameMode();
     $('.menu').toggle();
     if(audio.playing == 1){
+        document.getElementById('down').pause();
         document.getElementById("back").play();
     }
 })
