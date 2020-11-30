@@ -57,7 +57,7 @@ $(document).ready(function() {
         this.pause(); // Stop playing
     });
     $('#background').each(function(){
-            this.pause(); 
+            this.play(); 
         });
   
     $(this).hide();

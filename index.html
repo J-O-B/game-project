@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Blocks Away</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/credits.css">
+    <link rel="stylesheet" href="assets/css/background.css">
     <!--EmailJS Script-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -17,8 +17,20 @@
     </script>
 </head>
 <body>
-    <!--Container Card-->
-    <div class="card">
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+        <!--Container Card-->
+        <div class="card">
         <!--Sound Button-->
         <div class="on" id="sound">
             <button class="retro-buttons"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
@@ -32,22 +44,22 @@
             <div class="row menu">
                 <h1>Main Menu</h1>
                 <div class="col-12 menu" id="play">
-                    <button class="retro-button">Play</button>
+                    <button class="draw-border retro-button">Play</button>
                 </div>
                 <div class="col-12 menu" id="instructions">
-                    <button class="retro-button">Instructions</button>
+                    <button class="draw-border retro-button">Instructions</button>
                 </div>
                 <div class="col-12 menu" id="settings">
-                    <button class="retro-button">Settings</button>
+                    <button class="draw-border retro-button">Settings</button>
                 </div>
                 <div class="col-12 menu" id="contact">
-                    <button class="retro-button">Contact</button>
+                    <button class="draw-border retro-button">Contact</button>
                 </div>
                 <div class="col-12 menu" id="social">
-                    <button class="retro-button">Social</button>
+                    <button class="draw-border retro-button">Social</button>
                 </div>
                 <div class="col-12 menu" id="credits">
-                    <button class="retro-button">Credits</button>
+                    <button class="draw-border retro-button">Credits</button>
                 </div>
             </div>
         </div>
@@ -56,9 +68,9 @@
         <div class="container">
             <div class="row">
                 <div class="col instructions">
-                    <h5><em>Instructions:</em></h5>
-                    <p>This game uses keys to position the blocks on screen.</p>
-                    <p>The controls are as follows<br></p>
+                    <h3 class="center"><em>Instructions:</em></h3>
+                    <p class="center">The Aim Of This Game Is To Get As High A Score As Possible, And Have Fun!</p>
+                    <h4 class="center"><strong>Keyboard Controls:</strong> <br></h4>
                     <ul>
                         <li>Move Left: "A" key</li>
                         <li>Move Right: "D" key</li>
@@ -66,11 +78,18 @@
                         <li>Rotate Right: "E" key</li>
                         <li>Rotate Left: "Q" key</li>
                     </ul>
-                    <p>Alternatively, if you are on a mobile or tablet device, <br>you can use the keypad located below the game.</p>
-                    <p>Although this game is created to cater for all devices and screen sizes, the optimal setup is a screen width between 1024px & 1440px 
-                    and using a desktop or laptop computer.</p>
-                    <p>Although the game will start off at either a default difficulty, or a specified difficulty that can be selected in the settings menu, 
-                    the game will get progressively harder as the game moves on.</p>
+                    <hr>
+                    <h4 class="center"><strong>Tablet / Mobile:</strong></h4>
+                    <p>If You Are Using A Tablet Or Mobile Device, You Can Use The Keypad Located Below The Game To Control The Blocks.</p>
+                    <hr>
+                    <h4 class="center"><strong>Optimal Viewing:</strong></h4>
+                    <p>This Game Is Fully Responsive, However, A Screen Width Between 1024px To 1440px And Playing On A Desktop/Laptop Is Optimal.</p>
+                    <hr>
+                    <h4 class="center"><strong>Difficulty Explained</strong></h4>
+                    <p>In The Settings Menu, You Will Find 3 Difficulty Levels, (Easy, Medium & Hard). It Is Worth Noting That These Settings Will Set The Initial Difficulty But<br>
+                    Regardless Of Initial Difficulty, The Game Will Progress In Difficulty In All Game Modes.</p>
+                    <hr>
+                    <h4 class="center"><strong>Feedback:</strong></h4>
                     <p>This game is tested on multiple devices and browser types, should you come across an aspect of the game that you think can be 
                     improved, please let me know using the contact form, which can be accessed from the main menu.</p>
                     <button class="retro-button back">Back</button>
@@ -85,17 +104,17 @@
                     <h4>Settings:</h4>
                     <p>Please Select Your Game & Sound Settings:</p>
                     <p>Sound: <br>
-                    <span class="on"><button>ON</button></span>
-                    <span class="off"><button>OFF</button></span>
+                    <span class="draw-border on"><button>ON</button></span>
+                    <span class="draw-border off"><button>OFF</button></span>
                     </p>
-                    <p class="audioFeedback">Default: OFF</p>
+                    <p class="audioFeedback">Default: On</p>
                     <p>Difficulty: <br> 
-                    <span id="easy"><button>Easy</button></span>
-                    <span id="med"><button>Medium</button></span>
-                    <span id="hard"><button>Hard</button></span>
+                    <span id="easy"><button class="draw-border">Easy</button></span>
+                    <span id="med"><button class="draw-border">Medium</button></span>
+                    <span id="hard"><button class="draw-border">Hard</button></span>
                     </p>
                     <p class="difficulty">Default: Easy</p>
-                    <button class="retro-button back">Back</button>
+                    <button class="draw-border retro-button back">Back</button>
                 </div>
             </div>
         </div>   
@@ -119,7 +138,7 @@
                         <button id="q"><i class="fa fa-undo"></i></button>
                         <button id="e"><i class="fa fa-repeat"></i></button>
                     </div>
-                    <button class="retro-button back">Back</button>
+                    <button class="draw-border retro-button back">Back</button>
                 </div>
             </div>
         </div>
@@ -143,7 +162,7 @@
                         </form>
                     </div>
                     <div class="col-12">
-                        <button class="retro-button back">Back</button>
+                        <button class="draw-border retro-button back">Back</button>
                     </div>
                 </div>
             </div>
@@ -161,7 +180,7 @@
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a>                  
                         </div>
                     </div>                    
-                    <button class="retro-button back">Back</button>
+                    <button class="draw-border retro-button back">Back</button>
                 </div>
             </div>
             <!--Credits-->
@@ -191,7 +210,7 @@
                         <p>Sound effects that are used in the Tetris game can be found at</p>
                         <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p><br>
                         
-                        <button class="retro-button back">Back</button>
+                        <button class="draw-border retro-button back">Back</button>
                     </section>
                 </div>
             </div>
@@ -279,7 +298,7 @@
                         <h3>Press Play To Begin:</h3>
                     </div>
                     <div class="row pop-up" id="popupfoot">
-                        <button class="popup-button"><a href="#"><h1>Enter!</h1></a></button>
+                        <button class="draw-border popup-button"><a href="#"><h1>Enter!</h1></a></button>
                     </div>
                 </div>
             </div>

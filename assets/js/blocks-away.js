@@ -246,24 +246,20 @@ function blockReset(){
         if (player.score > player.top && player.score > localStorage.getItem("player",player.top)){
                 player.top = player.score;
                 player.top = JSON.stringify(player.score)
-                console.log(player.top);
                 //localStorage.setItem
                 localStorage.setItem("player",player.top);
-                    player.score = 0;
                     alive = false;
                     trackScore();
                     gameOver();
                     return;
 
             }else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
-                    player.score = 0;
                     alive = false;
                     trackScore();
                     gameOver();
                     return;
 
             }else if(player.score <= player.top && player.score <= localStorage.getItem("player",player.top)){
-                    player.top = player;
                     alive = false;
                     trackScore();
                     gameOver();
@@ -414,6 +410,15 @@ document.addEventListener("keydown", event =>{
     }
 });
 
+function resetFallRate(){
+    if (difficulty == 1){
+        fallRate = 500;
+    }else if (difficulty ==2){
+        fallRate = 400;
+    }else if (difficulty ==3){
+        fallRate = 300;
+    }
+}
 
 //------------------------------------------------------------------------------------------ Block Colors
 //If time change from colors to sprites.
@@ -432,6 +437,7 @@ $('#blocks-away').fadeOut(1000, function(){
             }
     //toggle the game over screen
    $('#game-over').show();
+   $('.back').hide();
         $("#no").click(function(){
                         if (audio.playing == 1){
                             document.getElementById('down').pause();
@@ -439,7 +445,7 @@ $('#blocks-away').fadeOut(1000, function(){
                             document.getElementById('background').play();
                             }
             gameMode();
-            fallRate = 400;
+            resetFallRate();
             $('.content').fadeOut(500);
             $(".menu").fadeIn(2000); 
         })
@@ -448,27 +454,20 @@ $('#blocks-away').fadeOut(1000, function(){
                 document.getElementById('down').pause();
                 document.getElementById('game-song').play();
             }
+            
             alive = true;
             board.forEach(row => row.fill(0));
-            /*if (difficulty == 1){
-                fallRate = 400;
-            } else if (difficulty == 2){
-                fallRate = 300;
-            }else if (difficulty == 3){
-                fallRate == 200;
-            }else{
-                fallRate = 400;
-            }*/
             $('#game-over').hide();
             $('.key-buttons').fadeIn(500);
             $('#blocks-away').fadeIn(1000);
+            $('.back').fadeIn(1000);
             trackScore();
             blockReset();
             autoDraw();
+            resetFallRate();
         })
     });
 }
-
 
 function gameMode(){
     document.getElementById('play');

@@ -8,18 +8,20 @@ body {
     margin:0;
     background: url('../img/background.jpg')center center no-repeat;
     background-size: cover;
-    color:black;
+    color:#fafafa;
     font-family: 'Press Start 2P', cursive;
 }
 .card{
-    margin-top:150px;
+    margin-top:50px;
     background: #424040;
     opacity: 0.9;
     background-size: cover;
     width:50%;
+    min-width:300px;
     min-height:800px;
     border-radius:10%;
 }
+
 .center{
     text-align: center;
 }
@@ -86,13 +88,12 @@ body {
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top:20px;
     text-align: center;
+    padding-top:50px;
 }
 .menu h1{
-    padding-top:150px;
+    text-shadow: 0 5px 20px rgba(0, 201, 10, 0.8);
 }
-
 .instructions,
 .settings,
 .content,
@@ -125,22 +126,71 @@ body {
     transition: all 2s ease-in-out;
 }
 .retro-button{
+    color:#fafafa;
     display:flex;
     align-items: center;
     justify-content: center;
     text-align:center;
     width:250px;
     font-size: large;
-    background: grey;
+    background: black;
     border-radius:5%;
     box-shadow: 0 5px 20px rgba(0,0,0, 0.8);
-    border: 3px dashed black;
+    border: 2px dashed #424040;
 }
-.retro-button:hover{
-    background:#424040;
+.draw-border {
+  box-shadow: inset 0 0 0 4px rgba(0, 201, 10, 0.8);
+  -webkit-transition: color 0.25s 0.0833333333s;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+  padding: 5px 10px 5px 10px;
+}
+
+.draw-border::before,
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0rem;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.draw-border:hover {
+  color: rgb(0, 201, 10);
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
     box-shadow: 0 5px 20px rgba(0, 201, 10, 0.8);
-    color:white;
-    transition-duration: 1s; 
+  border: 2px dashed #424040;
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+  transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+  transition-delay: 0s, 0.25s, 0s;
 }
 
 .retro-buttons{
@@ -167,6 +217,7 @@ button, .btn{
 }
 .back{
     margin-top:50px;
+    z-index:9999;
 }
 /*-------------------------------------------Sound Button----*/
 #sound button{
@@ -214,6 +265,7 @@ button, .btn{
 }
 #game-over{
     text-align: center;
+    margin-top:50px;
 }
 .content button{
     margin:0 auto;
@@ -221,6 +273,9 @@ button, .btn{
 canvas{
     height:600px;
     width:300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #player-score{
     text-align: center;
@@ -242,6 +297,12 @@ canvas{
 .instructions ul{
     text-align: center;
     list-style: none;
+}
+.instructions{
+    text-align: justify;
+    width: 50%;
+    min-width: 300px;
+    text-shadow: 5px 5px 30px #000;
 }
 /*Credits*/
 .credits{
