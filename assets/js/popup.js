@@ -1,16 +1,17 @@
 //Page Load Popup - (www.jqueryscript.net/lightbox/Simple-jQuery-Plugin-For-Opening-A-Popup-Window-On-Page-load.html)
 $(document).ready(function() {
-    //initial visibility of differnet sections & buttons
-    $(".content").hide(); 
-    $(".credits").hide();
-    $('.contact').hide();
-    $('.social').hide();
-    $('.settings').hide();
-    $('#game-over').hide();
-    $("#start-game").hide();
-    $('#mute').hide();
-    $('.instructions').hide();
-    $('#sound').show();
+
+    $(".content").hide(); //Screen With Game
+    $(".credits").hide(); //Screen With Credits
+    $('.contact').hide(); //Screen With Credits
+    $('.social').hide(); //Screen With Credits
+    $('.settings').hide(); //Screen With Credits
+    $('#game-over').hide(); //Screen With Credits
+    $("#start-game").hide(); //Screen With Credits
+    $('#mute').hide(); //Screen With Credits
+    $('.instructions').hide(); //Screen With Credits
+    $('#sound').show(); //Screen With Credits
+    animateOrNot(); //Animated Social Card
     
     var id ='#dialog';
     

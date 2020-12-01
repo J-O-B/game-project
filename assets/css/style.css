@@ -369,7 +369,7 @@ canvas{
 }
 .pic img{
     width:200px;
-    height:200px;
+    transition: all 1.75s ease-out;
     z-index: 1;
 }
 .circle{
@@ -382,9 +382,12 @@ canvas{
 }
 .info h3{
     font-size: 200%;
+    text-align: center;
+    transition: all 1s ease-out;
 }
 .info p{
     color: rgb(0, 201, 10);
+    text-align: center;
 }
 .sizes{
     display:flex;
@@ -396,10 +399,12 @@ canvas{
     background:none;
     border:none;
     box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+    transition: all 0.75s ease-out;
 }
 .purchase button{
     text-align: center;
     width:80%;
     background: none;
     font-weight: bold;
+    transition: all 0.5s ease-out;
 }
