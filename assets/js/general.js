@@ -64,8 +64,12 @@ $("#credits").click(function(){
         document.getElementById("click").play();
     }
 });
-$("#mail").click(function(){
-    $(".email").show();
+$(".mail").click(function(){
+    //try force hide other sections
+    $(".settings").hide();
+    $(".contact").show();
+    $(".social").hide();
+    $(".emailMe").show();
 });
 
 //Email Form:

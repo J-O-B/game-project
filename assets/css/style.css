@@ -233,9 +233,6 @@ button, .btn{
 .back{
     margin-top:50px;
 }
-#mail{
-    z-index:9999;
-}
 /*-------------------------------------------Sound Button----*/
 #sound button{
     position:fixed;
@@ -272,7 +269,6 @@ button, .btn{
 .sound audio{
     display:none;
 }
-
 
 /* -----------------------------Game ---*/
 .game{
@@ -353,6 +349,9 @@ canvas{
     box-sizing: border-box;
     display:block;
     perspective: 1000px;
+}
+.social h1{
+    text-align: center;
 }
 .social-container{
     min-height:100%;
