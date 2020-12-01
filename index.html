@@ -33,10 +33,10 @@
         <div class="card">
         <!--Sound Button-->
         <div class="on" id="sound">
-            <button class="retro-buttons" role="button"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
+            <button class="retro-buttons" aria-label="turn sound on"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
         </div>
         <div class="off" id="mute">
-            <button class="retro-buttons" role="button"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
+            <button class="retro-buttons" aria-label="turn sound off"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
         </div>
         
         <!--Menu-->
@@ -44,22 +44,22 @@
             <div class="row menu">
                 <h1 class="title-style">Main Menu</h1>
                 <div class="col-12 menu" id="play">
-                    <button class="draw-border retro-button" role="button">Play</button>
+                    <button class="draw-border retro-button" aria-label="button to enter the game">Play</button>
                 </div>
                 <div class="col-12 menu" id="instructions">
-                    <button class="draw-border retro-button" role="button">Instructions</button>
+                    <button class="draw-border retro-button" aria-label="button to view instructions">Instructions</button>
                 </div>
                 <div class="col-12 menu" id="settings">
-                    <button class="draw-border retro-button" role="button">Settings</button>
+                    <button class="draw-border retro-button" aria-label="button to view settings">Settings</button>
                 </div>
                 <div class="col-12 menu" id="contact">
-                    <button class="draw-border retro-button" role="button">Contact</button>
+                    <button class="draw-border retro-button" aria-label="button to view contact form">Contact</button>
                 </div>
                 <div class="col-12 menu" id="social">
-                    <button class="draw-border retro-button" role="button">Social</button>
+                    <button class="draw-border retro-button" aria-label="button to view social page">Social</button>
                 </div>
                 <div class="col-12 menu" id="credits">
-                    <button class="draw-border retro-button" role="button">Credits</button>
+                    <button class="draw-border retro-button" aria-label="button to view credits">Credits</button>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                     <h4 class="center title-style"><strong>Feedback:</strong></h4>
                     <p>This game is tested on multiple devices and browser types, should you come across an aspect of the game that you think can be 
                     improved, please let me know using the contact form, which can be accessed from the main menu.</p>
-                    <button class="retro-button back" role="button">Back</button>
+                    <button class="retro-button back" aria-label="button to go back to main menu">Back</button>
                 </div>        
             </div>
         </div>
@@ -104,42 +104,42 @@
                 <div class="col-12">
                     <p>Please Select Your Game & Sound Settings:</p>
                     <p>Sound: <br>
-                    <span class="on"><button class="draw-border retro-button" role="button">ON</button></span>
-                    <span class="off"><button class="draw-border retro-button" role="button">OFF</button></span>
+                    <span class="on"><button class="draw-border retro-button" aria-label="button to select sound on">ON</button></span>
+                    <span class="off"><button class="draw-border retro-button" aria-label="button to select sound off">OFF</button></span>
                     </p>
                     <p class="audioFeedback">Default: On</p>
                     <hr class="space-around div">
                     <p>Difficulty: <br> 
-                    <span id="easy"><button class="draw-border retro-button" role="button">Easy</button></span>
-                    <span id="med"><button class="draw-border retro-button" role="button">Medium</button></span>
-                    <span id="hard"><button class="draw-border retro-button" role="button">Hard</button></span>
+                    <span id="easy"><button class="draw-border retro-button" aria-label="button to select easy difficulty">Easy</button></span>
+                    <span id="med"><button class="draw-border retro-button" aria-label="button to select medium difficulty">Medium</button></span>
+                    <span id="hard"><button class="draw-border retro-button" aria-label="button to select hard difficulty">Hard</button></span>
                     </p>
                     <p class="difficulty">Default: Easy</p>
-                    <button class="draw-border retro-button back" role="button">Back</button>
+                    <button class="draw-border retro-button back" aria-label="button to go back to main menu">Back</button>
                 </div>
             </div>
         </div>   
         <!--Game Screen-->   
         <div class="container">
             <div class="row game"> 
-                <button type="button" id="start-game" class="retro-button">Start</button>   
+                <button type="button" id="start-game" class="retro-button" aria-label="button to begin the game">Start</button>   
                 <div class="content">
                     <div id="player-score"></div>
                     <canvas id="blocks-away"></canvas>
                     <div id="game-over">
                         <h1>Game Over!</h1>
                         <p>Would you like to play again?</p>
-                        <button class="retro-button" id="yes" role="button">Yes</button>
-                        <button class="retro-button" id="no" role="button">No</button>
+                        <button class="retro-button" id="yes" aria-label="button to play again">Yes</button>
+                        <button class="retro-button" id="no" aria-label="button to quit game and return to main menu">No</button>
                     </div>
                     <div class="key-buttons row">
-                        <button role="button" id="a"><i class="fa fa-arrow-left"></i></button>
-                        <button role="button" id="s"><i class="fa fa-arrow-down"></i></button>
-                        <button role="button" id="d"><i class="fa fa-arrow-right"></i></button>
-                        <button role="button" id="q"><i class="fa fa-undo"></i></button>
-                        <button role="button" id="e"><i class="fa fa-repeat"></i></button>
+                        <button aria-label="button to move block left" id="a"><i class="fa fa-arrow-left"></i></button>
+                        <button aria-label="button to move block down" id="s"><i class="fa fa-arrow-down"></i></button>
+                        <button aria-label="button to move block right" id="d"><i class="fa fa-arrow-right"></i></button>
+                        <button aria-label="button to move block rotate left" id="q"><i class="fa fa-undo"></i></button>
+                        <button aria-label="button to move block rotate right" id="e"><i class="fa fa-repeat"></i></button>
                     </div>
-                    <button role="button" class="draw-border retro-button back">Back</button>
+                    <button aria-label="button to go back to main menu" class="draw-border retro-button back">Back</button>
                 </div>
             </div>
         </div>
@@ -160,12 +160,12 @@
                                     <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
                                     <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
                                     <textarea rows="5" name="projectsummary" id="projectsummary" class="form-control" placeholder="Feedback description" required></textarea>
-                                    <button type="submit" class="btn btn-secondary center-block">Send Feedback</button>
+                                    <button aria-label="button to submit form" type="submit" class="btn btn-secondary center-block">Send Feedback</button>
                                     <p id="submit-text"></p>
                                 </form>
                             </div>
                             <div class="col-12">
-                                <button role="button" class="draw-border retro-button back">Back</button>
+                                <button aria-label="button to go back to main menu" class="draw-border retro-button back">Back</button>
                             </div>
                     </div>
                 </div>
@@ -183,18 +183,18 @@
                             <h3 class="title">John O'Brien</h3>
                             <p>Follow Me On GitHub / LinkedIn</p>
                             <div class="sizes">
-                                <button role="button" class="draw-border social-media active" href="https://github.com/J-O-B/" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></button>
-                                <button role="button" class="draw-border social-media" href="https://www.linkedin.com/in/jonathan-o-brien/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></button>
+                                <button aria-label="button to open github" class="draw-border social-media active" href="https://github.com/J-O-B/" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></button>
+                                <button aria-label="button to open linkedIn" class="draw-border social-media" href="https://www.linkedin.com/in/jonathan-o-brien/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></button>
                             </div>
                             <div class="purchase">
-                                <button role="button" class="draw-border mail">Email</button>
+                                <button aria-label="button to view contact form" class="draw-border mail">Email</button>
                             </div>
                         </div>
                     </div> 
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button role="button" class="draw-border retro-button back">Back</button>
+                        <button aria-label="button to go back to main menu" class="draw-border retro-button back">Back</button>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                         <p>Sound effects that are used in the Tetris game can be found at</p>
                         <p class="center"><a href="https://zapsplat.com" target="_blank">Zapsplat.com<br/></a></p><br>
                         
-                        <button role="button" class="draw-border retro-button back">Back</button>
+                        <button aria-label="button to go back to main menu" class="draw-border retro-button back">Back</button>
                     </section>
                 </div>
             </div>
