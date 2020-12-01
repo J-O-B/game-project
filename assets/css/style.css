@@ -341,7 +341,7 @@ canvas{
     display:flex;
     align-items: center;
     justify-content: center;
-    
+    perspective: 1000px;
 }
 .social-container{
     min-height:100%;
@@ -349,13 +349,16 @@ canvas{
     display:flex;
     justify-content: center;
     align-items: center;
+    border-radius:30px;
 }
 .social-card{
+    transform-style: preserve-3d;
     margin-top:50px;
     margin-bottom:50px;
     height:600px;
     width:300px;
-    background:blue;
+    background:#424040;
+    opacity:1;
     box-shadow: 0 20px 20px rgba(0,0,0,0.8), 0 0 50px rgba(0, 201, 10, 0.8);
 }
 .pic{
@@ -376,4 +379,27 @@ canvas{
     border-radius: 50%;
     position: absolute;
     z-index: 0;
+}
+.info h3{
+    font-size: 200%;
+}
+.info p{
+    color: rgb(0, 201, 10);
+}
+.sizes{
+    display:flex;
+    justify-content: space-between;
+    font-size:300%;
+}
+.sizes button{
+    margin-bottom: 20px;
+    background:none;
+    border:none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}
+.purchase button{
+    text-align: center;
+    width:80%;
+    background: none;
+    font-weight: bold;
 }

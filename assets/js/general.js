@@ -87,4 +87,34 @@ function sendMail(contactForm) {
 $("#email").on("submit", function(){
    $('#submit-text').text("Thank You For Your Feedback, I Will Try To Get Back To You As Soon As Possible.")
    return false;
- })
+ });
+
+
+ //Social Card
+ const card = document.querySelector('.social-card');
+ const container = document.querySelector('.social-container');
+
+const title = document.querySelector('.title');
+const pic = document.querySelector('.pic img');
+const size = document.querySelector('.sizes button');
+const purchase = document.querySelector('.purchase button');
+const info = document.querySelector('.info p');
+
+ container.addEventListener('mousemove', (e) => {
+     console.log("hey");
+     let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
+     let yAxis = (window.innerHeight / 2 - e.pageY) / 15;
+     card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+ });
+
+//animate in
+ container.addEventListener("mouseleave", (e) =>{
+ //pop
+    title.style.transform = 'translateX(150px);'
+  });
+
+ //animate in
+ container.addEventListener("mouseleave", (e) =>{
+     card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+     title.style.transform = 'translateX(0px);'
+ });
