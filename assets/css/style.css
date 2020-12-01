@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
+    min-height:100vh;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -18,18 +19,23 @@ body {
     background-size: cover;
     width:50%;
     min-width:300px;
-    min-height:800px;
+    height:800px;
     border-radius:10%;
+    overflow-y: auto;
 }
+
 
 .center{
     text-align: center;
+    padding-right: 10px;
+    padding-left:10px;
 }
 .space-around{
     margin-top: 35px;
     margin-bottom: 35px;
 }
 .container h1{
+    padding-top:50px;
     text-align: center;
 }
 /* ------------divider-------------*/
@@ -117,6 +123,7 @@ body {
 .social,
 .credits{
     display:block;
+    overflow-y:auto;
 }
 /*-------------------------------Buttons --*/
 .popup-button{
@@ -312,12 +319,12 @@ canvas{
     list-style: none;
 }
 .instructions{
-    text-align: justify;
+    text-align: center;
     width: 50%;
     min-width: 300px;
     text-shadow: 2px 2px 10px rgb(0, 0, 0);
 }
-.instructions h3, h4{
+.instructions h1, h4{
     color:#000;
     text-shadow: 0px 2px 10px rgba(0, 201, 10, 0.8), 0px 0px 40px rgba(0, 201, 10, 0.8);
 }
@@ -427,4 +434,49 @@ canvas{
     background: none;
     font-weight: bold;
     transition: all 0.5s ease-out;
+}
+
+/*----media queries-----*/
+@media screen and (max-width:768px){
+    .card{
+        width:90vw;
+    }
+}
+@media screen and (max-width:1100px){
+    .instructions{
+        width:100%;
+        display:block;
+        margin:0 auto;
+    }
+    .instructions h1{
+        width:100%;
+        font-size: 150%;
+    }
+    .instructions h4{
+        width:100%;      
+        font-size: 150%;
+    }
+    .instructions p, ul{
+        width:100%;
+        font-size: 100%;
+    }
+}
+@media screen and (max-width:675px){
+    .instructions{
+        width:100%;
+        display:block;
+        margin:0 auto;
+    }
+    .instructions h1{
+        width:100%;
+        font-size: 100%;
+    }
+    .instructions h4{
+        width:100%;      
+        font-size: 100%;
+    }
+    .instructions p, ul{
+        width:100%;
+        font-size: 70%;
+    }
 }
