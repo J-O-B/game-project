@@ -29,6 +29,9 @@ body {
     margin-top: 35px;
     margin-bottom: 35px;
 }
+.container h1{
+    text-align: center;
+}
 /* ------------divider-------------*/
 .div{
     height:5px;
@@ -229,6 +232,8 @@ button, .btn{
 }
 .back{
     margin-top:50px;
+}
+#mail{
     z-index:9999;
 }
 /*-------------------------------------------Sound Button----*/

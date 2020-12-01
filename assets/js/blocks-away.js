@@ -1,8 +1,9 @@
 //-------------------------------------------------------------------Audio
+// Keep track of audio setting
 var audio = {
     playing : 0,
 }
-
+// Audio On & Off buttons
 $(".on").click(function(){
     document.getElementById('background').play();
     document.getElementById('game-song').pause();
@@ -36,14 +37,14 @@ $('#sound').click(function(){
     audio.playing = 0;
 })
 
-//Restart
+// ***BUG FIX***
+// Fill the board with 0's then run gameMode function, this way the board is reset and ready incase a user re-enters the game.
 $('.back').click(function(){
-    //incase of restart, clear the board
     board.forEach(row => row.fill(0));
     gameMode();
 })
 
-//Difficulty: (game starting difficulty)
+// Difficulty: (game starting difficulty)
 $('#easy').click(function(){
     fallRate = 500;
     difficulty = 1;
@@ -64,7 +65,7 @@ function progression(){
     fallRate --;
 }
 
-// ------------------------------------Main game area: ---------------------------------------------
+// ------------------------------------MAIN GAME AREA: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
 
@@ -184,38 +185,40 @@ function merge(board, block){
 }
 
 //------------------------------------------------------------------------------------------ Rate At Which Blocks Fall
-// Fall rate 400 can be default, less than easy difficulty.
+// Fall rate 500 can be default, provides a default difficulty which 
+// most users should be able to have fun with.
 let fallCount = 0;
-var fallRate = 400;
+var fallRate = 500;
 
 //------------------------------------------------------------------------------------------ Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear
 //                                                                                           The Line.
 function dropBlock(){
-    block.position.y++;
-    //Check No Impact, If Stack True, Merge Original Array, 
-    //Then 'Reset' With New Block At Top Of Board.
-    //If A Row Is Full && No 0's Clear The Line & Place New
-    //Empty Array At Top Of Board. 
-    if (stack(board, block) && alive == true){
-        block.position.y--;
-        merge(board, block);
-        
-        if (audio.playing == 1){
-            $('#thud').each(function(){
-                this.play();
-            });
-        }else{
+    if (alive == true){
+        block.position.y++;
+        //Check No Impact, If Stack True, Merge Original Array, 
+        //Then 'Reset' With New Block At Top Of Board.
+        //If A Row Is Full && No 0's Clear The Line & Place New
+        //Empty Array At Top Of Board. 
+        if (stack(board, block) && alive == true){
+            block.position.y--;
+            merge(board, block);
             
+            if (audio.playing == 1){
+                $('#thud').each(function(){
+                    this.play();
+                });
+            }else{
+                
+            }
+            //Lower the fallRate value (difficulty)
+            progression();
+            //Call new block
+            blockReset();
+            //Remove line when full
+            clearTheLine();
+            //Add the score to scoreboard.
+            trackScore(); 
         }
-        //Lower the fallRate value (difficulty)
-        progression();
-        //Call new block
-        blockReset();
-        //Remove line when full
-        clearTheLine();
-        console.log(fallRate);
-        //Add the score to scoreboard.
-        trackScore();
     }
     fallCount=0;
 }
@@ -233,7 +236,7 @@ function blockReset(){
     block.grid = shapes('I');
     block.position.y = 1;
     block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
-    }else{
+    }else if (alive == true){
     const shape = "ABCDEFGH";
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
     block.position.y = 1;
@@ -246,7 +249,6 @@ function blockReset(){
         if (player.score > player.top && player.score > localStorage.getItem("player",player.top)){
                 player.top = player.score;
                 player.top = JSON.stringify(player.score)
-                //localStorage.setItem
                 localStorage.setItem("player",player.top);
                     alive = false;
                     trackScore();
@@ -444,17 +446,16 @@ $('#blocks-away').fadeOut(1000, function(){
                             document.getElementById('game-song').pause();
                             document.getElementById('background').play();
                             }
-            gameMode();
-            resetFallRate();
             $('.content').fadeOut(500);
             $(".menu").fadeIn(2000); 
+            gameMode();
+            resetFallRate();
         })
         $("#yes").click(function(){
            if (audio.playing == 1){
                 document.getElementById('down').pause();
                 document.getElementById('game-song').play();
-            }
-            
+            }  
             alive = true;
             board.forEach(row => row.fill(0));
             $('#game-over').hide();

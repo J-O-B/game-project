@@ -64,6 +64,9 @@ $("#credits").click(function(){
         document.getElementById("click").play();
     }
 });
+$("#mail").click(function(){
+    $(".email").show();
+});
 
 //Email Form:
 function sendMail(contactForm) {
