@@ -115,9 +115,9 @@ container.addEventListener("mouseenter", (e) => {
   //Popout
   title.style.transform = "translateZ(150px)";
   pic.style.transform = "translateZ(200px) rotateZ(-5deg)";
-  description.style.transform = "translateZ(125px)";
-  sizes.style.transform = "translateZ(100px)";
-  purchase.style.transform = "translateZ(75px)";
+  description.style.transform = "translateZ(100px)";
+  sizes.style.transform = "translateZ(150px)";
+  purchase.style.transform = "translateZ(200px)";
 });
 //Animate Out
 container.addEventListener("mouseleave", (e) => {
@@ -132,3 +132,10 @@ container.addEventListener("mouseleave", (e) => {
 });
  }
 };
+$("#mail").click(function(){
+    $(".social").fadeOut(500);
+    $(".settings").fadeIn(500);
+    if(audio.playing == 1){
+        document.getElementById("click").play();
+    }
+});

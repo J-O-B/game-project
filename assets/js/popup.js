@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('#mute').hide(); //Screen With Credits
     $('.instructions').hide(); //Screen With Credits
     $('#sound').show(); //Screen With Credits
-    animateOrNot(); //Animated Social Card
+
     
     var id ='#dialog';
     
@@ -51,6 +51,7 @@ $(document).ready(function() {
     e.preventDefault();
     $('#mask').hide();
     $('.window').hide();
+    animateOrNot(); //Animated Social Card
     });
     //if mask is clicked
     $('#mask').click(function () {
@@ -63,6 +64,7 @@ $(document).ready(function() {
   
     $(this).hide();
     $('.window').hide();
+    animateOrNot(); //Animated Social Card
     });
 });
 //End Of Popup Window;
