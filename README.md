@@ -1,18 +1,17 @@
 # Milestone Project One
 
 ## Personal Portfolio
-![Portfolio](assets/readme/Preview.jpg)
+![Blocks Away](assets/readme/main-menu.jpg)
 
-Welcome to my second milestone project! For this project, I chose to create a personal portfolio. My 
-    reasoning for this selection is based on the fact that I can use this project to come back to as I 
-    progress through [Code Institute](https://codeinstitute.net) and display my work in the "Projects" section of this page.
+Welcome to my second milestone project! As I feel very confident with business style web design, I wanted to undertake a project 
+that is very different from anything I have coded before and would test my JavaScript skills, this is why I chose to create a game 
+for this project. 
 
-After researching full stack developer portfolios online (Google and YouTube), I noticed almost all developers implement a single page design. 
-I like this design and chose to follow what seems to be the "norm" in this category.
+Based on the style of the gaming classic Tetris, Blocks Away is a browser based JavaScript game packed with features. For this project, 
+I wanted to try and recreate the 8-bit era, which you will notice in the audio and styling of the page. 
 
-This project on-top of being a milestone project also serves as a real-world project. I recently purchased a domain, which I will host 
-this project on, however, I will wait to deploy this project on such a live environment until a later date where I may restrict access to 
-items such as my CV. 
+To cover the UX aspect of this project, I have created a very simple navigation system which should come across as easy to use and 
+logical.
 
 ### Table of contents:
 1. [Description](#Description),
@@ -41,7 +40,9 @@ items such as my CV.
     4. [Acknowledgments](#Acknowledgments)
 
 ## **Description**
-  
+This JavaScript game is based on the retro classic Tetris. A player needs to fill rows with blocks in order to clear the line, and score points. 
+For each line that is cleared, a player will earn 10 points. A simple local storage addition means that players will have their top score saved 
+for any future games (*unless they delete their cookies).
 
 ---------------
 ## **UX**
@@ -54,21 +55,24 @@ items such as my CV.
 2. Scope:
 
 *Functional Requirements:*
->
+> A player must be able to fully control the blocks within the game.
+> Game logic must limit the movement of blocks to the area within the game 'board'.
+> Game logic must recognize when a row is complete, then delete this row.
+> Game logic must recognize when a block lands on the bottom of the board, or another block, when this happens we must merge these objects.
+> A player must be able to start or stop music & sound effects.
 
 *Content Requirements:*
->
->
+> Details of how to play the game, such as controls (to include the difference for desktop and mobile).
+> Information on the optimal devices to play the game.
+> Attribution for media and sounds as per their usage agreements.
+> Feedback areas to notify users and give feedback, such as clicking the sound button should then have text "sound selected off".
 
 3. Structure:
-> * 
+> * A user interface that functions like a game menu.
 >
-> *  
+> * Each screen should provide a limited ammount, but quality information to a user.
 >
->
-> *  
->
-> * 
+> * A game screen should be sized to allow mobile users see the entire board and controls without needing to scroll.
 
 4. Skeleton:
 >  (View them [here](#Wireframes))
@@ -76,14 +80,13 @@ items such as my CV.
 > 
 
 5. Surface:
->  
-> 
->
-> 
-> 
+>  In an attempt to recreate an 8-bit era, use a font that looks like an 8-bit font.
+>  Build a main screen whereby a user can simply access a sub section, before returning to the main screen.
+>  Allow user inputs to change the state of the code, for example turning audio on or off, selecting difficulty etc.
+
 
 ### <ins>**_Logo_**</ins>
-
+Although there is no logo for this game, the welcome video starts off using the logo of John O'Brien (me).
 
 ### <ins>**_Wireframes_**</ins>
 You can view the wireframe designs [here](assets/readme/wireframe_design.pdf)
@@ -95,11 +98,11 @@ Being a web game the following user stories specific to this project are:
 
 | **As the creator I want to:** |
 | ------------------------------------------------------- |
-|1. *Introduce myself to recruiters or collaborators.* |
-|2. *Showcase my skills.* |
-|3. *Show my projects.* |
-|4. *Breakdown what I can do to show specific areas of expertise (incase of freelance work).* |
-|5. *Get contacted about potential job or work opportunities.* |
+|1. *Have fun playing the game.* |
+|2. *Create a program I have never created before.* |
+|3. *Expand my JavaScript and jQuery skills.* |
+|4. *Allow players to * |
+|5. ** |
 
 | **As a user I want to:** |
 | ------------------------------------------------------- |
