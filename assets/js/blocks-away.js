@@ -28,14 +28,14 @@ $('#mute').click(function(){
     $('#sound').show();
     $('#mute').hide();
     audio.playing = 1;
-})
+});
 $('#sound').click(function(){
     document.getElementById('background').pause();
     $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
     audio.playing = 0;
-})
+});
 
 // ***BUG FIX***
 // Fill the board with 0's then run gameMode function, this way the board is reset and ready incase a user re-enters the game.

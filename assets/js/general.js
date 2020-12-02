@@ -62,6 +62,9 @@ $("#credits").click(function(){
     $('.menu').toggle();
     if(audio.playing == 1){
         document.getElementById("click").play();
+        document.getElementById("click").addEventListener("ended", function(){
+        document.getElementById("gameOverScreen").play();
+});
     }
 });
 $(".mail").click(function(){
@@ -146,3 +149,4 @@ $("#mail").click(function(){
         document.getElementById("click").play();
     }
 });
+
