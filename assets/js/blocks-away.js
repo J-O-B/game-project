@@ -447,6 +447,7 @@ $('#blocks-away').fadeOut(1000, function(){
                             document.getElementById('background').play();
                             }
             $('.content').fadeOut(500);
+            $("game-over").hide();
             $(".menu").fadeIn(2000); 
             gameMode();
             resetFallRate();
@@ -485,9 +486,11 @@ function gameMode(){
             blockReset();
             autoDraw();
             progression();
-            $("#player-score").show();
-            $("#blocks-away").show();
-            $("#key-buttons").show();
+            $('#game-over').hide();
+            $("#player-score").fadeIn(500);
+            $('.key-buttons').fadeIn(500);
+            $("#blocks-away").fadeIn(500);
+            $("#quit").show();
      });
     }
 gameMode();

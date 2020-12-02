@@ -178,6 +178,10 @@ body {
     border-radius:5%;
     box-shadow: 0 5px 20px rgba(0,0,0, 0.8);
 }
+.retro-button:hover{
+    transition: all 1s ease-in-out;
+    background: linear-gradient(to right, rgb(0,201,10) 2%, rgb(0,0,0) 15%, rgb(0,0,0) 85%, rgb(0,201,10) 98%);
+}
 .draw-border {
   -webkit-transition: color 0.25s 0.0833333333s;
   transition: color 0.25s 0.0833333333s;
@@ -209,7 +213,7 @@ body {
 }
 
 .draw-border:hover {
-  color: #fff;
+  color: rgb(0,201,10);
 }
 
 .draw-border:hover::before,
@@ -257,6 +261,15 @@ button, .btn{
 .back{
     margin-top:50px;
 }
+.key-buttons button{
+    width: 58px;
+    height:50px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    padding-top:9px;
+}
+
 /*-------------------------------------------Sound Button----*/
 #sound button{
     position:fixed;
@@ -325,6 +338,9 @@ canvas{
     background: red;
     transition-duration: 2s;   
 }
+.key-buttons{
+    margin-bottom: 75px;
+}
 /*-----------------------------Screens --*/
 .container{
     display: flex;
@@ -356,8 +372,34 @@ canvas{
     width:80%;
 }
 #email{
-    width:80%;
+    display: block;
+    width:100%;
     text-align: center;
+}
+#fullname{
+    margin:0 auto;
+    width:80%;
+    margin-bottom: 25px;
+}
+#emailaddress{
+    margin:0 auto;
+    width:80%;
+    margin-bottom: 25px;
+}
+#projectsummary{
+    margin:0 auto;
+    width:80%;
+    margin-bottom: 25px;
+}
+#send{
+    margin:0 auto;
+    width:50%;
+    background: linear-gradient(to right, rgb(240,165,95) 2%, rgb(240,90,90) 5%, rgb(240,90,90) 95%, rgb(240,165,95) 98%);
+    color: #000;
+}
+#send:hover{
+    background: linear-gradient(to right, rgb(240,90,90) 2%, rgb(240,165,95) 5%, rgb(240,165,95) 95%, rgb(240,90,90) 98%);
+    color: #fff;
 }
 
 /*Credits*/
