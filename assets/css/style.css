@@ -30,6 +30,7 @@ body {
     color:#fafafa;
     font-family: 'Press Start 2P', cursive;
 }
+
 .card{
     margin-top:50px;
     background: #424040;
@@ -41,7 +42,6 @@ body {
     border-radius:10%;
     overflow-y: auto;
 }
-
 
 .center{
     text-align: center;
