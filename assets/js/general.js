@@ -92,7 +92,7 @@ const container = document.querySelector(".social-container");
 //Items
 const title = document.querySelector(".title");
 const pic = document.querySelector(".pic img");
-const contact-me = document.querySelector(".contact-me");
+const contactMe = document.querySelector(".contact-me");
 const description = document.querySelector(".info p");
 const links = document.querySelector(".links");
 const circle = document.querySelector(".circle");
@@ -111,7 +111,7 @@ container.addEventListener("mouseenter", (e) => {
   pic.style.transform = "translateZ(200px) rotateZ(-5deg)";
   description.style.transform = "translateZ(100px)";
   links.style.transform = "translateZ(150px)";
-  contact-me.style.transform = "translateZ(200px)";
+  contactMe.style.transform = "translateZ(200px)";
   circle.style.transform = "translateZ(50px)";
 });
 //Animate Out
@@ -123,7 +123,7 @@ container.addEventListener("mouseleave", (e) => {
   pic.style.transform = "translateZ(0px) rotateZ(0deg)";
   description.style.transform = "translateZ(0px)";
   links.style.transform = "translateZ(0px)";
-  contact-me.style.transform = "translateZ(0px)";
+  contactMe.style.transform = "translateZ(0px)";
   circle.style.transform = "translateZ(0px)";
 });
  }
