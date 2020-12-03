@@ -15,8 +15,6 @@ $(".on").click(function(){
 $(".off").click(function(){
     document.getElementById('background').pause();
     document.getElementById('game-song').pause();
-    document.getElementById('instruct').pause();
-    document.getElementById('gameOverScreen').pause();
     $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
@@ -27,8 +25,6 @@ $(".off").click(function(){
 $('#mute').click(function(){
     document.getElementById('background').play();
     document.getElementById('game-song').pause();
-    document.getElementById('instruct').pause();
-    document.getElementById('gameOverScreen').pause();
     $('.audioFeedback').text("Audio Selected: ON");
     $('#sound').show();
     $('#mute').hide();
@@ -36,10 +32,7 @@ $('#mute').click(function(){
 });
 $('#sound').click(function(){
     document.getElementById('background').pause();
-    document.getElementById('game-song').pause();
-    document.getElementById('instruct').pause();
-    document.getElementById('gameOverScreen').pause();
-    
+    document.getElementById('game-song').pause();   
     $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
@@ -53,23 +46,6 @@ $('.back').click(function(){
     board.forEach(row => row.fill(0));
     gameMode();
 })
-
-// Difficulty: (game starting difficulty)
-$('#easy').click(function(){
-    fallRate = 500;
-    difficulty = 1;
-    $('.difficulty').text("Difficulty: Easy Selected");
-})
-$('#med').click(function(){
-    fallRate = 400;
-    difficulty = 2;
-    $('.difficulty').text("Difficulty: Medium Selected");
-})
-$('#hard').click(function(){
-    fallRate = 300;
-    difficulty = 3;
-    $('.difficulty').text("Difficulty: Hard Selected");
-});
 
 //increase game difficulty as game progresses
 function progression(){
@@ -418,6 +394,30 @@ document.addEventListener("keydown", event =>{
         blockRotation(1);  
     }
 });
+
+// Difficulty: (game starting difficulty)
+$('#easy').click(function(){
+    fallRate = 500;
+    difficulty = 1;
+    $('.difficulty').text("Difficulty: Easy Selected");
+})
+$('#med').click(function(){
+    fallRate = 400;
+    difficulty = 2;
+    $('.difficulty').text("Difficulty: Medium Selected");
+})
+$('#hard').click(function(){
+    fallRate = 300;
+    difficulty = 3;
+    $('.difficulty').text("Difficulty: Hard Selected");
+});
+
+function testFall(){
+    while (fallRate == 500 || fallRate == 400 || fallRate == 300){
+        console.log(fallRate);
+    }
+}
+testFall();
 
 function resetFallRate(){
     if (difficulty == 1){
