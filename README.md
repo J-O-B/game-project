@@ -144,33 +144,83 @@ tablet and mobile users control the blocks to make this game function on their d
 
 ### <ins>**_Existing Features:_**</ins>
 
-Currently, this project has several features:
+Currently, this project has several features which include:
 
-Navbar:
+Sound Effects:
 
-* Dropdown menu,
-* Button for "experience" modal popup,
-* Fully responsive layout.
+* Sound effect features are scattered around this project and contained within the game itself. If the sound is selected on, menu selections to enter a section will 
+play a specific noise, once in an area, if a user selects to return to the main menu a different noise is played.
 
+* Within the game, if the sound is selected ON, the main menu audio will change to the game song, a 'thud' noise is played each time a block lands, and a zap noise 
+is played when a line break is detected. When a user has lost the game, the game song will pause, and game over music will play. On returning to a new game the game song 
+will play again. 
 
+Popup Intro:
+
+* A popup window which holds an into video, as well as a description of the game means a user can tell what this page is before even moving past this screen.
+
+Main Menu:
+
+* The main menu of this project is interactive, with hover events and event listeners for mouse or touchscreen inputs.
+
+Settings Screen:
+
+* The settings screen is interactive, and supplies feedback to a user. For example on clicking the "Sound: ON" a user will see the change of text, they will also see the global 
+sound button (top right) change to the selected setting, and will hear music starting. 
+
+High Score:
+
+* On starting this game, the game will check for a stored high score. If a high score exists in a users browser, then that score will be displayed. If no high score is 
+found, then a 0 is placed here. When a user loses a game, the current score will be compared to see if a new high score has been achieved, if the score is higher than the 
+saved high score, then the game will automatically replace the old high score with the new high score.
+
+Background Animation:
+
+* In the background (behind the card, and ontop of the background image) there are animated shapes flying.
+
+Social Card:
+
+* A 3D social card is contained in the SOCIAL page. This card reacts to a users mouse position and reacts according to the X & Y values of the mouse position. Due to 
+styling, this animation is only available on screens larger than 769px (anything larger than an iPad).
 
 ### <ins>**_Future Features:_**</ins>
 
+One feature I did really want with this project was a global high score sheet, where users (if good enough) would have their score and a username pinned to a 'global' 
+scoreboard. Unfortunately at this time I do not have the knowledge to implement this, so I chose to wait until I fully understand this process before implementing it 
+in this game.
     
 ------------------
 ## **Technologies Used**
 
+Blocks Away uses HTML, CSS and JavaScript with the addition of Bootstrap and jQuery. To allow for functionality of the contact form, an email API from EmailJS has been 
+used.
 
 ---------------------
 ## **Testing**
-To test this project I first used [W3 Validator](https://validator.w3.org/) to check all HTML, I then checked all of the CSS via the [W3 'Jigsaw' Validator](https://jigsaw.w3.org/css-validator/).
 
-![Testing](assets/readme/testing.jpg)
+This project has passed through several phases of testing, these phases include:
 
-Adding to these tests, I used dev tools in my browser (Chrome) to see specific areas that I wanted to change. As this project is a front end project, the majority of my testing 
-was that of design and the use of dev tools to achieve this.
+[W3 Validator](https://validator.w3.org/) to check all HTML. 
 
-Using Chrome Dev Tools, I viewed each section of this page on desktop, as well as both portrait and landscape layouts on tablet and mobile to ensure a 100% responsive design.
+[W3 'Jigsaw' Validator](https://jigsaw.w3.org/css-validator/) to check all CSS.
+
+*Console.Log*: During the creation of this code, logging the results of each function was key. As this project relies on ALL functions to operate correctly, without fail 
+it was imperative that all functions supply a correct answer or value in a timely manner.
+
+Dev Tools: While creating this game, I took note of all function names, variables and objects. With this sheet, I was able to open a game and check different parameters 
+at different times of a game. This also allowed me to force in parameters to check certain results. For example halfway through a game when a user would normally be "alive" 
+I would give "alive" a value of "false", with this variable set, I know the outcome should be that the game essentially "pauses". 
+
+Testing through playing: Knowing the outcome I wanted, I tested certain scenarios whilst "playing" the game. This included aspects such as trying to position a block off the 
+board. 
+
+Testing through test.html: As I ran into errors with Jasmine (due to canvas), I created a test.html file and imported the blocks-away JavaScript file. I then added input 
+fields to enable custom testing. 
+One example of this was the testing of the "shapes(shape)" function. To test this function I had an input box where I could type in a letter which would 
+then insert this letter into the function and then paste the result string into a paragraph element to view the corresponding string and if the resulting string matched the string 
+contained within blocks-away.js. Knowing that only A-I are the accepted inputs I first tried using numbers or letter that are not A-I, this showed a result of FAIL, which is what 
+I was expecting, then on entering A, B, C, D, E, F, G, H, or I a "TEST PASSED" note was shown. This testing paired with visual cues from playing the game formed just part of 
+the regimented testing carried out from the start of this project.
 
 --------------------
 ## **Deployment**
@@ -205,46 +255,40 @@ To deploy this project remotely, you can follow these steps:
 
 ----------------------
 ## **Credits**
-Although most of the content and code in this project are my own, I have also used code snippets from bootstrap, jQuery, and other sources.
-Specific code credits are contained within comments in each file.
-    
->* 
->* 
->* 
+This project, although peiced together by myself, incorporates images, video, sound and code from multiple sources. These include:
     
 
 ### <ins>**_Media:_**</ins>
->**Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/illustrations/hacker-attack-mask-binary-one-4703109/)
->
+>**Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/)
+>**Intro Video** - [Video Snippets From Pixabay](https://pixabay.com/)
+>**Sound Effects** - [ZapSplat.com](https://ZapSplat.com)
+* Background Music : "New Hope",
+* Game Music : "SawSquareNoise",
+* Click Sound: General game sounds,
+* Back Sound: General game sounds.
 
 
 ### <ins>**_Content:_**</ins>
+All text content is my own.
 
+### <ins>**Code:_**</ins>
+>**Social Card** - ["Dev Ed" YouTube](https://www.youtube.com/watch?v=XK7T3mY1V-w&t=1855s)
+>**Animated Background** - [Free Frontend](https://freefrontend.com/css-animated-backgrounds)
 
-### <ins>**_Attribution:_**</ins>
-
+*I have used W3 Schools and StackOverflow when I did not achieve a result, references to some of these codes are also contained in notes in my scripts.*
 
 ### <ins>**_Acknowledgments:_**</ins>
-I would like to acknowledge both my mentor <ins>Caleb Mbakwe</ins> for his tips during this project.
+I would like to acknowledge my mentor <ins>Caleb Mbakwe</ins> for his tips during this project.
 
 ## *Previews*:
-### Homepage / Welcome Section:
-![Portfolio](assets/readme/Preview.jpg)
+### Main Menu:
+![Main Menu](assets/readme/main-menu.jpg)
 
-### About Me Section:
-![About](assets/readme/who-is-john.jpg)
+### Settings Screen:
+![Settings](assets/readme/settings.jpg)
 
-### Skills Section:
-![Johns skills](assets/readme/skills.jpg)
+### Social Screen:
+![Social](assets/readme/social.jpg)
 
-### Experience Popup:
-![Johns experience](assets/readme/experience.jpg)
-
-### Projects Section:
-![Johns projects](assets/readme/projects.jpg)
-
-### "What I Offer" Section:
-![Johns Services](assets/readme/offer.jpg)
-
-### Contact Form:
-![Contact John](assets/readme/contact.jpg)
+### Game Screen:
+![Game Screen](assets/readme/game-screen.jpg)

@@ -49,6 +49,7 @@ $('#sound').click(function(){
 // ***BUG FIX***
 // Fill the board with 0's then run gameMode function, this way the board is reset and ready incase a user re-enters the game.
 $('.back').click(function(){
+    alive = false;
     board.forEach(row => row.fill(0));
     gameMode();
 })
@@ -468,9 +469,11 @@ $('#blocks-away').fadeOut(1000, function(){
                 document.getElementById('game-song').play();
             }  
             alive = true;
+            player.score = 0;
             board.forEach(row => row.fill(0));
             $('#game-over').hide();
             $('.key-buttons').fadeIn(500);
+            $('#player-score').fadeIn(500);
             $('#blocks-away').fadeIn(1000);
             $('.back').fadeIn(1000);
             trackScore();
@@ -504,3 +507,5 @@ function gameMode(){
      });
     }
 gameMode();
+
+
