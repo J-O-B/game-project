@@ -15,6 +15,8 @@ $(".on").click(function(){
 $(".off").click(function(){
     document.getElementById('background').pause();
     document.getElementById('game-song').pause();
+    document.getElementById('instruct').pause();
+    document.getElementById('gameOverScreen').pause();
     $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
@@ -24,6 +26,9 @@ $(".off").click(function(){
 //Global Sound Button
 $('#mute').click(function(){
     document.getElementById('background').play();
+    document.getElementById('game-song').pause();
+    document.getElementById('instruct').pause();
+    document.getElementById('gameOverScreen').pause();
     $('.audioFeedback').text("Audio Selected: ON");
     $('#sound').show();
     $('#mute').hide();
@@ -31,6 +36,10 @@ $('#mute').click(function(){
 });
 $('#sound').click(function(){
     document.getElementById('background').pause();
+    document.getElementById('game-song').pause();
+    document.getElementById('instruct').pause();
+    document.getElementById('gameOverScreen').pause();
+    
     $('.audioFeedback').text("Audio Selected: OFF");
     $('#sound').hide();
     $('#mute').show();
@@ -61,6 +70,7 @@ $('#hard').click(function(){
     $('.difficulty').text("Difficulty: Hard Selected");
 });
 
+//increase game difficulty as game progresses
 function progression(){
     fallRate --;
 }
@@ -137,9 +147,6 @@ function drawBlocks(grid, offset){
         });
     });
 }
-
-
-
 
 //------------------------------------------------------------------------------------------ Check For Impact!
 //If a number which is !0 lands on another number which is !0 we detect the impact
@@ -309,8 +316,7 @@ function rotation(grid, direction){
     }
 }
 
-//------------------------------------------------------------------------------------------ Game Timing 
-//Set first time to 0, 
+//------------------------------------------------------------------------------------------ Game Timing  
 let firstLoggedTime = 0;
 
 function autoDraw(time = 0){
@@ -331,17 +337,17 @@ const board = makeBlock(15,25);
 
 function trackScore() {
     if (JSON.parse(localStorage.getItem("player",player.top)) > 0){
-    document.getElementById('player-score').innerHTML = 
-    `<h5>Scoreboard</h5>
-    <p>Top Score: ${(JSON.parse(localStorage.getItem("player",player.top)))}</p>
-    <p>Current Score: ${player.score}</p>`;
-    return;
+        document.getElementById('player-score').innerHTML = 
+        `<h5>Scoreboard</h5>
+        <p>Top Score: ${(JSON.parse(localStorage.getItem("player",player.top)))}</p>
+        <p>Current Score: ${player.score}</p>`;
+        return;
     }else{
-    document.getElementById('player-score').innerHTML = 
-    `<h5>Scoreboard</h5>
-    <p>Top Score: ${player.top}</p>
-    <p>Current Score: ${player.score}</p>`;
-    return;
+        document.getElementById('player-score').innerHTML = 
+        `<h5>Scoreboard</h5>
+        <p>Top Score: ${player.top}</p>
+        <p>Current Score: ${player.score}</p>`;
+        return;
     }
 }
 
@@ -434,21 +440,24 @@ $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
     //pause any music if there is any
     if (audio.playing == 1){
-    document.getElementById('game-song').pause();
-    document.getElementById('down').play();
-            }
+        document.getElementById('background').pause();
+        document.getElementById('game-song').pause();
+        document.getElementById('gameOver').play();
+    }
     //toggle the game over screen
    $('#game-over').show();
-   $('.back').hide();
+        $(".back").hide();
         $("#no").click(function(){
                         if (audio.playing == 1){
-                            document.getElementById('down').pause();
+                            document.getElementById('background').pause();
+                            document.getElementById('gameOver').pause();
                             document.getElementById('game-song').pause();
                             document.getElementById('background').play();
                             }
             $('.content').fadeOut(500);
             $("game-over").hide();
             $(".menu").fadeIn(2000); 
+
             gameMode();
             resetFallRate();
         })

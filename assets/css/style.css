@@ -326,6 +326,8 @@ canvas{
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 40px rgb(0, 201, 10);
+    border-radius:10px;
 }
 #player-score{
     text-align: center;
@@ -411,8 +413,8 @@ canvas{
 /*----------------Social ---*/
 .social{
     height:100%;
-    width:90%;
-    margin:0;
+    width:95%;
+    margin:0 auto;
     padding:0;
     box-sizing: border-box;
     display:block;
@@ -427,7 +429,6 @@ canvas{
     display:flex;
     justify-content: center;
     align-items: center;
-    border-radius:30px;
 }
 .social-card{
     transform-style: preserve-3d;
@@ -435,9 +436,10 @@ canvas{
     margin-bottom:50px;
     height:600px;
     width:300px;
-    background:#424040;
+    background:#000;
     opacity:1;
     box-shadow: 0 20px 20px rgba(0,0,0,0.8), 0 0 50px rgba(0, 201, 10, 0.8);
+    border-radius:30px;
 }
 .pic{
     min-height: 35%;
@@ -454,6 +456,7 @@ canvas{
     width:150px;
     height:150px;
     background: linear-gradient(to right,  #169b62 30%, #ffffff 50%, #ff883e 70%);
+    box-shadow: 5px 5px 50px rgba(0, 201, 10, 0.9);
     border-radius: 50%;
     position: absolute;
     z-index: 0;
@@ -464,7 +467,7 @@ canvas{
     transition: all 1s ease-out;
 }
 .info p{
-    color: rgb(0, 201, 10);
+    color: #fff;
     text-align: center;
 }
 .sizes{
@@ -495,6 +498,9 @@ canvas{
     background: none;
     font-weight: bold;
     transition: all 0.5s ease-out;
+}
+.mail{
+    color:white;
 }
 
 /*----media queries-----*/

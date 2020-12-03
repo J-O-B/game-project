@@ -17,55 +17,39 @@ $('.back').click(function(){
 
 //menu buttons and hide/show logic
 $("#instructions").click(function(){
-    document.getElementById("click").play();
-    document.getElementById("click").volume = 0.5;
     $(".instructions").show();
+    $(".back").show();
     $('.menu').toggle();
 });
 $("#settings").click(function(){
     $(".settings").show();
+    $(".back").show();
     $('.menu').toggle();
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
 });
 $("#play").click(function(){
     $("#start-game").show();
+    $(".back").show();
     $('.menu').toggle();
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
 });
 $("#start-game").click(function(){
     $("#start-game").hide();
+    $(".back").show();
     $(".content").show();
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
 });
 $("#contact").click(function(){
     $(".contact").show();
+    $(".back").show();
     $('.menu').toggle();
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
 });
 $("#social").click(function(){
     $(".social").show();
+    $(".back").show();
     $('.menu').toggle();
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
 });
 $("#credits").click(function(){
     $(".credits").show();
+    $(".back").show();
     $('.menu').toggle();
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-        document.getElementById("click").addEventListener("ended", function(){
-        document.getElementById("gameOverScreen").play();
-});
-    }
 });
 $(".mail").click(function(){
     //try force hide other sections
@@ -112,6 +96,7 @@ const pic = document.querySelector(".pic img");
 const purchase = document.querySelector(".purchase");
 const description = document.querySelector(".info p");
 const sizes = document.querySelector(".sizes");
+const circle = document.querySelector(".circle");
 
 //Moving Animation Event
 container.addEventListener("mousemove", (e) => {
@@ -128,6 +113,7 @@ container.addEventListener("mouseenter", (e) => {
   description.style.transform = "translateZ(100px)";
   sizes.style.transform = "translateZ(150px)";
   purchase.style.transform = "translateZ(200px)";
+  circle.style.transform = "translateZ(50px)";
 });
 //Animate Out
 container.addEventListener("mouseleave", (e) => {
@@ -139,6 +125,7 @@ container.addEventListener("mouseleave", (e) => {
   description.style.transform = "translateZ(0px)";
   sizes.style.transform = "translateZ(0px)";
   purchase.style.transform = "translateZ(0px)";
+  circle.style.transform = "translateZ(0px)";
 });
  }
 };
