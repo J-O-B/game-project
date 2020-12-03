@@ -1,3 +1,6 @@
+used sounds: thud, background, back, menu, zap-lazer, gameover
+
+
 # Milestone Project Two
 
 ## JavaScript Game

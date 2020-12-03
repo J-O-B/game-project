@@ -465,7 +465,6 @@ $('#blocks-away').fadeOut(1000, function(){
         })
         $("#yes").click(function(){
            if (audio.playing == 1){
-                document.getElementById('down').pause();
                 document.getElementById('game-song').play();
             }  
             alive = true;
