@@ -47,10 +47,6 @@ $('.back').click(function(){
     gameMode();
 })
 
-//increase game difficulty as game progresses
-function progression(){
-    fallRate --;
-}
 
 // ------------------------------------MAIN GAME AREA: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
@@ -174,6 +170,28 @@ function merge(board, block){
 let fallCount = 0;
 var fallRate = 500;
 
+//increase game difficulty as game progresses
+function progression(){
+    fallRate--;
+}
+
+// Difficulty: (game starting difficulty, controlled from settings menu)
+$('#easy').click(function(){
+    fallRate = 500;
+    difficulty = 1;
+    $('.difficulty').text("Difficulty: Easy Selected");
+})
+$('#med').click(function(){
+    fallRate = 400;
+    difficulty = 2;
+    $('.difficulty').text("Difficulty: Medium Selected");
+})
+$('#hard').click(function(){
+    fallRate = 300;
+    difficulty = 3;
+    $('.difficulty').text("Difficulty: Hard Selected");
+});
+
 //------------------------------------------------------------------------------------------ Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear
 //                                                                                           The Line.
 function dropBlock(){
@@ -216,11 +234,8 @@ function blockMove(direction){
 }
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
-    if (alive == false){
-    block.grid = shapes('I');
-    block.position.y = 1;
-    block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
-    }else if (alive == true){
+    if (alive == true){
+        console.log(fallRate);
     const shape = "ABCDEFGH";
     block.grid = shapes(shape[shape.length * Math.random() | 0]);
     block.position.y = 1;
@@ -395,36 +410,12 @@ document.addEventListener("keydown", event =>{
     }
 });
 
-// Difficulty: (game starting difficulty)
-$('#easy').click(function(){
-    fallRate = 500;
-    difficulty = 1;
-    $('.difficulty').text("Difficulty: Easy Selected");
-})
-$('#med').click(function(){
-    fallRate = 400;
-    difficulty = 2;
-    $('.difficulty').text("Difficulty: Medium Selected");
-})
-$('#hard').click(function(){
-    fallRate = 300;
-    difficulty = 3;
-    $('.difficulty').text("Difficulty: Hard Selected");
-});
-
-function testFall(){
-    while (fallRate == 500 || fallRate == 400 || fallRate == 300){
-        console.log(fallRate);
-    }
-}
-testFall();
-
 function resetFallRate(){
     if (difficulty == 1){
         fallRate = 500;
-    }else if (difficulty ==2){
+    }else if (difficulty == 2){
         fallRate = 400;
-    }else if (difficulty ==3){
+    }else if (difficulty == 3){
         fallRate = 300;
     }
 }
@@ -491,13 +482,11 @@ function gameMode(){
                 document.getElementById('background').pause();
                 document.getElementById('game-song').play();
             }
-        
             alive = true;
             board.forEach(row => row.fill(0));
             trackScore();
             blockReset();
             autoDraw();
-            progression();
             $('#game-over').hide();
             $("#player-score").fadeIn(500);
             $('.key-buttons').fadeIn(500);
@@ -506,5 +495,4 @@ function gameMode(){
      });
     }
 gameMode();
-
 

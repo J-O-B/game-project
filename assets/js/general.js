@@ -92,9 +92,9 @@ const container = document.querySelector(".social-container");
 //Items
 const title = document.querySelector(".title");
 const pic = document.querySelector(".pic img");
-const purchase = document.querySelector(".purchase");
+const contact-me = document.querySelector(".contact-me");
 const description = document.querySelector(".info p");
-const sizes = document.querySelector(".sizes");
+const links = document.querySelector(".links");
 const circle = document.querySelector(".circle");
 
 //Moving Animation Event
@@ -110,8 +110,8 @@ container.addEventListener("mouseenter", (e) => {
   title.style.transform = "translateZ(150px)";
   pic.style.transform = "translateZ(200px) rotateZ(-5deg)";
   description.style.transform = "translateZ(100px)";
-  sizes.style.transform = "translateZ(150px)";
-  purchase.style.transform = "translateZ(200px)";
+  links.style.transform = "translateZ(150px)";
+  contact-me.style.transform = "translateZ(200px)";
   circle.style.transform = "translateZ(50px)";
 });
 //Animate Out
@@ -122,8 +122,8 @@ container.addEventListener("mouseleave", (e) => {
   title.style.transform = "translateZ(0px)";
   pic.style.transform = "translateZ(0px) rotateZ(0deg)";
   description.style.transform = "translateZ(0px)";
-  sizes.style.transform = "translateZ(0px)";
-  purchase.style.transform = "translateZ(0px)";
+  links.style.transform = "translateZ(0px)";
+  contact-me.style.transform = "translateZ(0px)";
   circle.style.transform = "translateZ(0px)";
 });
  }
