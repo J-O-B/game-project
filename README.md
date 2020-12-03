@@ -183,6 +183,14 @@ Social Card:
 * A 3D social card is contained in the SOCIAL page. This card reacts to a users mouse position and reacts according to the X & Y values of the mouse position. Due to 
 styling, this animation is only available on screens larger than 769px (anything larger than an iPad).
 
+#### *Implemented but removed:*
+
+Speech Recognition:
+
+* This project originally contained speech recognition which allowed a user to navigate, press buttons, fill out the contact form, and play (move blocks) using their 
+voice. This feature however only worked on Chrome, and was causing bugs when viewed on differnt browsers, so the decision was made to remove this feature.
+
+
 ### <ins>**_Future Features:_**</ins>
 
 One feature I did really want with this project was a global high score sheet, where users (if good enough) would have their score and a username pinned to a 'global' 
