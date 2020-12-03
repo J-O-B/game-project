@@ -1,6 +1,3 @@
-used sounds: thud, background, back, menu, zap-lazer, gameover
-
-
 # Milestone Project Two
 
 ## JavaScript Game
@@ -10,8 +7,9 @@ Welcome to my second milestone project! As I feel very confident with business s
 that is very different from anything I have coded before and would test my JavaScript skills, this is why I chose to create a game 
 for this project. 
 
-Based on the style of the gaming classic Tetris, Blocks Away is a browser based JavaScript game packed with features. For this project, 
-I wanted to try and recreate the 8-bit era, which you will notice in the audio and styling of the page. 
+Based on the style of the gaming classic Tetris, Blocks Away is a browser based JavaScript game packed with interactive features. 
+
+For this project, I wanted to try and recreate the 8-bit era, which you will notice in both the audio and styling of the page. 
 
 Further specific information on this project can be found below:
 
@@ -42,48 +40,63 @@ Further specific information on this project can be found below:
     4. [Acknowledgments](#Acknowledgments)
 
 ## **Description**
-This JavaScript game is based on the retro classic Tetris. A player needs to fill rows with blocks in order to clear the line, and score points. 
+This JavaScript game is based on the retro classic Tetris. A players objective is to fill rows with blocks. Each complete row will clear that line, and add points
+to the scoreboard.
+
 For each line that is cleared, a player will earn 10 points. A simple local storage addition means that players will have their top score saved 
 for any future games (*unless they delete their cookies).
 
 ---------------
 ## **UX**
 
+As with all projects, creating a great UX design was the cornerstone for this projects design. The design used, means that anyone who has a history of playing 
+video games will immediately be familiar with the layout, as well as being easy enough that those who are not familiar with video game menu's will be capable of 
+navigating easily between all the individual sections.
 
-#### 5 Planes of UX:
-1. Strategy:
->   ([User Stories](#User-Stories) Below)
+### 5 Planes of UX:
+#### 1. Strategy:
+> The strategy for this project is to produce a game where users can have fun playing. 
+> As this project will probably be contained on my Portfolio in the future, a contact form, and links to my social media will be placed in sub menu areas.
 
-2. Scope:
+To expand further on strategy, I have included some user stories. They can be found in the [user stories](#User-Stories) section.
+
+#### 2. Scope:
 
 *Functional Requirements:*
-> A player must be able to fully control the blocks within the game.
-> Game logic must limit the movement of blocks to the area within the game 'board'.
-> Game logic must recognize when a row is complete, then delete this row.
-> Game logic must recognize when a block lands on the bottom of the board, or another block, when this happens we must merge these objects.
-> A player must be able to start or stop music & sound effects.
-> Finally the game must offer different difficulties to make the game fun for players of all abilities.
+> 1. A player must be able to fully control the blocks within the game.
+> 2. Game logic must limit the movement of blocks to the area within the game 'board'.
+> 3. Game logic must recognize when a row is complete, then delete this row.
+> 4. Game logic must recognize when a block lands on the bottom of the board, or another block, when this happens we must merge these objects.
+> 5. A player must be able to start or stop audio.
+> 6. Finally the game must offer different difficulties to make the game fun for players of all abilities.
 
 *Content Requirements:*
-> Details of how to play the game, such as controls (to include the difference for desktop and mobile).
-> Information on the optimal devices to play the game.
-> Attribution for media and sounds as per their usage agreements.
-> Feedback areas to notify users and give feedback, such as clicking the sound button should then have text "sound selected off".
+> 1. Details of how to play the game, such as controls (to include the difference for desktop and mobile).
+> 2. Information on the optimal devices to play the game.
+> 3. Attribution for media and sounds as per their usage agreements.
+> 4. Feedback areas to notify users and give feedback, such as clicking the sound button should then have text "sound selected off".
 
-3. Structure:
+#### 3. Structure:
 > * A user interface that functions like a game menu.
 >
-> * Each screen should provide a limited ammount, but quality information to a user.
+> * Each screen should provide a limited amount, but quality information to a user.
 >
 > * A game screen should be sized to allow mobile users see the entire board and controls on one screen (wireframe for this is added in wireframes pdf)
 
-4. Skeleton:
->  You can view the wireframes for this project [here](#Wireframes)
+#### 4. Skeleton:
+> As I wanted to develop a website around the game, rather than design a game around a website I created wireframes that were quite basic.
+> As I wanted to emulate games from 1990's era, I created wireframes after looking at pictures of retro SNES, and GameBoy menu screens. 
+> 
+> As this project will appear the same across all devices, one set of wireframes was used to implement this project.
+>
+> You can view the wireframes for this project [here](#Wireframes)
 
 
-5. Surface:
+#### 5. Surface:
 >  In an attempt to recreate an 8-bit era, use a font that looks like an 8-bit font.
+>
 >  Build a main screen whereby a user can simply access a sub section, before returning to the main screen.
+>
 >  Allow user inputs to change the state of the code, for example turning audio on or off, selecting difficulty etc.
 
 
