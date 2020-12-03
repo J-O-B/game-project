@@ -88,7 +88,9 @@ for any future games (*unless they delete their cookies).
 Although there is no logo for this game, the welcome video starts off using the logo of John O'Brien (me).
 
 ### <ins>**_Wireframes_**</ins>
-You can view the wireframe designs [here](assets/readme/wireframe_design.pdf)
+You can view the wireframe designs [here](assets/readme/wireframes.pdf)
+
+This project will maintain the same style regardless of viewing device
 
 
 ### <ins>**_User Stories_**</ins>
