@@ -1,3 +1,50 @@
+
+var input = document.getElementById('Name');
+var myValue = '1 Letter';
+input.value = myValue;
+
+var myFunction = function (e) {
+  console.log(e.target.value);
+  myValue = e.target.value
+  $('#result').text(`Result is ${shapes(myValue)}`);
+  if (shapes(myValue) == $('#a').text()){
+      $('#match').text(`The Letter You Input Matches The 'A' String`);
+      document.getElementById('a').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#b').text()){
+        $('#match').text(`The Letter You Input Matches The 'B' String`);
+        document.getElementById('b').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#c').text()){
+        $('#match').text(`The Letter You Input Matches The 'C' String`);
+        document.getElementById('c').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#d').text()){
+        $('#match').text(`The Letter You Input Matches The 'D' String`);
+        document.getElementById('d').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#e').text()){
+        $('#match').text(`The Letter You Input Matches The 'E' String`);
+        document.getElementById('e').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#f').text()){
+        $('#match').text(`The Letter You Input Matches The 'F' String`);
+        document.getElementById('f').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#g').text()){
+        $('#match').text(`The Letter You Input Matches The 'G' String`);
+        document.getElementById('g').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#h').text()){
+        $('#match').text(`The Letter You Input Matches The 'H' String`);
+        document.getElementById('h').style.fontWeight = "bold";
+  } else if (shapes(myValue) == $('#i').text()){
+        $('#match').text(`The Letter You Input Matches The 'I' String`);
+        document.getElementById('i').style.fontWeight = "bold";
+  } else{
+        $('#match').text(`Your Input Is Not Defined`);
+  }
+    
+}
+
+
+
+
+//-------------------------------------------------------------------------------------------COPY OF BLOCKS AWAY------------------------ 
+
 //-------------------------------------------------------------------Audio
 // Keep track of audio setting
 var audio = {
@@ -504,3 +551,11 @@ function gameMode(){
      });
     }
 gameMode();
+
+
+
+var shapeTest = document.getElementById("shapeTest").value;
+
+$('#result').text = `${document.getElementById("shapeTest").value}`;
+
+console.log(shapeTest);
