@@ -1,6 +1,6 @@
-# Milestone Project One
+# Milestone Project Two
 
-## Personal Portfolio
+## JavaScript Game
 ![Blocks Away](assets/readme/main-menu.jpg)
 
 Welcome to my second milestone project! As I feel very confident with business style web design, I wanted to undertake a project 
@@ -10,8 +10,7 @@ for this project.
 Based on the style of the gaming classic Tetris, Blocks Away is a browser based JavaScript game packed with features. For this project, 
 I wanted to try and recreate the 8-bit era, which you will notice in the audio and styling of the page. 
 
-To cover the UX aspect of this project, I have created a very simple navigation system which should come across as easy to use and 
-logical.
+Further specific information on this project can be found below:
 
 ### Table of contents:
 1. [Description](#Description),
@@ -60,6 +59,7 @@ for any future games (*unless they delete their cookies).
 > Game logic must recognize when a row is complete, then delete this row.
 > Game logic must recognize when a block lands on the bottom of the board, or another block, when this happens we must merge these objects.
 > A player must be able to start or stop music & sound effects.
+> Finally the game must offer different difficulties to make the game fun for players of all abilities.
 
 *Content Requirements:*
 > Details of how to play the game, such as controls (to include the difference for desktop and mobile).
@@ -72,12 +72,11 @@ for any future games (*unless they delete their cookies).
 >
 > * Each screen should provide a limited ammount, but quality information to a user.
 >
-> * A game screen should be sized to allow mobile users see the entire board and controls without needing to scroll.
+> * A game screen should be sized to allow mobile users see the entire board and controls on one screen (wireframe for this is added in wireframes pdf)
 
 4. Skeleton:
->  (View them [here](#Wireframes))
->
-> 
+>  You can view the wireframes for this project [here](#Wireframes)
+
 
 5. Surface:
 >  In an attempt to recreate an 8-bit era, use a font that looks like an 8-bit font.
@@ -101,41 +100,44 @@ Being a web game the following user stories specific to this project are:
 |1. *Have fun playing the game.* |
 |2. *Create a program I have never created before.* |
 |3. *Expand my JavaScript and jQuery skills.* |
-|4. *Allow players to * |
-|5. ** |
+|4. *Allow players to contact me with feedback* |
 
 | **As a user I want to:** |
 | ------------------------------------------------------- |
-|1. *Find out who John is* |
-|2. *See Johns skills* |
-|3. *Find out what experience John has* |
-|4. *View the projects John has worked on / completed* |
-|5. *See what services John can add to our company / team* |
-|6. *Download a CV* |
-|7. *View John's social media* |
-|8. *Contact John* |
+|1. *Play a fun game.* |
+|2. *See instructions on how to play the game.* |
+|3. *Be capable of changing settings to my liking.* |
+|4. *See who created the game.* |
+|5. *Contact the creator.* |
 
 
 ### <ins>**_Information Architectures_**</ins>
+For this project I wanted to use a design that meets UX design goals as well as functioning in a similar way to what 
+users would expect. 
+A lot of users have probably played a video game with a basic navigation menu, so I chose to follow a similar structure to allow users 
+see this menu as something that is easy for them to navigate through and eaily access the information they choose (click) to see.
 
- 
+The main menu buttons follow a hierarchical structure, with PLAY being the highest authority button, followed by INSTRUCTIONS etc.
+
+The page with the most content is the instructions page, in order not to overwhelm the user I have split this page into sections. 
+By doing this a user can view the individual section of information or read through as much information as they wish before navigating 
+back to the main menu.
+
+All but one links on this project will only navigate from the main menu into a section, or back to the main menu. The only exception to 
+this rule is the "email" button on the social page, which will navigate to the "contact form". 
 
 ### <ins>**_Responsive Design:_**</ins>
-
-
-### <ins>**_Frameworks:_**</ins>
-
-
+This project is fully responsive and has been tested on screen widths between 375px up to 3800px.
 
 ### <ins>**_Typography_**</ins>
-
-
+This project uses "Press Start 2P" (Google Fonts), this font is an 8-bit style font to help the design of the project.
 
 ### <ins>**_Colors_**</ins>
-
+The main color used in this project is rgb(0, 201, 10) which is the green color seen throughout this project.
 
 ### <ins>**_Icons:_**</ins>
-
+Although this project does not use too many icons, they do play a very important role for the game. The button controls which allow 
+tablet and mobile users control the blocks to make this game function on their device. 
 
 --------------------
 ## **Features**
