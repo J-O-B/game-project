@@ -1,8 +1,13 @@
+/*jshint esversion: 6 */
+
+//Above comment to stop errors showing in jshint.com
+
 //-------------------------------------------------------------------Audio
 // Keep track of audio setting
 var audio = {
     playing : 0,
-}
+};
+
 // Audio On & Off buttons
 $(".on").click(function(){
     document.getElementById('background').play();
@@ -40,31 +45,34 @@ $('#sound').click(function(){
 });
 
 // ***BUG FIX***
-// Fill the board with 0's then run gameMode function, this way the board is reset and ready incase a user re-enters the game.
+// Alive to false to stop blocks from falling, then replace all rows with 0s (essentially clears the board)
 $('.back').click(function(){
     alive = false;
     board.forEach(row => row.fill(0));
     gameMode();
-})
+});
 
-
-// ------------------------------------MAIN GAME AREA: ---------------------------------------------
+// ------------------------------------ MAIN GAME AREA: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
 
+//------------------------------------------------------------------------------------------ Define The Board (Canvas)
+const board = makeBlock(15,25);
 
-//------------------------------------------------------------------------------------------ Scale The Blocks.
+//Scale The Blocks.
 context.scale(20,6);
 
-//Create a player so we can track the score
+//Create a player
 var player = {
     top: 0,
     score: 0,
 };
 
+//Track the state of alive (freezes the game when value is false)
 var alive = false;
+
 //------------------------------------------------------------------------------------------ Preset Block Shapes In Strings.
-//Numbers in strings have to change from 1 else all will appear same color. 
+//0 is blank, !0 is solid, numbers used to add specific colors.
 function shapes(shape){
     if (shape === "A") {            //A = Large T shape && color #FF2D00
         return [[1,1,1],            //B = Smaller T shape && color #FF9300
@@ -111,8 +119,7 @@ function shapes(shape){
 function drawBlocks(grid, offset){
     grid.forEach((row, y) =>{
         row.forEach((value, x) =>{
-            //Value which is not 0 will be colored, by adding different number can access
-            //different colors for the different blocks.
+            //Value which is not 0 will be colored, showing what is "solid".
             if (value !== 0){
                 context.fillStyle = color[value];
                 context.fillRect(x + offset.x, y + offset.y, 1, 1);
@@ -122,10 +129,9 @@ function drawBlocks(grid, offset){
 }
 
 //------------------------------------------------------------------------------------------ Check For Impact!
-//If a number which is !0 lands on another number which is !0 we detect the impact
-//and play sound.
+//If a number which is !0 lands on another number which is !0 we need to detect this, then stack the shape.
 function stack(board,block){
-    const [g,o] = [block.grid, block.position]
+    const [g,o] = [block.grid, block.position];
     for (let y = 0; y < g.length; ++y){
         for (let x = 0; x < g[y].length; ++x){
             if (g[y][x] !==0 && (board[y + o.y] && board[y + o.y][x + o.x]) !== 0){
@@ -136,16 +142,17 @@ function stack(board,block){
     return false;
 }
 
-//------------------------------------------------------------------------------------------ Create Blocks
+//------------------------------------------------------------------------------------------ Make Block
 function makeBlock(width,height){
     const newBlock = [];
     while (height--){
         newBlock.push(new Array(width).fill(0));
     }
     return newBlock;
-};
+}
 
 //------------------------------------------------------------------------------------------ Draw Function
+// Draw the board and individual blocks.
 function draw(){
     context.fillStyle = "rgb(77,88,20)";
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -153,7 +160,8 @@ function draw(){
     drawBlocks(block.grid, block.position);
 }
 
-//------------------------------------------------------------------------------------------ Check for numbers != 0
+//------------------------------------------------------------------------------------------ Check For Merge
+// If there are numbers !0 merge them to the board.
 function merge(board, block){
     block.grid.forEach((row, y) =>{
         row.forEach((value, x) =>{
@@ -164,54 +172,53 @@ function merge(board, block){
     });
 }
 
-//------------------------------------------------------------------------------------------ Rate At Which Blocks Fall
+//-------------------------------------------------------------------------------------- Rate At Which Blocks Fall
 // Fall rate 500 can be default, provides a default difficulty which 
 // most users should be able to have fun with.
 let fallCount = 0;
 var fallRate = 500;
 
-//increase game difficulty as game progresses
+// Call this function each time a block lands, with each block landing, the fall rate will lower,
+// Making the game harder.
 function progression(){
     fallRate--;
 }
 
-// Difficulty: (game starting difficulty, controlled from settings menu)
+//-------------------------------------------------------------------------------------- Difficulty: 
+// (game starting difficulty, controlled from settings menu)
 $('#easy').click(function(){
     fallRate = 500;
     difficulty = 1;
     $('.difficulty').text("Difficulty: Easy Selected");
-})
+});
 $('#med').click(function(){
     fallRate = 400;
     difficulty = 2;
     $('.difficulty').text("Difficulty: Medium Selected");
-})
+});
 $('#hard').click(function(){
     fallRate = 300;
     difficulty = 3;
     $('.difficulty').text("Difficulty: Hard Selected");
 });
 
-//------------------------------------------------------------------------------------------ Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear
-//                                                                                           The Line.
+// Move Down One Row At A Time, Scan For Array With No 0's Each Time To Clear The Line.
 function dropBlock(){
-    if (alive == true){
+    // If alive is true then allow blocks to fall.
+    if (alive === true){
         block.position.y++;
-        //Check No Impact, If Stack True, Merge Original Array, 
-        //Then 'Reset' With New Block At Top Of Board.
-        //If A Row Is Full && No 0's Clear The Line & Place New
-        //Empty Array At Top Of Board. 
-        if (stack(board, block) && alive == true){
+        // **BUG FIX**
+        // Block needs to be moved up one place, to display the merge correctly.
+        if (stack(board, block) && alive === true){
             block.position.y--;
             merge(board, block);
-            
+            // If audio is on play sound effect on block landing
             if (audio.playing == 1){
                 $('#thud').each(function(){
                     this.play();
                 });
-            }else{
-                
             }
+
             //Lower the fallRate value (difficulty)
             progression();
             //Call new block
@@ -234,20 +241,19 @@ function blockMove(direction){
 }
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
-    if (alive == true){
-        console.log(fallRate);
+    if (alive === true){
     const shape = "ABCDEFGH";
-    block.grid = shapes(shape[shape.length * Math.random() | 0]);
+    block.grid = shapes(shape[Math.floor(shape.length * Math.random())]);
     block.position.y = 1;
-    block.position.x = (board[0].length / 2 | 0) - (block.grid[0].length / 2 | 0);
+    block.position.x = Math.floor(board[0].length / 2) - Math.floor(block.grid[0].length / 2);
     progression();
     }
-    
+    // Game over logic with high scores, then call game over function.
     if (stack(board, block)){
        board.forEach(row => row.fill(0));  
         if (player.score > player.top && player.score > localStorage.getItem("player",player.top)){
                 player.top = player.score;
-                player.top = JSON.stringify(player.score)
+                player.top = JSON.stringify(player.score);
                 localStorage.setItem("player",player.top);
                     alive = false;
                     trackScore();
@@ -319,14 +325,11 @@ function autoDraw(time = 0){
     if (fallCount > fallRate){
         dropBlock();
     }
-
     draw();
-    requestAnimationFrame(autoDraw)
+    requestAnimationFrame(autoDraw);
 }
 
-//------------------------------------------------------------------------------------------ Define The Board (Canvas)
-const board = makeBlock(15,25);
-
+// Track score to manipulate the DOM with current data.
 function trackScore() {
     if (JSON.parse(localStorage.getItem("player",player.top)) > 0){
         document.getElementById('player-score').innerHTML = 
@@ -347,7 +350,7 @@ function trackScore() {
 const block = {
     position: {x: 0, y: 1},
     grid: null,
-}
+};
 
 //------------------------------------------------------------------------------------------ Clear A Full Line (Array)
 // Clear the line, play a noise and add a score to the scoreboard.
@@ -376,24 +379,23 @@ function clearTheLine(){
     }
 }
 
-
 //------------------------------------------------------------------------------------------ Controls (Place Buttons Below Canvas For Mobile/Tablet Users)
 //Position can be changed in console, below is to listen for keys
     $("#a").click(function(){
          blockMove(-1);
-    })
+    });
     $("#s").click(function(){
          dropBlock();
-    })
+    });
     $("#d").click(function(){
          blockMove(+1);
-    })
+    });
     $("#q").click(function(){
          blockRotation(-1);
-    })
+    });
     $("#e").click(function(){
          blockRotation(1);
-    })
+    });
 
 
 document.addEventListener("keydown", event =>{
@@ -453,7 +455,7 @@ $('#blocks-away').fadeOut(1000, function(){
 
             gameMode();
             resetFallRate();
-        })
+        });
         $("#yes").click(function(){
            if (audio.playing == 1){
                 document.getElementById('game-song').play();
@@ -470,7 +472,7 @@ $('#blocks-away').fadeOut(1000, function(){
             blockReset();
             autoDraw();
             resetFallRate();
-        })
+        });
     });
 }
 
@@ -495,4 +497,3 @@ function gameMode(){
      });
     }
 gameMode();
-
