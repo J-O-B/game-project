@@ -36,8 +36,7 @@ Further specific information on this project can be found below:
 7. [Credits](#Credits)
     1. [Media](#Media)
     2. [Content](#Content)
-    3. [Attribution](#Attribution)
-    4. [Acknowledgments](#Acknowledgments)
+    3. [Acknowledgments](#Acknowledgments)
 
 ## **Description**
 This JavaScript game is based on the retro classic Tetris. A players objective is to fill rows with blocks. Each complete row will clear that line, and add points
@@ -45,6 +44,23 @@ to the scoreboard.
 
 For each line that is cleared, a player will earn 10 points. A simple local storage addition means that players will have their top score saved 
 for any future games (*unless they delete their cookies).
+
+### **Game Concept**
+The original concept for this game only contained ones and zeros. I would implement a table, which would be full of 0's, then I could add 1's in certain cells to 
+make it look like "blocks". If the top row had a 1 in the row then it would be game over, if any row below row 0 was full of 1's this row could be replaced with 
+0's (clearing the line). 
+
+If a string reached the last row, it would merge into the board string and we would now add a new string at the top of the table. The same would take place when 
+a string landed on another string.
+
+Only later I thought that instead of looking for specific 1's or 0's, I could condense this into looking for "!0", this allows me to use different numbers in the strings 
+which can be assigned different colors for styling. Essentially if "(x == 0).... else if (x == 1)" became "if (x != 0)". 
+
+By defining preset strings which look like shapes, I could use math random to call these known strings when needed.
+
+The only section I was initially unsure how to implement was the rotation of blocks. The original plan for this was to have an IF statement, so if a player pressed 
+a button, I would actually replace the string. This would have meant creating strings for each possible 'state' of the blocks. Luckily I found the idea of transposing 
+an array and this process can be done for me by the computer.
 
 ---------------
 ## **UX**
@@ -240,16 +256,20 @@ used.
 
 This project has passed through several phases of testing, these phases include:
 
-[W3 Validator](https://validator.w3.org/) to check all HTML. 
+1. [W3 Validator](https://validator.w3.org/) to check all HTML. 
 
-[W3 'Jigsaw' Validator](https://jigsaw.w3.org/css-validator/) to check all CSS.
+2. [W3 'Jigsaw' Validator](https://jigsaw.w3.org/css-validator/) to check all CSS.
 
-[JS Hint](https://jshint.com/) to check all JavaScript. 
+3. [JS Hint](https://jshint.com/) to check all JavaScript. 
 
-*Console.Log*: During the creation of this code, logging the results of each function was key. As this project relies on ALL functions to operate correctly, without fail 
+> I originally planned to use Jasmine testing for this project, however, there seems to be issues around Jasmine testing and Canvas which was proving to be limiting 
+the progress on this project. As a result, I changed strategy to a more real time testing program, this included testing the results of of single and multiple functions 
+through dev tools and console.log. Details of these methods are below:
+
+**Console.Log:** During the creation of this code, logging the results of each function was key. As this project relies on ALL functions to operate correctly, without fail 
 it was imperative that all functions supply a correct answer or value in a timely manner.
 
-Dev Tools: While creating this game, I took note of all function names, variables and objects. With this sheet, I was able to open a game and check different parameters 
+**Dev Tools:** While creating this game, I took note of all function names, variables and objects. With this sheet, I was able to open a game and check different parameters 
 at different times of a game. This also allowed me to force in parameters to check certain results. For example halfway through a game when a user would normally be "alive" 
 I would give "alive" a value of "false", with this variable set, I know the outcome should be that the game essentially "pauses". 
 
@@ -260,10 +280,16 @@ board.
 
 Multiple bugs were found in the creation of this project.
 
-IOS Bug: 
+IOS Bug: (Older versions of IOS)
 
 > The JavaScript in this project does not run on older IOS devices, but has been tested on IOS 14.2 with no faults. The problem seems to be with ".click" and ".on("click,...)".
 > After checking for a fix online, it seems as though this is a widespread bug which has been solved on all newer IOS devices. 
+>
+> To try and fix this issue, I have followed guidelines online including setting the cursor to pointer and using touchstart, however, this is still a problem on older IOS 
+versions.
+
+
+
 
 Unwanted Navigation:
 
