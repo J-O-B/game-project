@@ -455,7 +455,7 @@ $('#blocks-away').fadeOut(1000, function(){
             $('.content').fadeOut(500);
             $("game-over").hide();
             $(".menu").fadeIn(2000); 
-
+            player.score = 0;
             gameMode();
             resetFallRate();
         });

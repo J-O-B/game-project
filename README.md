@@ -293,6 +293,11 @@ IOS Bug: (Older versions of IOS)
 versions.
 
 
+Internet Explorer: (Old Browser)
+
+> There is a similar bug with the old Microsoft Internet Explorer as seen in the older versions of IOS and Safari. This problem seems to be with the same jQuery and 
+> certain JavaScript elements, such as "getElementByClassName". As this browser is now outdated, and this project running smoothly on the newer Microsoft Edge I 
+> decided, given this browser is now outdated and obsolete that I would not correct my code to cater for an obsolete service.
 
 
 Unwanted Navigation:
