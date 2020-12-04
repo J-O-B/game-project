@@ -201,6 +201,13 @@ Social Card:
 * A 3D social card is contained in the SOCIAL page. This card reacts to a users mouse position and reacts according to the X & Y values of the mouse position. Due to 
 styling, this animation is only available on screens larger than 769px (anything larger than an iPad).
 
+Difficulty:
+
+* A player/user can select from 3 game starting difficulties. This allows players of different skill levels enjoy the game.
+* A progressive function within the game code, means that the game will accelerate as a user is playing, this is done by a function called "progression()" which is called 
+every time a block lands. This mode was added after I first played the game and there was no real ending unless I chose to lose. By adding this function, the game will eventually 
+overpower even the best players, which adds an element of 'competition' to the game.
+
 #### *Implemented but removed:*
 
 Speech Recognition:
