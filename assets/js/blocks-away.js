@@ -255,12 +255,15 @@ function blockReset(){
                 player.top = player.score;
                 player.top = JSON.stringify(player.score);
                 localStorage.setItem("player",player.top);
+                    player.score = 0;
                     alive = false;
                     trackScore();
                     gameOver();
                     return;
 
             }else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
+                    player.top = player.score;
+                    player.score = 0;
                     alive = false;
                     trackScore();
                     gameOver();
