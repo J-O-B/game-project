@@ -81,7 +81,9 @@ To expand further on strategy, I have included some user stories. They can be fo
 >
 > * Each screen should provide a limited amount, but quality information to a user.
 >
-> * A game screen should be sized to allow mobile users see the entire board and controls on one screen (wireframe for this is added in wireframes pdf)
+> * A game screen should be sized to allow mobile users see the entire board and controls on one screen, the most restrictive I have come across are the older 
+model iPhones, on these devices a user will see the game screen and controls, but would have to scroll to see the scoreboard. On newer devices such as the iPhone X 
+a user will be capable of seeing the scoreboard, board, and controls all in one display.
 
 #### 4. Skeleton:
 > As I wanted to develop a website around the game, rather than design a game around a website I created wireframes that were quite basic.
@@ -153,9 +155,13 @@ This project uses "Press Start 2P" (Google Fonts), this font is an 8-bit style f
 ### <ins>**_Colors_**</ins>
 The main color used in this project is rgb(0, 201, 10) which is the green color seen throughout this project.
 
+The other color of note is the background color of the canvas. This is a greenish-brown color, which is the same color of the old GameBoy screens.
+
+The colors for the 8 different blocks were chosen somewhat at random, which span the spectrum of colors to allow users easily differentiate between different blocks.
+
 ### <ins>**_Icons:_**</ins>
 Although this project does not use too many icons, they do play a very important role for the game. The button controls which allow 
-tablet and mobile users control the blocks to make this game function on their device. 
+tablet and mobile users control the blocks in this game use easy to understand icons instead of text. 
 
 --------------------
 ## **Features**
@@ -212,8 +218,9 @@ overpower even the best players, which adds an element of 'competition' to the g
 
 Speech Recognition:
 
-* This project originally contained speech recognition which allowed a user to navigate, press buttons, fill out the contact form, and play (move blocks) using their 
-voice. This feature however only worked on Chrome, and was causing bugs when viewed on differnt browsers, so the decision was made to remove this feature.
+* This project originally contained speech recognition which allowed a user to navigate, press buttons, fill out the contact form, and play (i.e move a block left by saying "left") 
+using their voice. This feature however only worked on Chrome, and was causing bugs when viewed on differnt browsers, so the decision was made to remove this feature.
+I now have a thorough understanding of this so I plan on implementing this as soon as it is more readily available on other browsers.
 
 
 ### <ins>**_Future Features:_**</ins>
@@ -249,15 +256,7 @@ I would give "alive" a value of "false", with this variable set, I know the outc
 Testing through playing: Knowing the outcome I wanted, I tested certain scenarios whilst "playing" the game. This included aspects such as trying to position a block off the 
 board. 
 
-Testing through test.html: As I ran into errors with Jasmine (due to canvas), I created a test.html file and imported the blocks-away JavaScript file. I then added input 
-fields to enable custom testing. 
-One example of this was the testing of the "shapes(shape)" function. To test this function I had an input box where I could type in a letter which would 
-then insert this letter into the function and then paste the result string into a paragraph element to view the corresponding string and if the resulting string matched the string 
-contained within blocks-away.js. Knowing that only A-I are the accepted inputs I first tried using numbers or letter that are not A-I, this showed a result of FAIL, which is what 
-I was expecting, then on entering A, B, C, D, E, F, G, H, or I a "TEST PASSED" note was shown. This testing paired with visual cues from playing the game formed just part of 
-the regimented testing carried out from the start of this project.
-
-### Bugs:
+### **Bugs**:
 
 Multiple bugs were found in the creation of this project.
 
@@ -271,6 +270,13 @@ Unwanted Navigation:
 > Probably one of the most strange problems I have come across was this bug. In the Social page, there is a button at the bottom of the card labelled Email. Connected to this 
 > is an event which will bring the user to the contact form if clicked. On testing, this button was displaying the "Settings" page when clicked, I was unable to find any reference
 > why this was happening which is why in the general.js file, I have specifically added "$(".settings").hide();" to stop this from happening. 
+
+Rotation Of Blocks:
+
+> This one is still a handful to understand completely, originally I got stuck on this feature so tried multiple possible solutions found on W3 schools, and StackOverflow.
+> Luckily this problem can be solved quite easily by transposing a 2D array and JavaScript will do the hard work!
+
+
 
 --------------------
 ## **Deployment**
@@ -309,20 +315,27 @@ This project, although peiced together by myself, incorporates images, video, so
     
 
 ### <ins>**_Media:_**</ins>
->**Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/)
->**Intro Video** - [Video Snippets From Pixabay](https://pixabay.com/)
->**Sound Effects** - [ZapSplat.com](https://ZapSplat.com)
+**Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/)
+
+**Intro Video** - [Video Snippets From Pixabay](https://pixabay.com/)
+
+**Sound Effects** - [ZapSplat.com](https://ZapSplat.com)
+
 * Background Music : "New Hope",
+
 * Game Music : "SawSquareNoise",
-* Click Sound: General game sounds,
+
+* Game Over Sound: General game sounds,
+
 * Back Sound: General game sounds.
 
 
 ### <ins>**_Content:_**</ins>
 All text content is my own.
 
-### <ins>**Code:_**</ins>
+### <ins>**Code:**</ins>
 >**Social Card** - ["Dev Ed" YouTube](https://www.youtube.com/watch?v=XK7T3mY1V-w&t=1855s)
+>
 >**Animated Background** - [Free Frontend](https://freefrontend.com/css-animated-backgrounds)
 
 *I have used W3 Schools and StackOverflow when I did not achieve a result, references to some of these codes are also contained in notes in my scripts.*
