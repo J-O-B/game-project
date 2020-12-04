@@ -276,6 +276,10 @@ I would give "alive" a value of "false", with this variable set, I know the outc
 Testing through playing: Knowing the outcome I wanted, I tested certain scenarios whilst "playing" the game. This included aspects such as trying to position a block off the 
 board. 
 
+Finally I wanted to make this project as fast and accessable as possible, for this I used Dev tools again.
+
+![Lighthouse](assets/readme/lighthouse.jpg)
+
 ### **Bugs**:
 
 Multiple bugs were found in the creation of this project.
