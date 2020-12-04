@@ -1,3 +1,7 @@
+/*jshint esversion: 6 */
+
+//Above comment to stop errors showing in jshint.com
+
 //Menu script
 $('.back').click(function(){
     $(".instructions").hide();
@@ -7,12 +11,8 @@ $('.back').click(function(){
     $(".social").hide();
     $(".credits").hide();
     $('#game-over').hide();
-    gameMode();
     $('.menu').toggle();
-    if(audio.playing == 1){
-        document.getElementById("back").play();
-    }
-})
+});
 
 //menu buttons and hide/show logic
 $("#instructions").click(function(){
@@ -44,6 +44,7 @@ $("#social").click(function(){
     $(".social").show();
     $(".back").show();
     $('.menu').toggle();
+    animateOrNot();
 });
 $("#credits").click(function(){
     $(".credits").show();
@@ -78,7 +79,7 @@ function sendMail(contactForm) {
 
 
 $("#email").on("submit", function(){
-   $('#submit-text').text("Thank You For Your Feedback, I Will Try To Get Back To You As Soon As Possible.")
+   $('#submit-text').text("Thank You For Your Feedback, I Will Try To Get Back To You As Soon As Possible.");
    return false;
  });
 
@@ -127,12 +128,9 @@ container.addEventListener("mouseleave", (e) => {
   circle.style.transform = "translateZ(0px)";
 });
  }
-};
+}
 $("#mail").click(function(){
     $(".social").fadeOut(500);
     $(".settings").fadeIn(500);
-    if(audio.playing == 1){
-        document.getElementById("click").play();
-    }
 });
 

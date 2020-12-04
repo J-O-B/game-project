@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-*/*{
-    scrollbar-width: thin;
-    scrollbar-color: rgb(0,0,0) rgb(0, 201, 10);
-}
-*::-webkit-scrollbar {
-  width: 12px;
-}
-*::-webkit-scrollbar-track {
-  background: transparent;
-  margin-top:50px;
-  margin-bottom:50px;
-}
-*::-webkit-scrollbar-thumb {
-  background-color: rgb(0,0,0);
-  border-radius: 20px;
-  border: 3px solid rgb(0, 201, 10);
-} */
-
 body {
     min-height:100vh;
     height:auto;
@@ -470,20 +452,21 @@ canvas{
     color: #fff;
     text-align: center;
 }
-.sizes{
+.links{
     display:flex;
     justify-content: space-around;
     top:0;
     font-size:300%;
 }
-.sizes button{
-    height:50px;
+.links a{
+    height:auto;
     margin-bottom: 20px;
     background:none;
     border:none;
     box-shadow: 0 5px 10px rgba(0,0,0,0.8);
     transition: all 0.75s ease-out;
     border-radius: 20px;
+    text-decoration: none;
 }
 .social-media{
     top:0;
@@ -492,7 +475,7 @@ canvas{
     color:slateblue;
     border:2px solid blueviolet;
 }
-.purchase button{
+.contact-me button{
     text-align: center;
     width:80%;
     background: none;

@@ -497,3 +497,9 @@ function gameMode(){
      });
     }
 gameMode();
+
+$('.back').click(function(){
+    if(audio.playing == 1){
+        document.getElementById("back").play();
+    }
+});

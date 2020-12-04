@@ -1,3 +1,7 @@
+/*jshint esversion: 6 */
+
+//Above comment to stop errors showing in jshint.com
+
 //Page Load Popup - (www.jqueryscript.net/lightbox/Simple-jQuery-Plugin-For-Opening-A-Popup-Window-On-Page-load.html)
 $(document).ready(function() {
 
@@ -51,7 +55,6 @@ $(document).ready(function() {
     e.preventDefault();
     $('#mask').hide();
     $('.window').hide();
-    animateOrNot(); //Animated Social Card
     });
     //if mask is clicked
     $('#mask').click(function () {
@@ -64,7 +67,6 @@ $(document).ready(function() {
   
     $(this).hide();
     $('.window').hide();
-    animateOrNot(); //Animated Social Card
     });
 });
 //End Of Popup Window;

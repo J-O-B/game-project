@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/background.css">
     <!--EmailJS Script-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script type="text/javascript">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
         (function() {
             emailjs.init("user_qzVjfCSbvhEce7QuYTh1Y");
         })();
@@ -191,8 +191,8 @@
                             <h3 class="title">John O'Brien</h3>
                             <p>Follow Me On GitHub / LinkedIn</p>
                             <div class="links">
-                                <button aria-label="button to open github" class="draw-border social-media active" href="https://github.com/J-O-B/" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></button>
-                                <button aria-label="button to open linkedIn" class="draw-border social-media" href="https://www.linkedin.com/in/jonathan-o-brien/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></button>
+                                <a href="https://github.com/J-O-B/" class="draw-border social-media active" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/in/jonathan-o-brien/" class="draw-border social-media" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                             </div>
                             <div class="contact-me">
                                 <button aria-label="button to view contact form" class="draw-border mail">Email</button>
@@ -242,7 +242,7 @@
         <!--End Credits-->
             
     <!--Game Parts (Sounds and screens)-->
-        <section class="sound">
+        <div class="sound">
             <div id="background-music">
                 <audio id="game-song" class="audio" loop>
                 <source src="assets/sound-effects/background.mp3" type="audio/mp3">
@@ -276,7 +276,7 @@
                 Your browser does not support the audio element.
                 </audio>
             </div>
-        </section>
+        </div>
         <!--End Game Screen-->
     <!--End Card-->
     </div>
@@ -286,9 +286,10 @@
                 <div id="dialog" class="window">
                     <div class="row pop-up">
                         <h5>Welcome To Blocks Away!</h5>
+                    </div>
+                    <div class="row pop-up">
                         <p>The JavaScript Version Of A Retro Classic!</p>
                         <p>Before You Jump Into A Game, Be Sure To Take A Look At The Instructions.</p>
-                        <p>Press Enter To Continue</p>
                     </div>
                     <div class="row pop-up">
                         <video id="introVid" controls>
@@ -299,10 +300,10 @@
                         <span class="sr-only">Intro video</span>
                     </div>    
                     <div class="row pop-up">
-                        <h3>Press Play To Begin:</h3>
+                        <h3>Press Enter To Begin:</h3>
                     </div>
                     <div class="row pop-up" id="popupfoot">
-                        <button role="button" class="draw-border popup-button"><a href="#"><h1>Enter!</h1></a></button>
+                        <a href="#" class="draw-border retro-button popup-button">Enter!</a>
                     </div>
                 </div>
             </div>
@@ -315,8 +316,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <!--Local JS-->
-    <script type="text/javascript" src="assets/js/popup.js"></script>
-    <script type="text/javascript" src="assets/js/general.js"></script>
-    <script type="text/javascript" src="assets/js/blocks-away.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/general.js"></script>
+    <script src="assets/js/blocks-away.js"></script>
 </body>
 </html>
