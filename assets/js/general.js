@@ -15,7 +15,7 @@ $('.back').click(function(){
 });
 
 //menu buttons and hide/show logic
-$("#instructions").on("click touchstart", function(){
+$("#instructions").click(function(){
     $(".instructions").show();
     $(".back").show();
     $('.menu').toggle();

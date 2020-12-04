@@ -230,6 +230,8 @@ This project has passed through several phases of testing, these phases include:
 
 [W3 'Jigsaw' Validator](https://jigsaw.w3.org/css-validator/) to check all CSS.
 
+[JS Hint](https://jshint.com/) to check all JavaScript. 
+
 *Console.Log*: During the creation of this code, logging the results of each function was key. As this project relies on ALL functions to operate correctly, without fail 
 it was imperative that all functions supply a correct answer or value in a timely manner.
 
@@ -247,6 +249,21 @@ then insert this letter into the function and then paste the result string into 
 contained within blocks-away.js. Knowing that only A-I are the accepted inputs I first tried using numbers or letter that are not A-I, this showed a result of FAIL, which is what 
 I was expecting, then on entering A, B, C, D, E, F, G, H, or I a "TEST PASSED" note was shown. This testing paired with visual cues from playing the game formed just part of 
 the regimented testing carried out from the start of this project.
+
+### Bugs:
+
+Multiple bugs were found in the creation of this project.
+
+IOS Bug: 
+
+> The JavaScript in this project does not run on older IOS devices, but has been tested on IOS 14.2 with no faults. The problem seems to be with ".click" and ".on("click,...)".
+> After checking for a fix online, it seems as though this is a widespread bug which has been solved on all newer IOS devices. 
+
+Unwanted Navigation:
+
+> Probably one of the most strange problems I have come across was this bug. In the Social page, there is a button at the bottom of the card labelled Email. Connected to this 
+> is an event which will bring the user to the contact form if clicked. On testing, this button was displaying the "Settings" page when clicked, I was unable to find any reference
+> why this was happening which is why in the general.js file, I have specifically added "$(".settings").hide();" to stop this from happening. 
 
 --------------------
 ## **Deployment**

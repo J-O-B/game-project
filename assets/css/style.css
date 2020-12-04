@@ -49,44 +49,44 @@ body {
 
 /*---------------------------------------------Pop Up Window --*/
 #mask {
-  position:absolute;
-  left:0;
-  top:0;
-  z-index:9000;
-  background-color:#424040;
-  display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#424040;
+    display:none;
 }
 
 #boxes .window {
-  position: absolute;
-  left:0;
-  top:0;
-  display:none;
-  z-index:9999;
-  padding:20px;
-  border-radius:15px;
-  border-color: #424040;
-  text-align:center;
+    position: absolute;
+    left:0;
+    top:0;
+    display:none;
+    z-index:9999;
+    padding:20px;
+    border-radius:15px;
+    border-color: #424040;
+    text-align:center;
 }
  
 #boxes #dialog {
-  width:90vw;
-  height:500px;
-  padding:10px;
-  background: radial-gradient(#424040, transparent);
-  font-size: larger;
+    width:90vw;
+    height:500px;
+    padding:10px;
+    background: radial-gradient(#424040, transparent);
+    font-size: larger;
 }
 
 #popupfoot {
-  font-size:16pt;
-  position:relative;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  bottom:0px;
-  width:100%;
-  height: 70px;
-  text-align: center;
+    font-size:16pt;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    bottom:0px;
+    width:100%;
+    height: 70px;
+    text-align: center;
 }
 .pop-up{
     display:flex;
@@ -127,7 +127,6 @@ body {
 }
 /*-------------------------------Buttons --*/
 .popup-button{
-    cursor: pointer;
     text-align: center;
     padding:10px;
     width:300px;
@@ -150,7 +149,6 @@ body {
     transition: all 2s ease-in-out;
 }
 .retro-button{
-    cursor: pointer;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -168,7 +166,6 @@ body {
     background: linear-gradient(to right, rgb(0,201,10) 2%, rgb(0,0,0) 15%, rgb(0,0,0) 85%, rgb(0,201,10) 98%);
 }
 .draw-border {
-    cursor: pointer;
     -webkit-transition: color 0.25s 0.0833333333s;
     transition: color 0.25s 0.0833333333s;
     position: relative;
@@ -189,17 +186,17 @@ body {
 }
 
 .draw-border::before {
-  border-bottom-width: 4px;
-  border-left-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
 }
 
 .draw-border::after {
-  border-top-width: 4px;
-  border-right-width: 4px;
+    border-top-width: 4px;
+    border-right-width: 4px;
 }
 
 .draw-border:hover {
-  color: rgb(0,201,10);
+    color: rgb(0,201,10);
 }
 
 .draw-border:hover::before,
@@ -223,7 +220,6 @@ body {
 }
 
 .retro-buttons{
-    cursor: pointer;
     margin:0 auto;
     text-align: center;
     padding:10px;
@@ -242,16 +238,13 @@ body {
     height:200px;
 }
 button, .btn{
-    cursor: pointer;
     display: flex;
     margin:0 auto;
 }
 .back{
-    cursor: pointer;
     margin-top:50px;
 }
 .key-buttons button{
-    cursor: pointer;
     width: 58px;
     height:50px;
     display: flex;
@@ -262,7 +255,6 @@ button, .btn{
 
 /*-------------------------------------------Sound Button----*/
 #sound button{
-    cursor: pointer;
     position:fixed;
     display:flex;
     align-items: center;
@@ -279,7 +271,6 @@ button, .btn{
     font-size: 22px;
 }
 #mute button{
-    cursor: pointer;
     position:fixed;
     display:flex;
     align-items: center;
@@ -400,7 +391,6 @@ canvas{
 .credits{
     text-align: center;
 }
-
 
 /*----------------Social ---*/
 .social{
