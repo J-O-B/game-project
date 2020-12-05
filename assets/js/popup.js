@@ -15,7 +15,6 @@ $(document).ready(function() {
     $('#mute').hide(); //Screen With Credits
     $('.instructions').hide(); //Screen With Credits
     $('#sound').show(); //Screen With Credits
-
     
     var id ='#dialog';
     
@@ -43,30 +42,30 @@ $(document).ready(function() {
     
     //if close button is clicked
     $('.window .popup-button').click(function (e) {
-    $('#introVid').each(function(){
-        this.pause(); 
-    }); 
-    $('#background').each(function(){
-            this.play(); 
-        });
-    
-    //Closing the pop-up window
-    //Cancel the link behavior
-    e.preventDefault();
-    $('#mask').hide();
-    $('.window').hide();
+        $('#introVid').each(function(){
+            this.pause(); 
+        }); 
+        $('#background').each(function(){
+                this.play(); 
+            });
+        
+        //Closing the pop-up window
+        //Cancel the link behavior
+        e.preventDefault();
+        $('#mask').hide();
+        $('.window').hide();
     });
     //if mask is clicked
     $('#mask').click(function () {
-    $('#introVid').each(function(){
-        this.pause(); // Stop playing
-    });
-    $('#background').each(function(){
-            this.play(); 
+        $('#introVid').each(function(){
+            this.pause();
         });
-  
-    $(this).hide();
-    $('.window').hide();
+        $('#background').each(function(){
+                this.play(); 
+            });
+    
+        $(this).hide();
+        $('.window').hide();
     });
 });
 //End Of Popup Window;

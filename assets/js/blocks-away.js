@@ -44,19 +44,11 @@ $('#sound').click(function(){
     audio.playing = 0;
 });
 
-// ***BUG FIX***
-// Alive to false to stop blocks from falling, then replace all rows with 0s (essentially clears the board)
-$('.back').click(function(){
-    alive = false;
-    board.forEach(row => row.fill(0));
-    gameMode();
-});
-
 // ------------------------------------ MAIN GAME AREA: ---------------------------------------------
 const canvas = document.getElementById('blocks-away');
 const context = canvas.getContext("2d");  
 
-//------------------------------------------------------------------------------------------ Define The Board (Canvas)
+//Define The Board (Canvas)
 const board = makeBlock(15,25);
 
 //Scale The Blocks.
@@ -114,7 +106,7 @@ function shapes(shape){
     }   
 }
 
-//------------------------------------------------------------------------------------------ Draw The Strings With !0 Value
+//------------------------------------------------------------------------------------------ Color The Strings With !0 Value
 //Define the peices, offset needed to move each block (array) 
 function drawBlocks(grid, offset){
     grid.forEach((row, y) =>{
@@ -128,8 +120,9 @@ function drawBlocks(grid, offset){
     });
 }
 
-//------------------------------------------------------------------------------------------ Check For Impact!
-//If a number which is !0 lands on another number which is !0 we need to detect this, then stack the shape.
+//------------------------------------------------------------------------------------------ Check For Impact
+//If a number which is !0 lands on another number which is !0 we need to detect this, 
+// then save the shape to the global string (board)
 function stack(board,block){
     const [g,o] = [block.grid, block.position];
     for (let y = 0; y < g.length; ++y){
@@ -154,7 +147,7 @@ function makeBlock(width,height){
 //------------------------------------------------------------------------------------------ Draw Function
 // Draw the board and individual blocks.
 function draw(){
-    context.fillStyle = "rgb(77,88,20)";
+    context.fillStyle = "rgb(77,88,20)"; //Color of original Gameboy screen
     context.fillRect(0, 0, canvas.width, canvas.height);
     drawBlocks(board, { x: 0, y: 0 });
     drawBlocks(block.grid, block.position);
@@ -508,4 +501,12 @@ $('.back').click(function(){
     if(audio.playing == 1){
         document.getElementById("back").play();
     }
+});
+
+// Logic if main menu button is pressed
+// Alive to false to stop blocks from falling, then replace all rows with 0s (essentially clears the board)
+$('.back').click(function(){
+    alive = false;
+    board.forEach(row => row.fill(0));
+    gameMode();
 });
