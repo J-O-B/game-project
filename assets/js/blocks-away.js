@@ -238,39 +238,38 @@ function blockMove(direction){
 //------------------------------------------------------------------------------------------ Math Random To Pick Block Array At Random
 function blockReset(){
     if (alive === true){
-    const shape = "ABCDEFGH";
-    block.grid = shapes(shape[Math.floor(shape.length * Math.random())]);
-    block.position.y = 1;
-    block.position.x = Math.floor(board[0].length / 2) - Math.floor(block.grid[0].length / 2);
-    progression();
+        const shape = "ABCDEFGH";
+        block.grid = shapes(shape[Math.floor(shape.length * Math.random())]);
+        block.position.y = 1;
+        block.position.x = Math.floor(board[0].length / 2) - Math.floor(block.grid[0].length / 2);
+        progression();
     }
     // Game over logic with high scores, then call game over function.
     if (stack(board, block)){
        board.forEach(row => row.fill(0));  
         if (player.score > player.top && player.score > localStorage.getItem("player",player.top)){
-                player.top = player.score;
-                player.top = JSON.stringify(player.score);
-                localStorage.setItem("player",player.top);
-                    player.score = 0;
-                    alive = false;
-                    trackScore();
-                    gameOver();
-                    return;
+            player.top = player.score;
+            player.top = JSON.stringify(player.score);
+            localStorage.setItem("player",player.top);
+            player.score = 0;
+            alive = false;
+            trackScore();
+            gameOver();
+            return;
+        } else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
+            player.top = player.score;
+            player.score = 0;
+            alive = false;
+            trackScore();
+            gameOver();
+            return;
 
-            }else if(player.score >= player.top && player.score <= localStorage.getItem("player",player.top)){
-                    player.top = player.score;
-                    player.score = 0;
-                    alive = false;
-                    trackScore();
-                    gameOver();
-                    return;
-
-            }else if(player.score <= player.top && player.score <= localStorage.getItem("player",player.top)){
-                    alive = false;
-                    trackScore();
-                    gameOver();
-                    return;
-            }
+        } else if (player.score <= player.top && player.score <= localStorage.getItem("player",player.top)){
+            alive = false;
+            trackScore();
+            gameOver();
+            return;
+        }
     }
 }
 
@@ -321,9 +320,11 @@ function autoDraw(time = 0){
     firstLoggedTime = time;
     
     fallCount += gameTime;
+
     if (fallCount > fallRate){
         dropBlock();
     }
+
     draw();
     requestAnimationFrame(autoDraw);
 }
@@ -379,7 +380,7 @@ function clearTheLine(){
 }
 
 //------------------------------------------------------------------------------------------ Controls (Place Buttons Below Canvas For Mobile/Tablet Users)
-//Position can be changed in console, below is to listen for keys
+//Button click movement
     $("#a").click(function(){
          blockMove(-1);
     });
@@ -396,7 +397,7 @@ function clearTheLine(){
          blockRotation(1);
     });
 
-
+//Keydown movement
 document.addEventListener("keydown", event =>{
     if (event.key === "a" || event.key === "A" || event.code === 65){
         blockMove(-1);     
@@ -411,6 +412,7 @@ document.addEventListener("keydown", event =>{
     }
 });
 
+//After game over, reset fallRate to original fall rate of that setting
 function resetFallRate(){
     if (difficulty == 1){
         fallRate = 500;
@@ -427,7 +429,7 @@ var color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#
 
 //------------------------------------------------------------------------------------game over screen:
 function gameOver(){
-    //first hide the game
+//first clear the board
 board.forEach(row => row.fill(0));
 $('#blocks-away').fadeOut(1000, function(){
     $('.key-buttons').hide();
@@ -442,12 +444,12 @@ $('#blocks-away').fadeOut(1000, function(){
         $(".back").hide();
         $('#player-score').hide();
         $("#no").click(function(){
-                        if (audio.playing == 1){
-                            document.getElementById('background').pause();
-                            document.getElementById('gameOver').pause();
-                            document.getElementById('game-song').pause();
-                            document.getElementById('background').play();
-                            }
+            if (audio.playing == 1){
+                document.getElementById('background').pause();
+                document.getElementById('gameOver').pause();
+                document.getElementById('game-song').pause();
+                document.getElementById('background').play();
+            }
             $('.content').fadeOut(500);
             $("game-over").hide();
             $(".menu").fadeIn(2000); 
@@ -459,14 +461,19 @@ $('#blocks-away').fadeOut(1000, function(){
            if (audio.playing == 1){
                 document.getElementById('game-song').play();
             }  
+            //change the values of alive and score
             alive = true;
             player.score = 0;
+            //clear the board
             board.forEach(row => row.fill(0));
+            //change visibility of sections
             $('#game-over').hide();
             $('.key-buttons').fadeIn(500);
             $('#player-score').fadeIn(500);
             $('#blocks-away').fadeIn(1000);
             $('.back').fadeIn(1000);
+
+            //call relevent functions
             trackScore();
             blockReset();
             autoDraw();
@@ -483,11 +490,15 @@ function gameMode(){
                 document.getElementById('background').pause();
                 document.getElementById('game-song').play();
             }
+            //change value to alive on start click
             alive = true;
+            //make sure board is empty to start game
             board.forEach(row => row.fill(0));
+            //call needed functions to start the game.
             trackScore();
             blockReset();
             autoDraw();
+            //change the visibility of sections for the game.
             $('#game-over').hide();
             $("#player-score").fadeIn(500);
             $('.key-buttons').fadeIn(500);
@@ -497,16 +508,16 @@ function gameMode(){
     }
 gameMode();
 
+// Logic if main menu button is pressed
+// Alive to false to stop blocks from falling, then replace all rows with 0s (essentially clears the board)
 $('.back').click(function(){
     if(audio.playing == 1){
         document.getElementById("back").play();
     }
-});
-
-// Logic if main menu button is pressed
-// Alive to false to stop blocks from falling, then replace all rows with 0s (essentially clears the board)
-$('.back').click(function(){
+    //change the state of alive
     alive = false;
+    //clear the board
     board.forEach(row => row.fill(0));
+    //call game mode function to ensure smooth restart if player returns to game.
     gameMode();
 });
