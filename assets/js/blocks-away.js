@@ -185,6 +185,9 @@ function progression(){
 }
 
 //-------------------------------------------------------------------------------------- Difficulty: 
+//Default value same as easy selection.
+var difficulty = 1;
+
 // (game starting difficulty, controlled from settings menu)
 $('#easy').click(function(){
     fallRate = 500;
