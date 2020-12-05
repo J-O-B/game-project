@@ -50,6 +50,7 @@ body {
 /*---------------------------------------------Pop Up Window --*/
 #mask {
     position:absolute;
+    height: auto;
     left:0;
     top:0;
     z-index:9000;
@@ -71,7 +72,7 @@ body {
  
 #boxes #dialog {
     width:90vw;
-    height:500px;
+    height:auto;
     padding:10px;
     background: radial-gradient(#424040, transparent);
     font-size: larger;
@@ -95,8 +96,8 @@ body {
 }
 #introVid{
     margin-bottom:20px;
-    height:450px;
-    width:70%;
+    min-height:350px;
+    width:auto;
     border-radius: 5%;
 }
 @media only screen and (max-width: 800px) {
