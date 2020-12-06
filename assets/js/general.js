@@ -77,10 +77,10 @@ function sendMail(contactForm) {
     })
     .then(
         function(response) {
-            $('#submit-text').text("SUCCESS", response);
+            $('#submit-text').text("Your email has been send successfully. Thank you for your message", response);
         },
         function(error) {
-            $('#submit-text').text("FAILED", error);
+            $('#submit-text').text("It seems like an error has occured, please feel free to try again, alternatively you can email me at: JonathanMichaelOBrien@Gmail.com", error);
         }
     );
     return false;  // To block form loading a new page
