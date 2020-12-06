@@ -358,6 +358,13 @@ This project, although pieced together by myself, incorporates images, video, so
 **Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/)
 
 **Intro Video** - [Video Snippets From Pixabay](https://pixabay.com/)
+    1. [Flying Blocks](https://pixabay.com/videos/tetris-building-blocks-city-future-5179/)
+    2. [Television 1](https://pixabay.com/videos/television-broadcasting-satellite-29483/)
+    3. [Television 2](https://pixabay.com/videos/tv-screen-media-monitor-retro-16880/)
+    4. [Particles](https://pixabay.com/videos/particles-disco-light-colorful-6436/)
+    5. [Glitch 1](https://pixabay.com/videos/glitch-monogram-data-code-retro-36784/)
+    6. [Glitch 2](https://pixabay.com/videos/glitch-hack-computer-secret-37946/)
+    7. [Spotlights]
 
 **Sound Effects** - [ZapSplat.com](https://ZapSplat.com)
 
