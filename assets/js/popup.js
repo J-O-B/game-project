@@ -44,7 +44,7 @@ $(document).ready(function() {
         $(id).css('left', winW/2-$(id).width()/2);
     }else {
         $(id).css('left', winW/2-$(id).width()/2);
-    };
+    }
     
     
     //transition effect
