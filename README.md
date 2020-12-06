@@ -292,6 +292,11 @@ IOS Bug: (Older versions of IOS)
 > To try and fix this issue, I have followed guidelines online including setting the cursor to pointer and using touchstart, however, this is still a problem on older IOS 
 versions.
 
+IOS Bug: (Double Tap Zoom)
+
+> Although several mobile devices have this feature, it was discovered on an iPhone. While playing the game, if a user wanted to rapidly press a keypad button, the zoom 
+> function of the phone would start and make the game very difficult to play. To fix this I added CSS to the "key-buttons" (touch-action: manipulation;) This now stops 
+> devices from zooming if the keypad buttons are pressed in rapid succession or a 'double-tap'.
 
 Internet Explorer: (Old Browser)
 

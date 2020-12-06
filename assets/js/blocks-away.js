@@ -71,7 +71,7 @@ function shapes(shape){
                 [0,1,0],            //C = Forwards L shape && color #51FF00
                 [0,1,0]];           //D = Backwards L shape && color #00FF93
     }else if (shape === "B"){       //E = Z shape && color #0087FF
-        return [[0,0,0],            //F = S Shape && color #4E49A7
+        return [[0,0,0],            //F = S Shape && color #2700b5
                 [2,2,2],            //G = Straight Line && color #9649A7
                 [0,2,0]];           //H = Cube && color #F10B38
     }else if (shape === "C"){
@@ -425,7 +425,7 @@ function resetFallRate(){
 
 //------------------------------------------------------------------------------------------ Block Colors
 //If time change from colors to sprites.
-var color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#4E49A7","#9649A7","#F10B38"];
+var color = [null,"#FF2D00","#FF9300","#51FF00","#00FF93","#0087FF","#2700b5","#9649A7","#F10B38"];
 
 //------------------------------------------------------------------------------------game over screen:
 function gameOver(){
