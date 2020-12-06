@@ -355,7 +355,7 @@ This project, although pieced together by myself, incorporates images, video, so
     
 
 ### <ins>**_Media:_**</ins>
-**Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/)
+**Background Image** - [Pixabay Stock & Royalty Free Image](https://pixabay.com/illustrations/render-dark-blocks-shape-3d-977857/)
 
 **Intro Video** - [Video Snippets From Pixabay](https://pixabay.com/)
     1. [Flying Blocks](https://pixabay.com/videos/tetris-building-blocks-city-future-5179/)
@@ -364,7 +364,8 @@ This project, although pieced together by myself, incorporates images, video, so
     4. [Particles](https://pixabay.com/videos/particles-disco-light-colorful-6436/)
     5. [Glitch 1](https://pixabay.com/videos/glitch-monogram-data-code-retro-36784/)
     6. [Glitch 2](https://pixabay.com/videos/glitch-hack-computer-secret-37946/)
-    7. [Spotlights]
+    7. [Spotlights](https://pixabay.com/videos/light-overlay-leak-flare-lens-37145/)
+* Video Created Using [Blender](https://www.blender.org/)
 
 **Sound Effects** - [ZapSplat.com](https://ZapSplat.com)
 
@@ -372,9 +373,9 @@ This project, although pieced together by myself, incorporates images, video, so
 
 * Game Music: "SawSquareNoise",
 
-* Game Over Sound: General game sounds,
+* Game Over Sound: General game sounds, game over noises
 
-* Back Sound: General game sounds.
+* Back Sound: General game sounds, menu navigation.
 
 
 ### <ins>**_Content:_**</ins>
