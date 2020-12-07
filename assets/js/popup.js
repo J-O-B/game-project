@@ -2,7 +2,7 @@
 
 //Above comment to stop errors showing in jshint.com
 
-//Page Load Popup - (www.jqueryscript.net/lightbox/Simple-jQuery-Plugin-For-Opening-A-Popup-Window-On-Page-load.html)
+// Page Load Popup - (Original code before editing at www.jqueryscript.net/lightbox/Simple-jQuery-Plugin-For-Opening-A-Popup-Window-On-Page-load.html)
 $(document).ready(function() {
 
     $(".content").hide(); //Screen With Game

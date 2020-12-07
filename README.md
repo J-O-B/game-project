@@ -1,13 +1,14 @@
 # Milestone Project Two
 
-## JavaScript Game
+## Blocks Away!
 ![Blocks Away](assets/readme/main-menu.jpg)
 
-Welcome to my second milestone project! As I feel very confident with business style web design, I wanted to undertake a project 
-that is very different from anything I have coded before and would test my JavaScript skills, this is why I chose to create a game 
-for this project. 
+Welcome to my second milestone project! As I feel very confident with business style web design, and will be completing this style for projects 3 and 4 
+I wanted to undertake a project that is very different from anything I have coded before and would test my JavaScript skills, and show variation in what I 
+as a developer am capable of creating. This is why I chose to create a game for this project. 
 
-Based on the style of the gaming classic Tetris, Blocks Away is a browser based JavaScript game packed with interactive features. 
+Based on the style of the gaming classic Tetris, Blocks Away is a browser based JavaScript game packed with interactive features, from sound effects, to 
+transitions, user selected settings, score tracking and more.
 
 For this project, I wanted to try and recreate the 8-bit era, which you will notice in both the audio and styling of the page. 
 
@@ -42,16 +43,15 @@ Further specific information on this project can be found below:
 This JavaScript game is based on the retro classic Tetris. A player's objective is to fill rows with blocks. Each complete row will clear that line, and add points
 to the scoreboard.
 
-For each line that is cleared, a player will earn 10 points. A simple local storage addition means that players will have their top score saved 
-for any future games (*unless they delete their cookies).
+For each line that is cleared, a player will earn 10 points. Once a player transitions to the game over screen, this game will calculate if there is a new high score or 
+not, and if so this value will be saved to local browser storage which will allow a user return to the game even days later and still have track of their high score*.
+
+*Once a users cookies are deleted, the users saved high score will also be deleted. This will result in a top score of "0" when a player loads the game.
 
 ### **Game Concept**
 The original concept for this game only contained ones and zeros. I would implement a table, which would be full of 0's, then I could add 1's in certain cells to 
-make it look like "blocks". If the top row had a 1 in the row then it would be game over, if any row below row 0 was full of 1's this row could be replaced with 
-0's (clearing the line). 
-
-If a string reached the last row, it would merge into the board string and we would now add a new string at the top of the table. The same would take place when 
-a string landed on another string.
+make it look like "blocks". If the top row had a 1 contained in that row then it would be game over. Similarly, if any row below "row 0" was full of 1's this row could 
+be replaced with 0's (clearing the line) and allocating a score for the player. 
 
 Only later I thought that instead of looking for specific 1's or 0's, I could condense this into looking for "!0", this allows me to use different numbers in the strings 
 which can be assigned different colors for styling. Essentially if "(x == 0).... else if (x == 1)" became "if (x != 0)". 
@@ -62,17 +62,25 @@ The only section I was initially unsure how to implement was the rotation of blo
 a button, I would actually replace the string. This would have meant creating strings for each possible 'state' of the blocks. Luckily I found the idea of transposing 
 an array and this process can be done for me by the computer.
 
+As I was initially unsure I would be able to complete this game, given my experience, I originally created a simple boilerplate with nothing more than the canvas. This 
+allowed me to focus 100% of my efforts on the game, and its functions. Only when I had a minimum viable product did I add some form of page features, such as a current score.
+
 ---------------
 ## **UX**
 
-As with all projects, creating a great UX design was the cornerstone of this project's design. The design I used, means that anyone who has a history of playing 
+As with all projects, creating a great UX design was the cornerstone of this project. The design I have used, means that anyone who has a history of playing 
 video games will immediately be familiar with the layout, as well as being easy enough that those who are not familiar with video game menu's will be capable of 
 navigating easily between all the individual sections.
 
 ### 5 Planes of UX:
 #### 1. Strategy:
 > The strategy for this project is to produce a game where users can have fun playing. 
-> As this project will probably be contained on my Portfolio in the future, a contact form and links to my social media will be placed in sub-menu areas.
+> 
+> As players will be diverse and hold different skill levels, this game must have challenging but not impossible difficulties to allow all users 
+enjoy the game.
+>
+> As this project will probably be contained on my Portfolio in the future, a contact form and links to my social media will be available.
+> 
 
 To expand further on strategy, I have included some user stories. They can be found in the [user stories](#User-Stories) section.
 
@@ -84,7 +92,9 @@ To expand further on strategy, I have included some user stories. They can be fo
 > 3. Game logic must recognize when a row is complete, then delete this row.
 > 4. Game logic must recognize when a block lands on the bottom of the board, or another block, when this happens we must merge these objects.
 > 5. A player must be able to start or stop audio.
-> 6. Finally, the game must offer different difficulties to make the game fun for players of all abilities.
+> 6. A player must be able to see a score.
+> 7. Difficulty must increase as a game progresses to make the game more interesting & competitive.
+> 8. Finally, the game must offer different starting difficulties to make the game fun for players of all abilities.
 
 *Content Requirements:*
 > 1. Details of how to play the game, such as controls (to include the difference for desktop and mobile).
@@ -95,11 +105,10 @@ To expand further on strategy, I have included some user stories. They can be fo
 #### 3. Structure:
 > * A user interface that functions as a game menu.
 >
-> * Each screen should provide a limited amount, but quality information to a user.
+> * Each screen should provide a limited amount, but quality information to a user to decrease information overload and promote good UX.
 >
-> * A game screen should be sized to allow mobile users see the entire board and controls on one screen, the most restrictive I have come across are the older 
-model iPhones, on these devices a user will see the game screen and controls but would have to scroll to see the scoreboard. On newer devices such as the iPhone X, 
-a user will be capable of seeing the scoreboard, board, and controls all in one display.
+> * A game screen should be sized to allow mobile users see the entire board and controls on one screen without the need to scroll or zoom 
+during a game.
 
 #### 4. Skeleton:
 > As I wanted to develop a website around the game, rather than design a game around a website I created wireframes that were quite basic.
@@ -124,7 +133,9 @@ Although there is no logo for this game, the welcome video starts off using the 
 ### <ins>**_Wireframes_**</ins>
 You can view the wireframe designs [here](assets/readme/wireframes.pdf)
 
-This project will maintain the same style regardless of the viewing device
+As this project will maintain the same style regardless of the viewing device, I have added one set of wireframes. Due to the fact that I was 
+trying to recreate game screens from the 1990s era, I relied a lot on images of what these menus looked like, rather than try to recreate a 
+proven and well designed menu screen. 
 
 
 ### <ins>**_User Stories_**</ins>
@@ -150,20 +161,26 @@ Being a web game the following user stories specific to this project are:
 ### <ins>**_Information Architectures_**</ins>
 For this project, I wanted to use a design that meets UX design goals as well as functioning in a similar way to what 
 users would expect. 
+
 A lot of users have probably played a video game with a basic navigation menu, so I chose to follow a similar structure to allow users 
-to see this menu as something easy for them to navigate through and easily access the information they choose (click) to see.
+to see this menu as something easy for them to navigate through and easily access the information they choose (click) to see, my goal 
+was to create a user interface style design that a user would instantly feel familiar with.
 
 The main menu buttons follow a hierarchical structure, with PLAY being the highest authority button, followed by INSTRUCTIONS, etc.
 
-The page with the most content is the instructions page, in order not to overwhelm the user I have split this page into sections. 
-By doing this a user can view the individual section of information or read through as much information as they wish before navigating 
-back to the main menu.
+The page with the most content is the instructions page, in order not to overwhelm the user I have split this page into sections by using 
+visual cues including headings which differ in style from regular text, as well as dividers.
 
-All but one link on this project will only navigate from the main menu into a section, or back to the main menu. The only exception to 
-this rule is the "email" button on the social page, which will navigate to the "contact form". 
+By doing this a user can view the individual section of information or read through as much information as they wish before navigating 
+back to the main menu. This navigation style means a user can navigate to any screen with 1 click if on the main menu, and 2 clicks if 
+they are already in a "sub screen".
+
+All but two links on this project will only navigate from the main menu into a section, or back to the main menu. The only exceptions to 
+this rule is the "email" button on the social page, which will navigate to the "contact form", and the "yes" button on the game over screen, 
+which will restart a new game. 
 
 ### <ins>**_Responsive Design:_**</ins>
-This project is fully responsive and has been tested on screen widths between 375px up to 3800px.
+This project is fully responsive and has been tested on screen widths between 375px up to 3800px. 
 
 ### <ins>**_Typography_**</ins>
 This project uses "Press Start 2P" (Google Fonts), this font is an 8-bit style font to help the design of the project.
@@ -276,6 +293,12 @@ I would give "alive" a value of "false", with this variable set, I know the outc
 Testing through playing: Knowing the outcome I wanted, I tested certain scenarios whilst "playing" the game. This included aspects such as trying to position a block off the 
 board. 
 
+Browser testing: This project was tested in Chrome, Internet Explorer, Safari, Firefox & Microsoft Edge. Although older (now obsolete) browsers do not seem to support jQuery 
+fully, all newer browsers do not have the same problems.
+
+Device Testing: This game was tested on iPad, iPhone X, & Samsung Galaxy divices. This is where 2 bugs were found on IOS devices, one relating to older versions of Safari, 
+the other related to double tapping a controller button. This is what allowed me to add features to improve user experience across multiple devices.
+
 Finally, I wanted to make this project as fast and accessible as possible, for this I used Dev tools again.
 
 ![Lighthouse](assets/readme/lighthouse.jpg)
@@ -290,7 +313,7 @@ IOS Bug: (Older versions of IOS)
 > After checking for a fix online, it seems as though this is a widespread bug that has been solved on all newer IOS devices. 
 >
 > To try and fix this issue, I have followed guidelines online including setting the cursor to pointer and using touchstart, however, this is still a problem on older IOS 
-versions.
+versions, as this problem seems to be bigger than this project, and only has compatability issues with older (outdated) versions of the Safari browser.
 
 IOS Bug: (Double Tap Zoom)
 
@@ -304,18 +327,16 @@ Internet Explorer: (Old Browser)
 > certain JavaScript elements, such as "getElementByClassName". As this browser is now outdated, and this project running smoothly on the newer Microsoft Edge I 
 > decided, given this browser is now outdated and obsolete that I would not correct my code to cater for an obsolete service.
 
-
 Unwanted Navigation:
 
 > Probably one of the most strange problems I have come across was this bug. On the Social page, there is a button at the bottom of the card labeled Email. Connected to this 
-> is an event that will bring the user to the contact form if clicked. On testing, this button was displaying the "Settings" page when clicked, I was unable to find any reference
-> to why this was happening which is why in the general.js file, I have specifically added "$(".settings").hide();" to stop this from happening. 
+> button is an event that will bring the user to the contact form if clicked. On testing, this button was displaying the "Settings" page when clicked, I was unable to find any 
+> reference to why this was happening which is why in the general.js file, I have specifically added "$(".settings").hide();" to stop this from happening. 
 
 Rotation Of Blocks:
 
 > This one is still a handful to understand completely, originally I got stuck on this feature so tried multiple possible solutions found on W3 schools, and StackOverflow.
 > Luckily this problem can be solved quite easily by transposing a 2D array and JavaScript will do the hard work!
-
 
 
 --------------------
