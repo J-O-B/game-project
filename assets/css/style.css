@@ -254,6 +254,8 @@ button, .btn{
     justify-content: space-evenly;
     font-size: 30px;
     padding-top:9px;
+    background: black;
+    color: rgb(240,60,50);
 }
 
 /*-------------------------------------------Sound Button----*/

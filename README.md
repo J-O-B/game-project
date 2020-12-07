@@ -307,36 +307,37 @@ Finally, I wanted to make this project as fast and accessible as possible, for t
 
 Multiple bugs were found in the creation of this project.
 
-IOS Bug: (Older versions of IOS)
+Older Safari & Internet Explorer Bug: 
 
-> The JavaScript in this project does not run on older IOS devices but has been tested on IOS 14.2 with no faults. The problem seems to be with ".click" and ".on("click,...)".
-> After checking for a fix online, it seems as though this is a widespread bug that has been solved on all newer IOS devices. 
->
-> To try and fix this issue, I have followed guidelines online including setting the cursor to pointer and using touchstart, however, this is still a problem on older IOS 
-versions, as this problem seems to be bigger than this project, and only has compatability issues with older (outdated) versions of the Safari browser.
+> The JavaScript in this project does not run on older versions of Safari & Internet explorer but has been tested on newer versions of Safari & Microsoft Edge with no faults. 
+The problem seems to be with ".click" and ".on("click,...)". As the problem seems to be with outdated browsers, it seems as though these browsers have since fixed the problem 
+themselves through updates in newer versions.
+
+* Fix: This is a widespread problem with older browsers and has been updated for newer, active browser versions. For example Internet explorer has now been deemed 
+as obsolete by Microsoft and replaced by Edge. As this code works on up to date browsers, I have not solved this bug as it seems as though it is bigger and more widespread 
+than just my code.
 
 IOS Bug: (Double Tap Zoom)
 
 > Although several mobile devices have this feature, it was discovered on an iPhone. While playing the game, if a user wanted to rapidly press a keypad button, the zoom 
-> function of the phone would start and make the game very difficult to play. To fix this I added CSS to the "key-buttons" (touch-action: manipulation;) This now stops 
-> devices from zooming if the keypad buttons are pressed in rapid succession or a 'double-tap'.
+> function of the phone would start and make the game very difficult to play. 
 
-Internet Explorer: (Old Browser)
-
-> There is a similar bug with the old Microsoft Internet Explorer as seen in the older versions of IOS and Safari. This problem seems to be with the same jQuery and 
-> certain JavaScript elements, such as "getElementByClassName". As this browser is now outdated, and this project running smoothly on the newer Microsoft Edge I 
-> decided, given this browser is now outdated and obsolete that I would not correct my code to cater for an obsolete service.
+* Fix: To fix this problem, I have added the css "touch-action: manipulation" to the game keypad. This disables the 'double tap zoom' on mobile and tablet devices.
 
 Unwanted Navigation:
 
 > Probably one of the most strange problems I have come across was this bug. On the Social page, there is a button at the bottom of the card labeled Email. Connected to this 
 > button is an event that will bring the user to the contact form if clicked. On testing, this button was displaying the "Settings" page when clicked, I was unable to find any 
-> reference to why this was happening which is why in the general.js file, I have specifically added "$(".settings").hide();" to stop this from happening. 
+> reference to why this was happening.
+
+* Fix: To fix this problem I have specifically added code to stop the settings screen from showing on email button clicks. 
 
 Rotation Of Blocks:
 
-> This one is still a handful to understand completely, originally I got stuck on this feature so tried multiple possible solutions found on W3 schools, and StackOverflow.
-> Luckily this problem can be solved quite easily by transposing a 2D array and JavaScript will do the hard work!
+> When I first made this game, I was unable to rotate the blocks. One way I considered was creating different strings for each possible rotation of a block, then when a 
+user pressed a button I would replace the block with an entirely new string.
+
+* Fix: To solve this issue, I found a fix in transposing a 2d array. I have referenced this part specifically in my code. 
 
 
 --------------------
