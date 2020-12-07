@@ -247,6 +247,7 @@ button, .btn{
 }
 .key-buttons button{
     touch-action: manipulation;
+    border-radius:50%;
     width: 58px;
     height:50px;
     display: flex;
