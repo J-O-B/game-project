@@ -2,10 +2,10 @@
 
 body {
     min-height:100vh;
-    height:auto;
     display: flex;
     align-items:center;
     justify-content: center;
+    overflow-x: hidden;
     padding:0;
     margin:0;
     background: url('../img/background.jpg')center center no-repeat;
@@ -56,6 +56,8 @@ body {
     z-index:9000;
     background-color:#424040;
     display:none;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 #boxes .window {
@@ -68,6 +70,8 @@ body {
     border-radius:15px;
     border-color: #424040;
     text-align:center;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
  
 #boxes #dialog {
